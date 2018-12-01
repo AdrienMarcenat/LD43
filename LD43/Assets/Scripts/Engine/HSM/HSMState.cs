@@ -11,6 +11,7 @@ public struct HSMTransition
         Siblings,
         Exit,
         Clear,
+        Top,
         None
     };
 

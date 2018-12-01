@@ -94,6 +94,9 @@ public class HSM
                 case HSMTransition.EType.Exit:
                     ReplaceState (transition.m_SourceID, null);
                     break;
+                case HSMTransition.EType.Top:
+                    PushState (transition.m_DestinationID);
+                    break;
                 case HSMTransition.EType.None:
                     break;
                 default:
