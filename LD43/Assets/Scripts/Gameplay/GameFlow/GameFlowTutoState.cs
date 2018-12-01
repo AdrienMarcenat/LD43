@@ -1,20 +1,17 @@
-﻿public class GameFlowLevelSelectionState : HSMState
+﻿public class GameFlowTutoState : HSMState
 {
+
     public override void OnEnter ()
     {
-        LevelManagerProxy.Get ().LoadScene ("Scenes/LevelSelection");
+        // TODO Load Tuto
         this.RegisterAsListener ("Game", typeof (GameFlowEvent));
     }
 
     public void OnGameEvent (GameFlowEvent flowEvent)
     {
-        if (flowEvent.GetAction () == EGameFlowAction.Start)
+        if (flowEvent.GetAction () == EGameFlowAction.LoadGame)
         {
             ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowLevelState));
-        }
-        if (flowEvent.GetAction () == EGameFlowAction.Menu)
-        {
-            ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowMenuState));
         }
     }
 

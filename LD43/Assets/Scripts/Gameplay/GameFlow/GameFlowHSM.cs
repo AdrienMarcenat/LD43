@@ -1,16 +1,33 @@
 ﻿public enum EGameFlowAction
 {
-    Resume,
-    Retry,
     Start,
-    NextLevel,
-    LevelSelection,
+    LoadGame,
+    EndGame,
+    GameOver,
+    Pause,
+    Exit,
+    Resume,
     Menu,
+    LoadLevel,
+    EnterLevel,
+    NextLevel,
     EndLevel,
+    Retry,
+    Quit,
+    EnterNode,
+    LeaveNode,
+    LevelWon,
+    EnterEdge,
+    SuccessEdge,
+    FailureEdge,
+    TeamManagement,
+    TeamManagementBack,
+
+    // Next ones are useful to not have issues with other files
     StartDialogue,
     EndDialogue,
     EndLevelPanel,
-    Quit,
+    LevelSelection
 }
 
 public class GameFlowEvent : GameEvent

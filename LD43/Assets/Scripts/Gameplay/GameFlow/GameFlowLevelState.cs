@@ -3,9 +3,12 @@ public class GameFlowLevelState : HSMState
 {
     public override void OnEnter ()
     {
-        LevelManagerProxy.Get ().LoadLevel();
+        // LevelManagerProxy.Get ().LoadLevel();
+        // TODO: Load level
         this.RegisterAsListener ("Player", typeof (PlayerInputGameEvent));
-        this.RegisterAsListener ("Game", typeof (GameFlowEvent));
+        //this.RegisterAsListener ("Game", typeof (GameFlowEvent));
+
+        ChangeNextTransition (HSMTransition.EType.Child, typeof (GameFlowNormalState));
     }
 
     public void OnGameEvent (PlayerInputGameEvent inputEvent)
@@ -16,26 +19,28 @@ public class GameFlowLevelState : HSMState
         }
     }
 
-    public void OnGameEvent (GameFlowEvent flowEvent)
+    /**public void OnGameEvent (GameFlowEvent flowEvent)
     {
         switch (flowEvent.GetAction ())
         {
-            case EGameFlowAction.StartDialogue:
-                UpdaterProxy.Get ().SetPause (true);
-                ChangeNextTransition (HSMTransition.EType.Child, typeof (GameFlowDialogueState));
-                break;
-            case EGameFlowAction.EndDialogue:
-                UpdaterProxy.Get ().SetPause (false);
-                break;
-            case EGameFlowAction.EndLevel:
-                ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowEndLevelState));
+            case EGameFlowAction.LevelWon:
+                // When level is won
+                if (!LevelManagerProxy.Get ().IsLastLevel ())
+                {
+                    LevelManagerProxy.Get ().NextLevel ();
+                    ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowLevelState));
+                }
+                else
+                {
+                    ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowEndGameState));
+                }
                 break;
         }
-    }
+    }**/
 
     public override void OnExit ()
     {
-        this.UnregisterAsListener ("Game");
+        //this.UnregisterAsListener ("Game");
         this.UnregisterAsListener ("Player");
     }
 }
