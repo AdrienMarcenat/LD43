@@ -7,10 +7,12 @@ public class Node<T>
     private List<Node<T>> m_Neighbors;
 
     public Node ()
-    {}
-    public Node (T data)
     {
         m_Neighbors = new List<Node<T>> ();
+    }
+    public Node (T data)
+        : this()
+    {
         m_Data = data;
     }
     public Node (T data, List<Node<T>> neighbors)
@@ -92,7 +94,7 @@ public class Edge<NodeData, EdgeData>
     {
         return m_IsOriented;
     }
-    
+
     public Node<NodeData> GetStart()
     {
         return m_Start;

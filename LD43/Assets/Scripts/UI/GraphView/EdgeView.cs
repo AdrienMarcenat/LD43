@@ -2,11 +2,29 @@
 
 public class EdgeView : MonoBehaviour
 {
+    private GameEdge m_Edge;
+
     [SerializeField] private NodeView m_Start;
     [SerializeField] private NodeView m_End;
     [SerializeField] private bool m_IsOriented;
-
     [SerializeField] private Sprite m_Sprite;
+
+    public void BuildEdge()
+    {
+        if(m_Edge != null)
+        {
+            m_Edge.Shutdown ();
+        }
+        if (IsValid ())
+        {
+            m_Edge = new GameEdge (null, m_Start.GetNode (), m_End.GetNode (), m_IsOriented);
+        }
+    }
+
+    public GameEdge GetEdge()
+    {
+        return m_Edge;
+    }
 
     public NodeView GetStart()
     {

@@ -1,9 +1,13 @@
 ﻿
-public class Node : Node<NodeResource>
+public class GameNode : Node<NodeResource>
 {}
 
-public class Edge : Edge<NodeResource, EdgeResource>
-{}
+public class GameEdge : Edge<NodeResource, EdgeResource>
+{
+    public GameEdge (EdgeResource data, Node<NodeResource> start, Node<NodeResource> end, bool isOriented = false)
+        : base(data, start, end, isOriented)
+    {}
+}
 
 public class Graph : Graph<NodeResource, EdgeResource>
 {}

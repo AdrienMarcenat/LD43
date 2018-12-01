@@ -26,10 +26,7 @@ public class GraphInspector : Editor
             EdgeView edge = edges[i];
             if (edge != null && edge.IsValid ())
             {
-                if(ShowEdge (edge))
-                {
-                    m_Graph.RemoveEdge (i);
-                }
+                ShowEdge (edge);
             }
         }
     }
@@ -48,7 +45,7 @@ public class GraphInspector : Editor
         }
     }
 
-    private bool ShowEdge (EdgeView edge)
+    private void ShowEdge (EdgeView edge)
     {
         Handles.color = edge.IsOriented () ? Color.red : Color.green;
         Vector2 start = edge.GetStart ().transform.position;
@@ -61,79 +58,87 @@ public class GraphInspector : Editor
         {
             Handles.DrawLine (start, end);
         }
-        return Handles.Button ((start + end) / 2, Quaternion.identity, 0.5f, 1, Handles.RectangleHandleCap);
     }
 
-    public override void OnInspectorGUI ()
-    {
-        DrawDefaultInspector ();
+    //public override void OnInspectorGUI ()
+    //{
+    //    DrawDefaultInspector ();
 
-        m_Graph = target as GraphView;
+    //    m_Graph = target as GraphView;
 
-        EditorGUILayout.BeginVertical (EditorStyles.helpBox);
-        GUILayout.Label ("List of Nodes", EditorStyles.boldLabel);
+    //    EditorGUILayout.BeginVertical (EditorStyles.helpBox);
+    //    GUILayout.Label ("List of Nodes", EditorStyles.boldLabel);
 
-        List<NodeView> nodes = m_Graph.GetNodes ();
-        List<int> nodesToDestroy = new List<int>();
-        for (int i = 0; i < nodes.Count; i++)
-        {
-            if (nodes[i] != null)
-            {
-                EditorGUILayout.BeginHorizontal ();
-                if (GUILayout.Button ("Remove Node"))
-                {
-                    nodesToDestroy.Add (i);
-                }
-                GUILayout.Space (15);
-                nodes[i].SetTitle (EditorGUILayout.TextField ("Name", nodes[i].GetTitle ()));
-                EditorGUILayout.EndHorizontal ();
-            }
-        }
-        if (GUILayout.Button ("Add Node"))
-        {
-            m_Graph.AddNodes ();
-        }
-        EditorGUILayout.EndVertical ();
-        foreach (int i in nodesToDestroy)
-        {
-            m_Graph.RemoveNode (i);
-        }
+    //    List<NodeView> nodes = m_Graph.GetNodes ();
+    //    List<int> nodesToDestroy = new List<int>();
+    //    for (int i = 0; i < nodes.Count; i++)
+    //    {
+    //        if (nodes[i] != null)
+    //        {
+    //            EditorGUILayout.BeginHorizontal ();
+    //            nodes[i] = (NodeView)EditorGUILayout.ObjectField (nodes[i], typeof (GameNode));
+    //            if (GUILayout.Button ("Remove Node"))
+    //            {
+    //                nodesToDestroy.Add (i);
+    //            }
+    //            GUILayout.Space (15);
+    //            nodes[i].SetTitle (EditorGUILayout.TextField ("Name", nodes[i].GetTitle ()));
+    //            EditorGUILayout.EndHorizontal ();
+    //        }
+    //        else
+    //        {
+    //            nodesToDestroy.Add (i);
+    //        }
+    //    }
+    //    if (GUILayout.Button ("Add Node"))
+    //    {
+    //        m_Graph.AddNodes ();
+    //    }
+    //    EditorGUILayout.EndVertical ();
+    //    foreach (int i in nodesToDestroy)
+    //    {
+    //        m_Graph.RemoveNode (i);
+    //    }
 
-        EditorGUILayout.BeginVertical (EditorStyles.helpBox);
-        GUILayout.Label ("List of Edges", EditorStyles.boldLabel);
+    //    EditorGUILayout.BeginVertical (EditorStyles.helpBox);
+    //    GUILayout.Label ("List of Edges", EditorStyles.boldLabel);
 
-        List<EdgeView> edges = m_Graph.GetEdges ();
-        List<int> edgesToDestroy = new List<int> ();
-        for (int i = 0; i < edges.Count; i++) 
-        {
-            if (edges[i] != null)
-            {
-                EditorGUILayout.BeginHorizontal ();
+    //    List<EdgeView> edges = m_Graph.GetEdges ();
+    //    List<int> edgesToDestroy = new List<int> ();
+    //    for (int i = 0; i < edges.Count; i++) 
+    //    {
+    //        if (edges[i] != null)
+    //        {
+    //            EditorGUILayout.BeginHorizontal ();
 
-                EditorGUILayout.BeginVertical ();
-                edges[i].SetStart ((NodeView)EditorGUILayout.ObjectField ("Start", edges[i].GetStart (), typeof (NodeView), true));
-                edges[i].SetEnd ((NodeView)EditorGUILayout.ObjectField ("End", edges[i].GetEnd (), typeof (NodeView), true));
-                edges[i].SetIsOriented (EditorGUILayout.Toggle ("IsOriented", edges[i].IsOriented ()));
-                if (GUILayout.Button ("Remove Edge"))
-                {
-                    edgesToDestroy.Add (i);
-                }
-                EditorGUILayout.EndVertical ();
+    //            EditorGUILayout.BeginVertical ();
+    //            edges[i].SetStart ((NodeView)EditorGUILayout.ObjectField ("Start", edges[i].GetStart (), typeof (NodeView), true));
+    //            edges[i].SetEnd ((NodeView)EditorGUILayout.ObjectField ("End", edges[i].GetEnd (), typeof (NodeView), true));
+    //            edges[i].SetIsOriented (EditorGUILayout.Toggle ("IsOriented", edges[i].IsOriented ()));
+    //            if (GUILayout.Button ("Remove Edge"))
+    //            {
+    //                edgesToDestroy.Add (i);
+    //            }
+    //            EditorGUILayout.EndVertical ();
                 
-                EditorGUILayout.EndHorizontal ();
+    //            EditorGUILayout.EndHorizontal ();
 
-                EditorGUILayout.Separator ();
-            }
-        }
-        if (GUILayout.Button ("Add Edge"))
-        {
-            m_Graph.AddEdge ();
-        }
-        EditorGUILayout.EndVertical ();
-        foreach (int i in edgesToDestroy)
-        {
-            m_Graph.RemoveEdge (i);
-        }
-        SceneView.RepaintAll ();
-    }
+    //            EditorGUILayout.Separator ();
+    //        }
+    //        else
+    //        {
+    //            edgesToDestroy.Add (i);
+    //        }
+    //    }
+    //    if (GUILayout.Button ("Add Edge"))
+    //    {
+    //        m_Graph.AddEdge ();
+    //    }
+    //    EditorGUILayout.EndVertical ();
+    //    foreach (int i in edgesToDestroy)
+    //    {
+    //        m_Graph.RemoveEdge (i);
+    //    }
+    //    SceneView.RepaintAll ();
+    //}
 }

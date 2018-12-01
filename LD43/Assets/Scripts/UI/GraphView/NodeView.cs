@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
 
-[System.Serializable]
 public class NodeView : MonoBehaviour
 {
+    private GameNode m_Node;
     [SerializeField] private Sprite m_Sprite;
     [SerializeField] private string m_Title;
+
+    public void BuildNode()
+    {
+        m_Node = new GameNode ();
+    }
 
     public string GetTitle ()
     {
@@ -14,5 +19,10 @@ public class NodeView : MonoBehaviour
     public void SetTitle (string title)
     {
         m_Title = title;
+    }
+
+    public GameNode GetNode ()
+    {
+        return m_Node;
     }
 }
