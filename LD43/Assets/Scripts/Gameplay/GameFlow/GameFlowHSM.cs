@@ -51,7 +51,6 @@ public class GameFlowHSM : HSM
         : base (new GameFlowMenuState ()
               , new GameFlowLevelState ()
               , new GameFlowPauseState ()
-              , new GameFlowTutoState ()
               , new GameFlowGameOverState ()
               , new GameFlowNodeState ()
               , new GameFlowEdgeState ()

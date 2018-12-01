@@ -4,7 +4,6 @@ public class GameFlowNormalState : HSMState
     public override void OnEnter ()
     {
         this.RegisterAsListener ("Game", typeof (GameFlowEvent));
-        this.RegisterAsListener ("Player", typeof (PlayerInputGameEvent));
     }
 
     public void OnGameEvent (GameFlowEvent flowEvent)
@@ -20,14 +19,6 @@ public class GameFlowNormalState : HSMState
             case EGameFlowAction.TeamManagement:
                 ChangeNextTransition (HSMTransition.EType.Child, typeof (GameFlowTeamManagementState));
                 break;
-        }
-    }
-
-    public void OnGameEvent (PlayerInputGameEvent inputEvent)
-    {
-        if (inputEvent.GetInput () == "Pause" && inputEvent.GetInputState() == EInputState.Down && !UpdaterProxy.Get().IsPaused())
-        {
-            ChangeNextTransition (HSMTransition.EType.Child, typeof (GameFlowPauseState));
         }
     }
 

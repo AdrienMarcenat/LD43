@@ -5,7 +5,6 @@ public class GameFlowNodeState : HSMState
     {
         // TODO: Node enter logic
         this.RegisterAsListener ("Game", typeof (GameFlowEvent));
-        this.RegisterAsListener ("Player", typeof (GameOverGameEvent), typeof (PlayerInputGameEvent));
     }
 
     public void OnGameEvent (GameFlowEvent flowEvent)
@@ -26,14 +25,6 @@ public class GameFlowNodeState : HSMState
                     ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowEndGameState));
                 }
                 break;
-        }
-    }
-
-    public void OnGameEvent (PlayerInputGameEvent inputEvent)
-    {
-        if (inputEvent.GetInput () == "Pause" && inputEvent.GetInputState () == EInputState.Down && !UpdaterProxy.Get ().IsPaused ())
-        {
-            ChangeNextTransition (HSMTransition.EType.Child, typeof (GameFlowPauseState));
         }
     }
 
