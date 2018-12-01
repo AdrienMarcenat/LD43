@@ -5,7 +5,9 @@ public class Node<T>
 {
     private T m_Data;
     private List<Node<T>> m_Neighbors;
-    
+
+    public Node ()
+    {}
     public Node (T data)
     {
         m_Neighbors = new List<Node<T>> ();
@@ -49,7 +51,9 @@ public class Edge<NodeData, EdgeData>
     private Node<NodeData> m_Start;
     private Node<NodeData> m_End;
     private bool m_IsOriented;
-    
+
+    public Edge ()
+    {}
     public Edge (EdgeData data, Node<NodeData> start, Node<NodeData> end, bool isOriented = false)
     {
         m_Data = data;
