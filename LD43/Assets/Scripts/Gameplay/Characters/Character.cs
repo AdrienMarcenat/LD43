@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -17,9 +16,14 @@ public class Character : MonoBehaviour
         this.RegisterAsListener (gameObject.name, typeof (DamageGameEvent));
 		
 	}
-	
-	// Update is called once per frame
-	protected void Update ()
+
+    private void OnDestroy ()
+    {
+        this.UnregisterAsListener (gameObject.name);
+    }
+
+    // Update is called once per frame
+    protected void Update ()
     {
 		
 	}
@@ -27,6 +31,7 @@ public class Character : MonoBehaviour
     IEnumerator HitRoutine(float damage)
     {
         // TODO: Define damage routine
+        yield return null;
     }
 
     public void OnGameEvent (DamageGameEvent damageEvent)

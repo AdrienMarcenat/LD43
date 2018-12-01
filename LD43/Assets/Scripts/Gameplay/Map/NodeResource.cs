@@ -1,22 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class NewBehaviourScript : MonoBehaviour
+﻿
+public class NodeResource
 {
-
-    [SerializeField] private int m_NodeType;
+    private int m_NodeType;
     private int m_NodeId;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void SetNodeId (int newNodeId)
     {

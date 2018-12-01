@@ -1,27 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class CharacterModel : MonoBehaviour {
-
+﻿
+public class CharacterModel
+{
+    private string m_Name;
     private int m_Class;
     private int m_Id;
-    private string m_Name;
     private int m_Speed;
     private int m_Strength;
-
-	// Use this for initialization
-	void Start ()
-    {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
-
+    
     public void SetClass (int newClass)
     {
         m_Class = newClass;
