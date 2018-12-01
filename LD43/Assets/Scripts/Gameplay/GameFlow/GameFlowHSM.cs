@@ -49,11 +49,15 @@ public class GameFlowHSM : HSM
 {
     public GameFlowHSM ()
         : base (new GameFlowMenuState ()
-              , new GameFlowLevelSelectionState()
               , new GameFlowLevelState ()
-              , new GameFlowDialogueState()
               , new GameFlowPauseState ()
-              , new GameFlowEndLevelState ()
+              , new GameFlowTutoState ()
+              , new GameFlowGameOverState ()
+              , new GameFlowNodeState ()
+              , new GameFlowEdgeState ()
+              , new GameFlowTeamManagementState ()
+              , new GameFlowEndGameState ()
+              , new GameFlowNormalState ()
         )
     {
         

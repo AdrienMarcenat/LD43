@@ -3,7 +3,7 @@ public class GameFlowEdgeState : HSMState
 {
     public override void OnEnter ()
     {
-        LevelManagerProxy.Get ().LoadScene (1);
+        // TODO: Edge enter logic
         this.RegisterAsListener ("Game", typeof (GameFlowEvent));
         this.RegisterAsListener ("Player", typeof (GameOverGameEvent), typeof (PlayerInputGameEvent));
     }
@@ -19,11 +19,6 @@ public class GameFlowEdgeState : HSMState
                 ChangeNextTransition (HSMTransition.EType.Siblings, typeof (GameFlowNormalState));
                 break;
         }
-    }
-
-    public void OnGameEvent (GameOverGameEvent gameOver)
-    {
-        ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowGameOverState));
     }
 
     public void OnGameEvent (PlayerInputGameEvent inputEvent)

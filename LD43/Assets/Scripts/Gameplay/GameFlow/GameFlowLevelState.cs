@@ -3,10 +3,9 @@ public class GameFlowLevelState : HSMState
 {
     public override void OnEnter ()
     {
-        // LevelManagerProxy.Get ().LoadLevel();
-        // TODO: Load level
-        this.RegisterAsListener ("Player", typeof (PlayerInputGameEvent));
-        //this.RegisterAsListener ("Game", typeof (GameFlowEvent));
+        LevelManagerProxy.Get ().LoadLevel();
+        this.RegisterAsListener ("Player", typeof (PlayerInputGameEvent), typeof (GameOverGameEvent));
+        this.RegisterAsListener ("Game", typeof (GameFlowEvent));
 
         ChangeNextTransition (HSMTransition.EType.Child, typeof (GameFlowNormalState));
     }
@@ -19,7 +18,7 @@ public class GameFlowLevelState : HSMState
         }
     }
 
-    /**public void OnGameEvent (GameFlowEvent flowEvent)
+    public void OnGameEvent (GameFlowEvent flowEvent)
     {
         switch (flowEvent.GetAction ())
         {
@@ -36,7 +35,12 @@ public class GameFlowLevelState : HSMState
                 }
                 break;
         }
-    }**/
+    }
+
+    public void OnGameEvent (GameOverGameEvent gameOver)
+    {
+        ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowGameOverState));
+    }
 
     public override void OnExit ()
     {

@@ -8,14 +8,9 @@
 
     public void OnGameEvent (GameFlowEvent flowEvent)
     {
-        switch (flowEvent.GetAction ())
+        if (flowEvent.GetAction () == EGameFlowAction.Start)
         {
-            case EGameFlowAction.Start:
-                ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowTutoState));
-                break;
-            case EGameFlowAction.Quit:
-                // Quit game
-                break;
+            ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowTutoState));
         }
 
     }
