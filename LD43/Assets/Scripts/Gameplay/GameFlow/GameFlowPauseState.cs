@@ -32,9 +32,6 @@ public class GameFlowPauseState : HSMState
             case EGameFlowAction.Menu:
                 ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowMenuState));
                 break;
-            case EGameFlowAction.Quit:
-                // TODO: Close game
-                break;
             case EGameFlowAction.Resume:
                 ChangeNextTransition (HSMTransition.EType.Exit);
                 break;

@@ -3,7 +3,7 @@ public class GameFlowNodeState : HSMState
 {
     public override void OnEnter ()
     {
-        LevelManagerProxy.Get ().LoadScene (1);
+        // TODO: Node enter logic
         this.RegisterAsListener ("Game", typeof (GameFlowEvent));
         this.RegisterAsListener ("Player", typeof (GameOverGameEvent), typeof (PlayerInputGameEvent));
     }
@@ -27,11 +27,6 @@ public class GameFlowNodeState : HSMState
                 }
                 break;
         }
-    }
-
-    public void OnGameEvent (GameOverGameEvent gameOver)
-    {
-        ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowGameOverState));
     }
 
     public void OnGameEvent (PlayerInputGameEvent inputEvent)

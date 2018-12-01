@@ -17,7 +17,7 @@ public class MenuManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Escape"))
         {
-            Quit ();
+            //Quit ();
         }
         else if (Input.anyKeyDown)
         {

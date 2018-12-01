@@ -3,8 +3,18 @@
 
     public override void OnEnter ()
     {
-        // TODO Load Tuto
+        // TODO Create the Tuto scene
+        LevelManagerProxy.Get ().LoadScene ("Scenes/Levels/Tuto");
         this.RegisterAsListener ("Game", typeof (GameFlowEvent));
+        this.RegisterAsListener ("Player", typeof (PlayerInputGameEvent));
+    }
+
+    public void OnGameEvent (PlayerInputGameEvent inputEvent)
+    {
+        if (inputEvent.GetInput () == "Pause" && inputEvent.GetInputState () == EInputState.Down && !UpdaterProxy.Get ().IsPaused ())
+        {
+            ChangeNextTransition (HSMTransition.EType.Child, typeof (GameFlowPauseState));
+        }
     }
 
     public void OnGameEvent (GameFlowEvent flowEvent)
