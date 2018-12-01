@@ -4,7 +4,7 @@ public class HealthBar : MonoBehaviour
 {
     [SerializeField] private Health m_Health;
 
-    private void Awake ()
+    private void Start ()
     {
         this.RegisterAsListener (transform.parent.name, typeof (DamageGameEvent));
     }
