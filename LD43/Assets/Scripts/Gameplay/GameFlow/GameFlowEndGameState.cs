@@ -1,17 +1,14 @@
-﻿public class GameFlowLevelSelectionState : HSMState
+﻿public class GameFlowEndGameState : HSMState
 {
+
     public override void OnEnter ()
     {
-        LevelManagerProxy.Get ().LoadScene ("Scenes/LevelSelection");
+        // TODO: Launch End game
         this.RegisterAsListener ("Game", typeof (GameFlowEvent));
     }
 
     public void OnGameEvent (GameFlowEvent flowEvent)
     {
-        if (flowEvent.GetAction () == EGameFlowAction.Start)
-        {
-            ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowLevelState));
-        }
         if (flowEvent.GetAction () == EGameFlowAction.Menu)
         {
             ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowMenuState));

@@ -1,5 +1,5 @@
 ﻿
-public class GameFlowNormalState : HSMState
+public class GameFlowTeamManagementState : HSMState
 {
     public override void OnEnter ()
     {
@@ -12,21 +12,20 @@ public class GameFlowNormalState : HSMState
     {
         switch (flowEvent.GetAction ())
         {
-            case EGameFlowAction.EnterNode:
-                ChangeNextTransition (HSMTransition.EType.Siblings, typeof (GameFlowNodeState));
-                break;
-            case EGameFlowAction.EnterEdge:
-                ChangeNextTransition (HSMTransition.EType.Siblings, typeof (GameFlowEdgeState));
-                break;
-            case EGameFlowAction.TeamManagement:
-                ChangeNextTransition (HSMTransition.EType.Child, typeof (GameFlowTeamManagementState));
+            case EGameFlowAction.TeamManagementBack:
+                ChangeNextTransition (HSMTransition.EType.Exit);
                 break;
         }
     }
 
+    public void OnGameEvent (GameOverGameEvent gameOver)
+    {
+        ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowGameOverState));
+    }
+
     public void OnGameEvent (PlayerInputGameEvent inputEvent)
     {
-        if (inputEvent.GetInput () == "Pause" && inputEvent.GetInputState() == EInputState.Down && !UpdaterProxy.Get().IsPaused())
+        if (inputEvent.GetInput () == "Pause" && inputEvent.GetInputState () == EInputState.Down && !UpdaterProxy.Get ().IsPaused ())
         {
             ChangeNextTransition (HSMTransition.EType.Child, typeof (GameFlowPauseState));
         }

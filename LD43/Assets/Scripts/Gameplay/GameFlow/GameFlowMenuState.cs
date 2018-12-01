@@ -8,10 +8,16 @@
 
     public void OnGameEvent (GameFlowEvent flowEvent)
     {
-        if (flowEvent.GetAction () == EGameFlowAction.Start)
+        switch (flowEvent.GetAction ())
         {
-            ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowLevelSelectionState));
+            case EGameFlowAction.Start:
+                ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowTutoState));
+                break;
+            case EGameFlowAction.Quit:
+                // Quit game
+                break;
         }
+
     }
 
     public override void OnExit ()

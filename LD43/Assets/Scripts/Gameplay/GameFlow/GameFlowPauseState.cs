@@ -32,18 +32,8 @@ public class GameFlowPauseState : HSMState
             case EGameFlowAction.Menu:
                 ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowMenuState));
                 break;
-            case EGameFlowAction.LevelSelection:
-                ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowLevelSelectionState));
-                break;
-            case EGameFlowAction.NextLevel:
-                if (!LevelManagerProxy.Get ().IsLastLevel ())
-                {
-                    LevelManagerProxy.Get ().NextLevel ();
-                    ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowLevelState));
-                }
-                break;
-            case EGameFlowAction.Retry:
-                ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowLevelState));
+            case EGameFlowAction.Quit:
+                // TODO: Close game
                 break;
             case EGameFlowAction.Resume:
                 ChangeNextTransition (HSMTransition.EType.Exit);
