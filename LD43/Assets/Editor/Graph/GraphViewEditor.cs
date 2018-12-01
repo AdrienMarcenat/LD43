@@ -50,14 +50,7 @@ public class GraphInspector : Editor
         Handles.color = edge.IsOriented () ? Color.red : Color.green;
         Vector2 start = edge.GetStart ().transform.position;
         Vector2 end = edge.GetEnd ().transform.position;
-        if (edge.IsOriented ())
-        {
-            Handles.DrawDottedLine (start, end, 5);
-        }
-        else
-        {
-            Handles.DrawLine (start, end);
-        }
+        Handles.DrawAAPolyLine (10, 2, start, end);
     }
 
     //public override void OnInspectorGUI ()

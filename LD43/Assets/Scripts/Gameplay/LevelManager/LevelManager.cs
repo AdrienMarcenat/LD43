@@ -62,7 +62,7 @@ public class LevelManager
 
     public void LoadLevel ()
     {
-        LoadScene ("Scenes/Level");
+        LoadScene ("Scenes/Levels/level" + m_CurrentLevel);
     }
 
     public void SetLevelIndex (int levelIndex)
