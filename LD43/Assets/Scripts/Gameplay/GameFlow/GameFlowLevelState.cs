@@ -23,7 +23,6 @@ public class GameFlowLevelState : HSMState
         switch (flowEvent.GetAction ())
         {
             case EGameFlowAction.LevelWon:
-                // When level is won
                 if (!LevelManagerProxy.Get ().IsLastLevel ())
                 {
                     LevelManagerProxy.Get ().NextLevel ();
@@ -44,7 +43,7 @@ public class GameFlowLevelState : HSMState
 
     public override void OnExit ()
     {
-        //this.UnregisterAsListener ("Game");
+        this.UnregisterAsListener ("Game");
         this.UnregisterAsListener ("Player");
     }
 }

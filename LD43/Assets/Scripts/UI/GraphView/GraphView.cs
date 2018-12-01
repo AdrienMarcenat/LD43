@@ -33,6 +33,7 @@ public class GraphView : MonoBehaviour
         m_Graph = new Graph ();
         foreach (NodeView node in m_Nodes)
         {
+            node.BuildNode ();
             m_Graph.AddNode (node.GetNode ());
         }
         foreach (EdgeView edge in m_Edges)
