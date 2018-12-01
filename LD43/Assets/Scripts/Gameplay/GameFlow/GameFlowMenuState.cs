@@ -10,7 +10,7 @@
     {
         if (flowEvent.GetAction () == EGameFlowAction.Start)
         {
-            ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowTutoState));
+            ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowLevelState));
         }
 
     }

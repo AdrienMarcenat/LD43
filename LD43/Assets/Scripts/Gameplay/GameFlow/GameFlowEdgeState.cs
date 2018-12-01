@@ -5,7 +5,6 @@ public class GameFlowEdgeState : HSMState
     {
         // TODO: Edge enter logic
         this.RegisterAsListener ("Game", typeof (GameFlowEvent));
-        this.RegisterAsListener ("Player", typeof (GameOverGameEvent), typeof (PlayerInputGameEvent));
     }
 
     public void OnGameEvent (GameFlowEvent flowEvent)
@@ -18,14 +17,6 @@ public class GameFlowEdgeState : HSMState
             case EGameFlowAction.FailureEdge:
                 ChangeNextTransition (HSMTransition.EType.Siblings, typeof (GameFlowNormalState));
                 break;
-        }
-    }
-
-    public void OnGameEvent (PlayerInputGameEvent inputEvent)
-    {
-        if (inputEvent.GetInput () == "Pause" && inputEvent.GetInputState () == EInputState.Down && !UpdaterProxy.Get ().IsPaused ())
-        {
-            ChangeNextTransition (HSMTransition.EType.Child, typeof (GameFlowPauseState));
         }
     }
 

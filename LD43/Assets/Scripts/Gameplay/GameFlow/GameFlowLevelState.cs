@@ -14,7 +14,7 @@ public class GameFlowLevelState : HSMState
     {
         if (inputEvent.GetInput () == "Pause" && inputEvent.GetInputState() == EInputState.Down && !UpdaterProxy.Get().IsPaused())
         {
-            ChangeNextTransition (HSMTransition.EType.Child, typeof (GameFlowPauseState));
+            ChangeNextTransition (HSMTransition.EType.Top, typeof (GameFlowPauseState));
         }
     }
 
