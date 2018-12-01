@@ -1,13 +1,17 @@
 ﻿using System.Collections.Generic;
 
-public interface TeamManagerInterface
+public interface ITeamManagerInterface
 {
     void AddCharacter (CharacterModel newCharacter);
     void RemoveCharacter (int characterId);
     CharacterModel GetCharacter (int characterId);
+    bool IsEnoughCharacters (int minCharacters);
+    bool IsNotTooMuchCharacters (int maxCharacters);
+    bool IsInRangeCharacters (int minCharacters, int maxCharacters);
+    bool IsCharacterClass (int characterClass);
 }
 
-public class TeamManager : TeamManagerInterface
+public class TeamManager : ITeamManagerInterface
 {
 
     private Dictionary<int, CharacterModel> m_Characters;
@@ -37,9 +41,37 @@ public class TeamManager : TeamManagerInterface
 
         return null;
     }
+
+    public bool IsEnoughCharacters (int minCharacters)
+    {
+        return (m_Characters.Count >= minCharacters);
+    }
+
+    public bool IsNotTooMuchCharacters (int maxCharacters)
+    {
+        return (m_Characters.Count <= maxCharacters);
+    }
+
+    public bool IsInRangeCharacters (int minCharacters, int maxCharacters)
+    {
+        return ((m_Characters.Count >= minCharacters) && (m_Characters.Count <= maxCharacters));
+    }
+
+    public bool IsCharacterClass (int characterClass)
+    {
+        foreach (CharacterModel character in m_Characters.Values)
+        {
+            if (character.GetClass () == characterClass)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
 
-public class TeamManagerProxy : UniqueProxy<TeamManagerInterface>
+public class TeamManagerProxy : UniqueProxy<ITeamManagerInterface>
 {
 
 }
