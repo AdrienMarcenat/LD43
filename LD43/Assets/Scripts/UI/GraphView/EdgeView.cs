@@ -17,9 +17,29 @@ public class EdgeView : MonoBehaviour
     {
         return m_End;
     }
+    
+    public void SetStart (NodeView start)
+    {
+        m_Start = start;
+    }
+
+    public void SetEnd (NodeView end)
+    {
+        m_End = end;
+    }
 
     public bool IsOriented()
     {
         return m_IsOriented;
+    }
+
+    public void SetIsOriented (bool isOriented)
+    {
+        m_IsOriented = isOriented;
+    }
+    
+    public bool IsValid()
+    {
+        return m_Start != null && m_End != null;
     }
 }
