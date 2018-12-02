@@ -7,6 +7,7 @@ public class EdgePanel : MonoBehaviour
     private OverworldPlayerController m_Player;
     [SerializeField] private Button m_ChoosePathButton;
     [SerializeField] private Text m_Description;
+    private EEdgeType m_moveType;
 
     private void Awake ()
     {
@@ -21,7 +22,34 @@ public class EdgePanel : MonoBehaviour
         UpdaterProxy.Get ().SetPause (true);
         m_CurrentEdge = edgeEvent.GetEdge ();
         m_ChoosePathButton.interactable = m_Player.CanMoveToEdge(m_CurrentEdge);
-        m_Description.text = m_CurrentEdge.GetEdgeResource ().GetDescription ();
+
+        EdgeResource tempEdgeResource = m_CurrentEdge.GetEdgeResource ();
+
+        switch (tempEdgeResource.GetEdgeType ())
+        {
+            case EEdgeType.Combat:
+                if (TeamManagerProxy.Get ().IsNotTooMuchCharacters (tempEdgeResource.GetEdgeCharacterNumber ()))
+                {
+                    m_moveType = EEdgeType.Normal;
+                }
+                else
+                {
+                    m_moveType = EEdgeType.Combat;
+                }
+                break;
+            case EEdgeType.Obstacle:
+                if (TeamManagerProxy.Get ().IsCharacterClass (tempEdgeResource.GetEdgeCharacterClass ()))
+                {
+                    m_moveType = EEdgeType.Normal;
+                }
+                else
+                {
+                    m_moveType = EEdgeType.Obstacle;
+                }
+                break;
+        }
+
+        m_Description.text = tempEdgeResource.GetDescription ();
     }
 
     private void OnDestroy ()
