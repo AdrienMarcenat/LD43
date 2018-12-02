@@ -18,19 +18,6 @@ public class GameFlowTeamManagementState : HSMState
         }
     }
 
-    /**public void OnGameEvent (GameOverGameEvent gameOver)
-    {
-        ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowGameOverState));
-    }
-
-    public void OnGameEvent (PlayerInputGameEvent inputEvent)
-    {
-        if (inputEvent.GetInput () == "Pause" && inputEvent.GetInputState () == EInputState.Down && !UpdaterProxy.Get ().IsPaused ())
-        {
-            ChangeNextTransition (HSMTransition.EType.Child, typeof (GameFlowPauseState));
-        }
-    }**/
-
     public override void OnExit ()
     {
         this.UnregisterAsListener ("Game");
