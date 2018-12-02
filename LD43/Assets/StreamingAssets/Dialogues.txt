@@ -12,6 +12,7 @@ Soldat01 recrutement
 	[Sentence]Soldat01:"Royalty is of little importance for a lot of people, now, little lord."
 	[Sentence]Soldat01:"It is of little importance to me."
 	[Sentence]Soldat01:"But if I am to die, it might as well be with some panache !"
+	AddToTeam Bob Soldier
 	]
 	NotAdd
 	[

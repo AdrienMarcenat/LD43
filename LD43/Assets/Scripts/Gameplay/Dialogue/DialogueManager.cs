@@ -29,6 +29,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private List<Button> m_ChoicesButton;
 
     private Queue<Dialogue.ITextInterface> m_Sentences;
+    private Dialogue m_HighestDialogue;
     private Dialogue m_CurrentDialogue;
     private bool m_IsInDialogue = false;
     private static string ms_DialogueFileName = "/Dialogues.txt";
@@ -70,11 +71,13 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogue.m_IsSubDialogues)
         {
-            m_CurrentDialogue = dialogue;
-            StartDialogue (m_CurrentDialogue.m_SubDialogues[0]);
+            m_HighestDialogue = dialogue;
+            m_CurrentDialogue = dialogue.m_SubDialogues[0];
+            StartDialogue (m_CurrentDialogue);
         }
         else
         {
+            m_CurrentDialogue = dialogue;
             foreach (Dialogue.ITextInterface sentence in dialogue.m_Texts)
             {
                 m_Sentences.Enqueue (sentence);
@@ -97,7 +100,7 @@ public class DialogueManager : MonoBehaviour
 
     private Dialogue FindSubdialogue (string tag)
     {
-        foreach(Dialogue d in m_CurrentDialogue.m_SubDialogues)
+        foreach(Dialogue d in m_HighestDialogue.m_SubDialogues)
         {
             if(d.m_Tag == tag)
             {
@@ -163,7 +166,13 @@ public class DialogueManager : MonoBehaviour
     {
         m_IsInDialogue = false;
         m_Animator.SetBool ("IsOpen", false);
+        if(m_CurrentDialogue.m_Action != null)
+        {
+            Debug.Log (m_CurrentDialogue.m_Action.m_ActionType);
+            new DialogueActionGameEvent ("Game", m_CurrentDialogue.m_Action).Push ();
+        }
         m_CurrentDialogue = null;
+        m_HighestDialogue = null;
         new GameFlowEvent (EGameFlowAction.EndDialogue).Push ();
     }
 
@@ -283,11 +292,34 @@ public class DialogueManager : MonoBehaviour
                         Assert.IsTrue (datas.Length == 3);
                         currSubDialogue.m_Texts.Add (new Dialogue.Sentence (datas[1].Trim (), datas[2]));
                     }
-                    if (string.Equals(datas[0], "Choice"))
+                    else if (string.Equals(datas[0], "Choice"))
                     {
                         Assert.IsTrue (datas.Length == 2);
                         currSubDialogue.m_Texts.Add (new Dialogue.Choice ("Choice", ParseChoice (datas[1], i)));
                     }
+                    else
+                    {
+                        string[] action = line.Split (new char[]{' '}, System.StringSplitOptions.RemoveEmptyEntries);
+                        switch (action[0])
+                        {
+                            case "AddToTeam":
+                            {
+                                currSubDialogue.m_Action = new AddToTeamAction(action[1], (ECharacterClass)System.Enum.Parse (typeof (ECharacterClass), action[2]));
+                                break;
+                            }
+                            case "RemoveFromTeam":
+                            {
+                                currSubDialogue.m_Action = new RemoveFromTeamAction (action[1]);
+                                break;
+                            }
+                            case "Capacity":
+                            {
+                                currSubDialogue.m_Action = new UseCapacityAction (action[1], (ECharacterCapacity)System.Enum.Parse (typeof (ECharacterCapacity), action[2]));
+                                break;
+                            }
+                        }
+                    }
+
                 }
             }
         }

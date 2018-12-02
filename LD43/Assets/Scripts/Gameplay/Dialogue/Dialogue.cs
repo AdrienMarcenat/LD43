@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 
-[System.Serializable]
 public class Dialogue
 {
     public interface ITextInterface
@@ -57,6 +56,7 @@ public class Dialogue
     public List<Dialogue> m_SubDialogues;
     public List<ITextInterface> m_Texts;
     public string m_Tag;
+    public DialogueAction m_Action;
 
     public Dialogue (string tag)
     {

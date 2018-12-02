@@ -28,7 +28,7 @@ public class DialogueActionGameEvent : GameEvent
 
 public class DialogueAction
 {
-    private EDialogueActionType m_ActionType;
+    public EDialogueActionType m_ActionType;
 
     public DialogueAction(EDialogueActionType actionType)
     {
