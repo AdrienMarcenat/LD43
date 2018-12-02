@@ -59,19 +59,29 @@ public class OverworldPlayerController : MonoBehaviour
         }
     }
 
+    public bool CanMoveToEdge(EdgeView edge)
+    {
+        if(m_CurrentNode == edge.GetStart())
+        {
+            return m_CurrentNode.GetNode ().IsNeighbor (edge.GetEnd ().GetNode());
+        }
+        else if (m_CurrentNode == edge.GetEnd ())
+        {
+            return m_CurrentNode.GetNode ().IsNeighbor (edge.GetStart ().GetNode ());
+        }
+        return false;
+    }
+
     public void MoveToNode (NodeView node)
     {
-        if (m_CurrentNode.GetNode ().IsNeighbor (node.GetNode()))
-        {
-            m_CurrentNode = node;
-            m_TargetPos = m_CurrentNode.transform.position;
-            StartCoroutine (MoveRoutine ());
-        }
+        m_CurrentNode = node;
+        m_TargetPos = m_CurrentNode.transform.position;
+        StartCoroutine (MoveRoutine ());
     }
 
     public void MoveToEdge (EdgeView edge)
     {
-        if (m_CurrentNode.GetNode ().IsNeighbor (edge.GetEnd ().GetNode()))
+        if (CanMoveToEdge(edge))
         {
             Vector3 start = edge.GetStart ().transform.position;
             Vector3 end = edge.GetEnd ().transform.position;

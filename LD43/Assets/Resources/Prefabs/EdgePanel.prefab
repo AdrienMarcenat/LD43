@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 224724300768216344}
   - component: {fileID: 222161930935513404}
   - component: {fileID: 114800068187037658}
-  - component: {fileID: 114471982031768790}
+  - component: {fileID: 114229135087171814}
   m_Layer: 5
   m_Name: EdgePanel
   m_TagString: Untagged
@@ -200,8 +200,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114619776522665782}
-        m_MethodName: GameFlowAction
+      - m_Target: {fileID: 114229135087171814}
+        m_MethodName: Cancel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -213,6 +213,18 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114229135087171814
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1359659934677450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 396b738e282df8c41bac8d50e9b225fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ChoosePathButton: {fileID: 114609943316220314}
 --- !u!114 &114303818144306726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -262,19 +274,6 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1
---- !u!114 &114471982031768790
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1359659934677450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c6538f4f1cfc074b936130083e65945, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MainPanel: {fileID: 0}
-  m_InputConfiguration: {fileID: 0}
 --- !u!114 &114600526407040112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -351,8 +350,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114622816155528586}
-        m_MethodName: GameFlowAction
+      - m_Target: {fileID: 114229135087171814}
+        m_MethodName: ChoosePath
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
