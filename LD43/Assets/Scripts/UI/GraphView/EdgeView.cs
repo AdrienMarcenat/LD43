@@ -30,8 +30,8 @@ public class OnEdgeActionEvent : GameEvent
     }
 
     private EdgeView m_Edge;
-
 }
+
 [RequireComponent(typeof(EdgeCollider2D))]
 [RequireComponent (typeof (LineRenderer))]
 public class EdgeView : MonoBehaviour

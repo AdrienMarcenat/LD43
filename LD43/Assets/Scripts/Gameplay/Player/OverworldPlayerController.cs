@@ -80,6 +80,13 @@ public class OverworldPlayerController : MonoBehaviour
         m_CurrentNode = node;
         m_TargetPos = m_CurrentNode.transform.position;
         StartCoroutine (MoveRoutine ());
+        StartCoroutine (NotifyNode(node));
+    }
+
+    IEnumerator NotifyNode (NodeView node)
+    {
+        yield return new WaitForSecondsRealtime (1f);
+        node.OnEnter ();
     }
 
     public void MoveToEdge (EdgeView edge)

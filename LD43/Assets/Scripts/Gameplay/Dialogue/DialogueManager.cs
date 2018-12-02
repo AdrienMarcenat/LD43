@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using UnityEngine.Assertions;
 
 public class DialogueEvent : GameEvent
 {
@@ -27,11 +28,13 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Image m_Thumbnail;
 
     private Queue<Dialogue.ITextInterface> m_Sentences;
+    private Dialogue m_CurrentDialogue;
     private bool m_IsInDialogue = false;
     private static string ms_DialogueFileName = "/Dialogues.txt";
 
     void Awake ()
     {
+        DialogueManagerProxy.Open (this);
         m_Sentences = new Queue<Dialogue.ITextInterface> ();
         this.RegisterAsListener ("Player", typeof (PlayerInputGameEvent));
         this.RegisterAsListener ("Dialogue", typeof (DialogueEvent));
@@ -41,6 +44,7 @@ public class DialogueManager : MonoBehaviour
     {
         this.UnregisterAsListener ("Dialogue");
         this.UnregisterAsListener ("Player");
+        DialogueManagerProxy.Close ();
     }
 
     public void OnGameEvent (DialogueEvent dialogueEvent)
@@ -58,10 +62,15 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue (Dialogue dialogue)
     {
+        m_CurrentDialogue = dialogue;
         m_IsInDialogue = true;
         m_Animator.SetBool ("IsOpen", true);
         m_Sentences.Clear ();
 
+        if(m_CurrentDialogue.m_IsSubDialogues)
+        {
+            dialogue = m_CurrentDialogue.m_SubDialogues[0];
+        }
         foreach (Dialogue.ITextInterface sentence in dialogue.m_Texts)
         {
             m_Sentences.Enqueue (sentence);
@@ -83,9 +92,9 @@ public class DialogueManager : MonoBehaviour
         if (m_NameText.text != speakerName)
         {
             m_NameText.text = speakerName;
-            m_Thumbnail.sprite = RessourceManager.LoadSprite (speakerName, 0);
+            //m_Thumbnail.sprite = RessourceManager.LoadSprite (speakerName, 0);
         }
-        StartCoroutine (TypeSentence (sentence.GetName ()));
+        StartCoroutine (TypeSentence (sentence.GetText ()));
     }
 
     IEnumerator TypeSentence (string sentence)
@@ -108,7 +117,7 @@ public class DialogueManager : MonoBehaviour
     public void TriggerDialogue (string tag)
     {
         new GameFlowEvent (EGameFlowAction.StartDialogue).Push ();
-        Dialogue dialogue = new Dialogue ();
+        Dialogue dialogue = new Dialogue (tag);
 
         char[] separators = { ':' };
         string filename = ms_DialogueFileName;
@@ -122,7 +131,7 @@ public class DialogueManager : MonoBehaviour
         int dialogueEnd = 0;
         for (int i = 0; i < lines.Length; i++)
         {
-            string[] datas = lines[i].Split (separators);
+            string[] datas = lines[i].Split (separators, System.StringSplitOptions.RemoveEmptyEntries);
 
             if (datas[0] == "[")
             {
@@ -160,7 +169,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         // Check if dialogue is composed of subdialogs or not by checking if there's a subdialog name
-        string[] temp = lines[dialogueBeginning].Split (separators);
+        string[] temp = lines[dialogueBeginning].Split (separators, System.StringSplitOptions.RemoveEmptyEntries);
         if (temp.Length == 1)
         {
             dialogue.m_IsSubDialogues = true;
@@ -184,42 +193,47 @@ public class DialogueManager : MonoBehaviour
         {
             // If composed of subdialogs, parse subdialogs
             char[] newSeparators = { ':', '[', ']' };
+            char[] trimChar = { ' ', '\t' };
             bool subDialogueStart = false;
             string subDialogueName = null;
             Dialogue currSubDialogue = null;
 
             for (int i = dialogueBeginning; i < dialogueEnd; i++)
             {
-                string[] datas = lines[i].Split (newSeparators);
+                string line = lines[i].Trim (trimChar);
+                string[] datas = line.Split (newSeparators, System.StringSplitOptions.RemoveEmptyEntries);
 
                 // Find beginning of subdialog
                 if (!subDialogueStart && datas.Length == 1)
                 {
                     subDialogueStart = true;
                     subDialogueName = datas[0].Trim ();
-                    currSubDialogue = new Dialogue ();
+                    currSubDialogue = new Dialogue (subDialogueName);
                     i++;
                     continue;
                 }
 
                 // Find ending of subdialog and add it to dialog
-                if (subDialogueStart && datas.Length == 1 && string.IsNullOrEmpty (datas[0].Trim ()))
+                if (subDialogueStart && line == "]")
                 {
                     subDialogueStart = false;
-                    dialogue.m_SubDialogues.Add (new Dialogue.SubDialogue (subDialogueName, currSubDialogue));
+                    dialogue.m_SubDialogues.Add (currSubDialogue);
+                    currSubDialogue = null;
                     continue;
                 }
 
                 // Find Sentence and Choice of subdialog and add it to subdialog
-                if (subDialogueStart && datas.Length == 3)
+                if (subDialogueStart && datas.Length > 0)
                 {
-                    if (string.Equals(datas[1], "Sentence"))
+                    if (string.Equals(datas[0], "Sentence"))
                     {
-                        currSubDialogue.m_Texts.Add (new Dialogue.Sentence (datas[2].Trim (), datas[3]));
+                        Assert.IsTrue (datas.Length == 3);
+                        currSubDialogue.m_Texts.Add (new Dialogue.Sentence (datas[1].Trim (), datas[2]));
                     }
-                    if (string.Equals(datas[1], "Choice"))
+                    if (string.Equals(datas[0], "Choice"))
                     {
-                        currSubDialogue.m_Texts.Add (new Dialogue.Choice ("You", ParseChoice (datas[3], i)));
+                        Assert.IsTrue (datas.Length == 2);
+                        currSubDialogue.m_Texts.Add (new Dialogue.Choice ("You", ParseChoice (datas[1], i)));
                     }
                 }
             }
@@ -234,7 +248,7 @@ public class DialogueManager : MonoBehaviour
 
         char[] separators = { '/' };
 
-        string[] data = choice.Split (separators);
+        string[] data = choice.Split (separators, System.StringSplitOptions.RemoveEmptyEntries);
         if (data.Length % 2 != 0)
         {
             this.DebugLog ("Invalid count of data for choice at line " + line);

@@ -6,6 +6,7 @@ public class Dialogue
     public interface ITextInterface
     {
         string GetName ();
+        string GetText ();
     };
 
     public struct Sentence : ITextInterface
@@ -22,6 +23,11 @@ public class Dialogue
         public string GetName ()
         {
             return m_Name;
+        }
+
+        public string GetText ()
+        {
+            return m_Sentence;
         }
     }
 
@@ -40,27 +46,22 @@ public class Dialogue
         {
             return m_Name;
         }
-    }
 
-    public struct SubDialogue
-    {
-        public string m_Name;
-        public Dialogue m_Text;
-
-        public SubDialogue(string name, Dialogue text)
+        public string GetText ()
         {
-            m_Name = name;
-            m_Text = text;
+            return "Choice";
         }
     }
 
     public bool m_IsSubDialogues = false;
-    public List<SubDialogue> m_SubDialogues;
+    public List<Dialogue> m_SubDialogues;
     public List<ITextInterface> m_Texts;
+    public string m_Tag;
 
-    public Dialogue ()
+    public Dialogue (string tag)
     {
-        m_SubDialogues = new List<SubDialogue> ();
+        m_Tag = tag;
+        m_SubDialogues = new List<Dialogue> ();
         m_Texts = new List<ITextInterface> ();
     }
 }

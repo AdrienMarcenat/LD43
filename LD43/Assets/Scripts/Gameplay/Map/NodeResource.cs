@@ -1,8 +1,11 @@
-﻿
+﻿using UnityEngine;
+
+[System.Serializable]
 public class NodeResource
 {
-    private int m_NodeType;
-    private int m_NodeId;
+    [SerializeField] private int m_NodeType;
+    [SerializeField] private int m_NodeId;
+    [SerializeField] private string m_DialogueTag;
 
     public void SetNodeId (int newNodeId)
     {
@@ -17,5 +20,10 @@ public class NodeResource
     public int GetNodeId ()
     {
         return m_NodeId;
+    }
+
+    public string GetDialogueTag ()
+    {
+        return m_DialogueTag;
     }
 }
