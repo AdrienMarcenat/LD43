@@ -1,0 +1,64 @@
+1S2C
+[
+	That street seem really dangerous: I may walk by unnoticed if I am alone, but if we are more we'll have to fight for our lives.
+]
+
+2S3C
+[
+	This way seems pretty safe : 2 of us could remain unseen, but 3 or more would drow the attention and we would be in for a fight.
+]
+
+3S4C
+[
+	I guess walking a street in a group of three is the best we can hope this times. It doesn't get less risky than that.
+]
+
+1S2D
+[
+	Someone small can still sneak through but the foes are so numerous that the only hope to have a party traverse is for someone to make a diversion.
+]
+
+0S1C
+[
+	There is nowhere to hide, we must fight to progress ! But it should be easy. Provided you're not alone.
+]
+
+Eglise
+[
+	The churches are holy protections are falling, one after an other, but this one stands. We might find a priest inside.
+]
+
+Soldat
+[
+	I can hear the echos of the ring steel makes when it hit bones. One of our man is still fighting there.
+]
+
+Fight
+[
+	The corruption of the city is so advanced we will have to cleanse this place to earn an ever so brief relief.
+]
+
+Gate
+[
+	The bridge was lifted to prevent the contagion. Trying to protect ourselves, we closed our only way to freedom.
+]
+
+Key
+[
+	Here lived the keeper of the Bridge. If God is willing, we will be able to lower it. If God is willing, our salvation is here.
+
+Wood
+[
+	A wooden watchtower has fallen, blocking the way. A bit of fire and a bit of time could clear enough of the wreckage for us to make it through.
+]
+
+Small passage
+[
+	Some floating debris make a precarious bridge. Maybe someone light enough could walk to the other side, but anyone of normal stature would surely drow.
+]
+
+Unholy
+[
+	Some kind of unholy blight seem to have overtaken this path. Only a holy man could free the way.
+]
+

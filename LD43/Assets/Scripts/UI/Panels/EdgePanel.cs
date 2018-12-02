@@ -6,6 +6,7 @@ public class EdgePanel : MonoBehaviour
     private EdgeView m_CurrentEdge;
     private OverworldPlayerController m_Player;
     [SerializeField] private Button m_ChoosePathButton;
+    [SerializeField] private Text m_Description;
 
     private void Awake ()
     {
@@ -19,6 +20,7 @@ public class EdgePanel : MonoBehaviour
         gameObject.SetActive (true);
         m_CurrentEdge = edgeEvent.GetEdge ();
         m_ChoosePathButton.interactable = m_Player.CanMoveToEdge(m_CurrentEdge);
+        m_Description.text = m_CurrentEdge.GetEdgeResource ().GetDescription ();
     }
 
     private void OnDestroy ()

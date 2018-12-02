@@ -39,6 +39,7 @@ public class EdgeView : MonoBehaviour
     private GameEdge m_Edge;
     private LineRenderer m_Line;
 
+    [SerializeField] private EdgeResource m_Resource;
     [SerializeField] private NodeView m_Start;
     [SerializeField] private NodeView m_End;
     [SerializeField] private bool m_IsOriented;
@@ -76,6 +77,11 @@ public class EdgeView : MonoBehaviour
     public GameEdge GetEdge()
     {
         return m_Edge;
+    }
+
+    public EdgeResource GetEdgeResource ()
+    {
+        return m_Resource;
     }
 
     public NodeView GetStart()
