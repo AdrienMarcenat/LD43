@@ -1,13 +1,26 @@
-﻿
+﻿public enum ECharacterCapacity
+{
+    Heal,
+    Purify
+}
+
+public enum ECharacterClass
+{
+    Soldier,
+    Priest,
+    FireMage
+}
+
 public class CharacterModel
 {
     private string m_Name;
-    private int m_Class;
+    private ECharacterClass m_Class;
     private int m_Id;
     private int m_Speed;
     private int m_Strength;
+    private ECharacterCapacity m_Capacity;
     
-    public void SetClass (int newClass)
+    public void SetClass (ECharacterClass newClass)
     {
         m_Class = newClass;
     }
@@ -32,7 +45,7 @@ public class CharacterModel
         m_Strength = newStrength;
     }
 
-    public int GetClass ()
+    public ECharacterClass GetClass ()
     {
         return m_Class;
     }
@@ -55,5 +68,10 @@ public class CharacterModel
     public int GetStrength ()
     {
         return m_Strength;
+    }
+
+    public ECharacterCapacity UseCapacity ()
+    {
+        return m_Capacity;
     }
 }

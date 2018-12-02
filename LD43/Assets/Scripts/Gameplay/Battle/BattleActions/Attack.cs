@@ -3,16 +3,14 @@
 public class Attack : BattleAction
 {
     private int m_Strength = 0;
-    private List<Character> m_Targets = null;
 
-    public Attack (int strength, List<Character> targets)
+    public Attack (int strength)
     {
         m_Strength = strength;
-        m_Targets = targets;
     }
 
     public override void ApplyAction ()
     {
-        // TODO: Apply the Attack
+        BattleManagerProxy.Get ().Attack (m_Strength);
     }
 }
