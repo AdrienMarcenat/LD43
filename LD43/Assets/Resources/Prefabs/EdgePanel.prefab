@@ -225,6 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ChoosePathButton: {fileID: 114609943316220314}
+  m_Description: {fileID: 114600526407040112}
 --- !u!114 &114303818144306726
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -993,6 +993,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb6855158cb1ab4eae4fd526052584c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Resource:
+    m_EdgeType: 0
+    m_EdgeId: 0
+    m_EdgeDescriptionID: 
   m_Start: {fileID: 114100966380025582}
   m_End: {fileID: 114029170224697426}
   m_IsOriented: 0
@@ -1021,6 +1025,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb6855158cb1ab4eae4fd526052584c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Resource:
+    m_EdgeType: 0
+    m_EdgeId: 0
+    m_EdgeDescriptionID: 
   m_Start: {fileID: 114028049771161870}
   m_End: {fileID: 114434455866738390}
   m_IsOriented: 0
@@ -1036,6 +1044,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb6855158cb1ab4eae4fd526052584c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Resource:
+    m_EdgeType: 0
+    m_EdgeId: 0
+    m_EdgeDescriptionID: 
   m_Start: {fileID: 114029170224697426}
   m_End: {fileID: 114028049771161870}
   m_IsOriented: 0
@@ -1064,6 +1076,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb6855158cb1ab4eae4fd526052584c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Resource:
+    m_EdgeType: 0
+    m_EdgeId: 0
+    m_EdgeDescriptionID: 
   m_Start: {fileID: 114434455866738390}
   m_End: {fileID: 114158790728349434}
   m_IsOriented: 0
@@ -1079,6 +1095,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb6855158cb1ab4eae4fd526052584c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Resource:
+    m_EdgeType: 0
+    m_EdgeId: 0
+    m_EdgeDescriptionID: 
   m_Start: {fileID: 114029170224697426}
   m_End: {fileID: 114525720661423056}
   m_IsOriented: 1
@@ -1133,6 +1153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb6855158cb1ab4eae4fd526052584c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Resource:
+    m_EdgeType: 0
+    m_EdgeId: 0
+    m_EdgeDescriptionID: 
   m_Start: {fileID: 114029170224697426}
   m_End: {fileID: 114726535576454200}
   m_IsOriented: 0
@@ -1148,6 +1172,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb6855158cb1ab4eae4fd526052584c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Resource:
+    m_EdgeType: 0
+    m_EdgeId: 0
+    m_EdgeDescriptionID: 1S2C
   m_Start: {fileID: 114100966380025582}
   m_End: {fileID: 114586757750913862}
   m_IsOriented: 0
@@ -1207,6 +1235,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb6855158cb1ab4eae4fd526052584c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Resource:
+    m_EdgeType: 0
+    m_EdgeId: 0
+    m_EdgeDescriptionID: 
   m_Start: {fileID: 114525720661423056}
   m_End: {fileID: 114158790728349434}
   m_IsOriented: 0
@@ -1222,6 +1254,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb6855158cb1ab4eae4fd526052584c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Resource:
+    m_EdgeType: 0
+    m_EdgeId: 0
+    m_EdgeDescriptionID: 
   m_Start: {fileID: 114726535576454200}
   m_End: {fileID: 114028049771161870}
   m_IsOriented: 0
@@ -1237,6 +1273,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb6855158cb1ab4eae4fd526052584c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Resource:
+    m_EdgeType: 0
+    m_EdgeId: 0
+    m_EdgeDescriptionID: 
   m_Start: {fileID: 114586757750913862}
   m_End: {fileID: 114726535576454200}
   m_IsOriented: 0
