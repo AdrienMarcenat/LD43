@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-public class Attack : BattleAction
+﻿public class Attack : BattleAction
 {
     private int m_Strength = 0;
 

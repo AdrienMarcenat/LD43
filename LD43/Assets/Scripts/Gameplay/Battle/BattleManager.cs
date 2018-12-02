@@ -14,12 +14,35 @@ public class BattleManager
 
     public void SetupTurn ()
     {
+        m_Actions.Clear ();
         // TODO: Setup the turn depending on who's turn it is (player or ennemy)
     }
 
-    public void AddAction(BattleAction action)
+    public void AddAction(EAction action, Character chara)
     {
-        m_Actions.Enqueue (action);
+        BattleAction newAction = null;
+
+        switch (action)
+        {
+            case EAction.Attack:
+                newAction = new Attack (chara.GetStrength ());
+                break;
+            case EAction.Defense:
+                newAction = new Defense (chara.GetMagic ());
+                break;
+            case EAction.Heal:
+                newAction = new Heal (chara.GetMagic ());
+                break;
+            case EAction.Protect:
+                newAction = new Protect ();
+                break;
+            case EAction.Bound:
+                newAction = new Bound ();
+                break;
+        }
+
+        
+        m_Actions.Enqueue (newAction);
     }
 
     public void ApplyActions ()
@@ -76,15 +99,15 @@ public class BattleManager
         }
     }
 
-    public void ResetDefense ()
+    public void ResetCondition ()
     {
         if (m_IsPlayerTurn)
         {
-            m_EnnemyCharacters.Peek ().ResetResistance ();
+            m_EnnemyCharacters.Peek ().ResetCondition ();
         }
         else
         {
-            m_PlayerCharacters.Peek ().ResetResistance ();
+            m_PlayerCharacters.Peek ().ResetCondition ();
         }
     }
 
@@ -99,6 +122,30 @@ public class BattleManager
         {
             m_EnnemyCharacters.Peek ().Heal (heal);
             // Visuals?
+        }
+    }
+
+    public void Bound ()
+    {
+        if (m_IsPlayerTurn)
+        {
+            m_EnnemyCharacters.Peek ().Bound ();
+        }
+        else
+        {
+            m_PlayerCharacters.Peek ().Bound ();
+        }
+    }
+
+    public void Protect ()
+    {
+        if (m_IsPlayerTurn)
+        {
+            m_PlayerCharacters.Peek ().Protected ();
+        }
+        else
+        {
+            m_EnnemyCharacters.Peek ().Protected ();
         }
     }
 }

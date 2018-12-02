@@ -12,7 +12,7 @@
         {
             case EBattleAction.Nothing:
                 ChangeNextTransition (HSMTransition.EType.Clear, typeof (BattleStandbyState));
-                BattleManagerProxy.Get ().ResetDefense ();
+                BattleManagerProxy.Get ().ResetCondition ();
                 BattleManagerProxy.Get ().NextPlayerTurn ();
                 break;
             case EBattleAction.Success:
