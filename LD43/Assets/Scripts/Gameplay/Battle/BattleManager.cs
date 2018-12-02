@@ -3,8 +3,8 @@
 public class BattleManager
 {
     private bool m_IsPlayerTurn = true;
-    private List<Character> m_PlayerCharacters;
-    private List<Character> m_EnnemyCharacters;
+    private Stack<Character> m_PlayerCharacters;
+    private Stack<Character> m_EnnemyCharacters;
     private Queue<BattleAction> m_Actions;
 
     public void NextPlayerTurn ()
@@ -46,6 +46,48 @@ public class BattleManager
         }
 
         new BattleEvent (EBattleAction.Nothing).Push ();
+    }
+
+    public void Attack (int damage)
+    {
+        if (m_IsPlayerTurn)
+        {
+            m_EnnemyCharacters.Peek ().TakeDamage (damage);
+            // Implement Character death
+        }
+        else
+        {
+            m_PlayerCharacters.Peek ().TakeDamage (damage);
+            // Implement character death
+        }
+    }
+
+    public void Defense (int resistance)
+    {
+        if (m_IsPlayerTurn)
+        {
+            m_PlayerCharacters.Peek ().Resistance (resistance);
+            // Visuals?
+        }
+        else
+        {
+            m_EnnemyCharacters.Peek ().Resistance (resistance);
+            // Visuals?
+        }
+    }
+
+    public void Heal (int heal)
+    {
+        if (m_IsPlayerTurn)
+        {
+            m_PlayerCharacters.Peek ().Heal (heal);
+            // Visuals?
+        }
+        else
+        {
+            m_EnnemyCharacters.Peek ().Heal (heal);
+            // Visuals?
+        }
     }
 }
 

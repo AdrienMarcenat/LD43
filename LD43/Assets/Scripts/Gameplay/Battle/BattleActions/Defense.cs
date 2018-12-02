@@ -3,16 +3,14 @@
 public class Defense : BattleAction
 {
     private int m_Protection = 0;
-    private List<Character> m_Targets = null;
 
-    public Defense (int protection, List<Character> targets)
+    public Defense (int protection)
     {
         m_Protection = protection;
-        m_Targets = targets;
     }
 
     public override void ApplyAction ()
     {
-        // TODO: Apply the Attack
+        BattleManagerProxy.Get ().Defense (m_Protection);
     }
 }

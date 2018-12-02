@@ -1,11 +1,14 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    private CharacterModel m_Model;
+    protected CharacterModel m_Model;
     protected Health m_Health;
     protected SpriteRenderer m_Sprite;
+    protected List<BattleAction> m_BattleActions;
+    protected int m_Resistance = 0;
 
 
 	// Use this for initialization
@@ -37,5 +40,31 @@ public class Character : MonoBehaviour
     public void OnGameEvent (DamageGameEvent damageEvent)
     {
         StartCoroutine (HitRoutine (damageEvent.GetDamage ()));
+    }
+
+    public List<BattleAction> GetBattleActions ()
+    {
+        return m_BattleActions;
+    }
+
+    public bool TakeDamage (int damage)
+    {
+        // Implement taking damage, return true if character is dead, false if not
+        return false;
+    }
+
+    public void Heal (int heal)
+    {
+        // Implement healing
+    }
+
+    public void Resistance (int resistance)
+    {
+        m_Resistance = resistance;
+    }
+
+    public void ResetResistance ()
+    {
+        m_Resistance = 0;
     }
 }
