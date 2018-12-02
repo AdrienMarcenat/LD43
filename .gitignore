@@ -28,6 +28,7 @@ LD43/ExportedObj/
 *.opendb
 
 LD43/package*
+LD43/Assets/Resources/Audio*
 2DGameToolkitTest/Properties*
 2DGameToolkitTest/bin
 
