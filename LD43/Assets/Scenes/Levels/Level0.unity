@@ -155,6 +155,37 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fb0cdaaa13200749a610e61f3114e27, type: 2}
   m_IsPrefabAsset: 0
+--- !u!84 &413947809
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: SpriteLightKit RT
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 663
+  m_Height: 292
+  m_AntiAliasing: 1
+  m_DepthFormat: 0
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &456864624
 Prefab:
   m_ObjectHideFlags: 0
@@ -550,7 +581,7 @@ Prefab:
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 1948896789}
+      objectReference: {fileID: 1939755528}
     - target: {fileID: 114025615796217506, guid: a788c783343da3d44abc8ff8393191de,
         type: 2}
       propertyPath: spriteLightRT
@@ -642,7 +673,7 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 974e13595956d1a4db7b2266ed5eaf76, type: 2}
   m_IsPrefabAsset: 0
---- !u!84 &1948896789
+--- !u!84 &1939755528
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -653,8 +684,8 @@ RenderTexture:
     Hash: 00000000000000000000000000000000
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
-  m_Width: 727
-  m_Height: 409
+  m_Width: 663
+  m_Height: 292
   m_AntiAliasing: 1
   m_DepthFormat: 0
   m_ColorFormat: 7
@@ -673,7 +704,23 @@ RenderTexture:
     m_WrapW: 1
   m_Dimension: 2
   m_VolumeDepth: 1
-
+--- !u!1 &1995499875 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1768063742435878, guid: a788c783343da3d44abc8ff8393191de,
+    type: 2}
+  m_PrefabInternal: {fileID: 1616297848}
+--- !u!114 &1995499879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1995499875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a894dd697c9d89a4c9bfc4ffe7ad8216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CameraMoveSpeed: 10
 --- !u!20 &2146520988 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 20555382284665094, guid: a788c783343da3d44abc8ff8393191de,

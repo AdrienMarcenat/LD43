@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class CameraControllerScript : MonoBehaviour {
 
-    public float cameraMoveSpeed;
+    public float m_CameraMoveSpeed;
+    private float m_ScreenBorderMargin = 30;
 
     // Use this for initialization
     void Start () {
@@ -15,26 +15,26 @@ public class CameraControllerScript : MonoBehaviour {
     void Update ()
     {
         // Mouse movement
-        if (Input.mousePosition.y <= 0)
+        if (Input.mousePosition.y <= 20 && Input.mousePosition.y >= 0)
         {
-            transform.position -= transform.forward * cameraMoveSpeed * Time.deltaTime;
+            transform.Translate (Vector3.down * m_CameraMoveSpeed * Time.deltaTime, Space.Self);
         }
-        if (Input.mousePosition.y >= Screen.height)
+        if (Input.mousePosition.y <= Screen.height && Input.mousePosition.y >= Screen.height - m_ScreenBorderMargin)
         {
-            transform.position += transform.forward * cameraMoveSpeed * Time.deltaTime;
+            transform.Translate (Vector3.up * m_CameraMoveSpeed * Time.deltaTime, Space.Self);
         }
 
-        if (Input.mousePosition.x <= 0)
+        if (Input.mousePosition.x <= 20 && Input.mousePosition.x >= 0)
         {
-            transform.Translate (Vector3.left * cameraMoveSpeed * Time.deltaTime, Space.Self);
+            transform.Translate (Vector3.left * m_CameraMoveSpeed * Time.deltaTime, Space.Self);
         }
-        if (Input.mousePosition.x >= Screen.width)
+        if (Input.mousePosition.x <= Screen.width && Input.mousePosition.x >= Screen.width - m_ScreenBorderMargin)
         {
-            transform.Translate (Vector3.right * cameraMoveSpeed * Time.deltaTime, Space.Self);
+            transform.Translate (Vector3.right * m_CameraMoveSpeed * Time.deltaTime, Space.Self);
         }
 
         //Keyboard movement
-        transform.position += (transform.forward * cameraMoveSpeed * Time.deltaTime) * Input.GetAxis ("Vertical");
-        transform.Translate ((new Vector3 (Input.GetAxis ("Horizontal"), 0, 0) * cameraMoveSpeed * Time.deltaTime), Space.Self);
+        transform.Translate ((new Vector3 (0, Input.GetAxis ("Vertical"), 0) * m_CameraMoveSpeed * Time.deltaTime), Space.Self);
+        transform.Translate ((new Vector3 (Input.GetAxis ("Horizontal"), 0, 0) * m_CameraMoveSpeed * Time.deltaTime), Space.Self);
     }
 }
