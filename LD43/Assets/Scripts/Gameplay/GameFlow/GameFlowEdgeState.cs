@@ -4,6 +4,7 @@ public class GameFlowEdgeState : HSMState
     public override void OnEnter ()
     {
         // TODO: Edge enter logic
+        UpdaterProxy.Get ().SetPause (true);
         this.RegisterAsListener ("Game", typeof (GameFlowEvent));
     }
 
@@ -24,5 +25,6 @@ public class GameFlowEdgeState : HSMState
     {
         this.UnregisterAsListener ("Game");
         this.UnregisterAsListener ("Player");
+        UpdaterProxy.Get ().SetPause (false);
     }
 }

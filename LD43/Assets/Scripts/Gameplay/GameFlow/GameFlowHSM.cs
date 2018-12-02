@@ -22,10 +22,10 @@
     FailureEdge,
     TeamManagement,
     TeamManagementBack,
-
-    // Next ones are useful to not have issues with other files
     StartDialogue,
     EndDialogue,
+
+    // Next ones are useful to not have issues with other files
     EndLevelPanel,
     LevelSelection
 }
@@ -57,6 +57,7 @@ public class GameFlowHSM : HSM
               , new GameFlowTeamManagementState ()
               , new GameFlowEndGameState ()
               , new GameFlowNormalState ()
+              , new GameFlowDialogueState()
         )
     {
         

@@ -18,6 +18,7 @@ public class EdgePanel : MonoBehaviour
     public void OnGameEvent (OnEdgeClick edgeEvent)
     {
         gameObject.SetActive (true);
+        UpdaterProxy.Get ().SetPause (true);
         m_CurrentEdge = edgeEvent.GetEdge ();
         m_ChoosePathButton.interactable = m_Player.CanMoveToEdge(m_CurrentEdge);
         m_Description.text = m_CurrentEdge.GetEdgeResource ().GetDescription ();
@@ -32,12 +33,14 @@ public class EdgePanel : MonoBehaviour
     {
         m_CurrentEdge = null;
         gameObject.SetActive (false);
+        UpdaterProxy.Get ().SetPause (false);
     }
 
     public void ChoosePath()
     {
         new OnEdgeGameEvent ("Player", m_CurrentEdge, true).Push ();
         gameObject.SetActive (false);
+        UpdaterProxy.Get ().SetPause (false);
     }
 }
 

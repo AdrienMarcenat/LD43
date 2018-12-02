@@ -4,6 +4,7 @@ public class GameFlowDialogueState : HSMState
 {
     public override void OnEnter ()
     {
+        UpdaterProxy.Get ().SetPause (true);
         this.RegisterAsListener ("Game", typeof (GameFlowEvent));
     }
 
@@ -20,5 +21,6 @@ public class GameFlowDialogueState : HSMState
     public override void OnExit ()
     {
         this.UnregisterAsListener ("Game");
+        UpdaterProxy.Get ().SetPause (false);
     }
 }

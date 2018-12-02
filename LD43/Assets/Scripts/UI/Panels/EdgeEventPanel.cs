@@ -24,6 +24,7 @@ public class EdgeEventPanel : MonoBehaviour
     public void Continue ()
     {
         new OnEdgeGameEvent ("Player", m_CurrentEdge, false).Push ();
+        new GameFlowEvent (EGameFlowAction.SuccessEdge).Push();
         m_CurrentEdge = null;
         gameObject.SetActive (false);
     }

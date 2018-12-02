@@ -159,13 +159,19 @@ public class EdgeView : MonoBehaviour
 
     private void OnMouseUp ()
     {
-        new OnEdgeClick ("Game", this).Push ();
+        if (!UpdaterProxy.Get ().IsPaused())
+        {
+            new OnEdgeClick ("Game", this).Push ();
+        }
     }
 
     private void OnMouseEnter ()
     {
-        m_Line.SetPositions(new Vector3[] { m_Start.transform.position, m_End.transform.position });
-        m_Line.enabled = true;
+        if (!UpdaterProxy.Get ().IsPaused ())
+        {
+            m_Line.SetPositions (new Vector3[] { m_Start.transform.position, m_End.transform.position });
+            m_Line.enabled = true;
+        }
     }
 
     private void OnMouseExit ()
