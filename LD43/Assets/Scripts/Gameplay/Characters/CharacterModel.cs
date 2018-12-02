@@ -18,6 +18,8 @@ public class CharacterModel
     private int m_Id;
     private int m_Speed;
     private int m_Strength;
+    private int m_Vitality;
+    private int m_Magic;
     private ECharacterCapacity m_Capacity;
     
     public void SetClass (ECharacterClass newClass)
@@ -45,6 +47,16 @@ public class CharacterModel
         m_Strength = newStrength;
     }
 
+    public void SetVitality (int newVitality)
+    {
+        m_Vitality = newVitality;
+    }
+
+    public void SetMagic (int newMagic)
+    {
+        m_Magic = newMagic;
+    }
+
     public ECharacterClass GetClass ()
     {
         return m_Class;
@@ -68,6 +80,16 @@ public class CharacterModel
     public int GetStrength ()
     {
         return m_Strength;
+    }
+
+    public int GetVitality ()
+    {
+        return m_Vitality;
+    }
+
+    public int GetMagic ()
+    {
+        return m_Magic;
     }
 
     public ECharacterCapacity UseCapacity ()

@@ -6,7 +6,9 @@ public enum EAction
 {
     Attack,
     Defense,
-    Heal
+    Heal,
+    Protect,
+    Bound
 }
 
 public class Character : MonoBehaviour
@@ -16,20 +18,19 @@ public class Character : MonoBehaviour
     protected SpriteRenderer m_Sprite;
     protected List<EAction> m_BattleActions;
     protected int m_Resistance = 0;
+    protected bool m_Protected = false;
+    protected bool m_Bound = false;
 
 
 	// Use this for initialization
 	protected void Start ()
     {
         m_Health = GetComponent<Health> ();
-
-        this.RegisterAsListener (gameObject.name, typeof (DamageGameEvent));
 		
 	}
 
     private void OnDestroy ()
     {
-        this.UnregisterAsListener (gameObject.name);
     }
 
     // Update is called once per frame
@@ -56,13 +57,18 @@ public class Character : MonoBehaviour
 
     public bool TakeDamage (int damage)
     {
-        // Implement taking damage, return true if character is dead, false if not
+        // If character is protected
+        if (m_Protected)
+        {
+            return false;
+        }
+        // TODO: Implement taking damage, return true if character is dead, false if not
         return false;
     }
 
     public void Heal (int heal)
     {
-        // Implement healing
+        // TODO: Implement healing
     }
 
     public void Resistance (int resistance)
@@ -70,8 +76,30 @@ public class Character : MonoBehaviour
         m_Resistance = resistance;
     }
 
-    public void ResetResistance ()
+    public void Protected ()
+    {
+        m_Protected = true;
+    }
+
+    public void Bound ()
+    {
+        m_Bound = true;
+    }
+
+    public void ResetCondition ()
     {
         m_Resistance = 0;
+        m_Protected = false;
+        m_Bound = false;
+    }
+
+    public int GetStrength ()
+    {
+        return m_Model.GetStrength ();
+    }
+
+    public int GetMagic ()
+    {
+        return m_Model.GetMagic ();
     }
 }
