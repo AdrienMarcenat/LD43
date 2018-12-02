@@ -303,4 +303,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EfxSource: {fileID: 82092299966301212}
   m_MusicSource: {fileID: 82902648522135224}
-  m_DialogueManager: {fileID: 0}
