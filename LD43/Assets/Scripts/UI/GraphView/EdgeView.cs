@@ -38,17 +38,21 @@ public class EdgeView : MonoBehaviour
 {
     private GameEdge m_Edge;
     private LineRenderer m_Line;
+    private SpriteRenderer m_Sprite;
 
     [SerializeField] private EdgeResource m_Resource;
     [SerializeField] private NodeView m_Start;
     [SerializeField] private NodeView m_End;
     [SerializeField] private bool m_IsOriented;
-    [SerializeField] private Sprite m_Sprite;
+    [SerializeField] private bool m_IsVisible = false;
+    [SerializeField] private float m_Width = 5;
 
     private void Awake ()
     {
         m_Line = GetComponent<LineRenderer> ();
         m_Line.enabled = false;
+        m_Sprite = GetComponentInChildren<SpriteRenderer> ();
+        SetIsVisible (m_IsVisible);
     }
 
     public void ResizeCollider ()
@@ -59,7 +63,23 @@ public class EdgeView : MonoBehaviour
             collider.points = new Vector2[]{ m_Start.transform.position, m_End.transform.position };
             collider.edgeRadius = 2f;
             collider.isTrigger = true;
+            Transform sprite = transform.Find("Sprite");
+            if(sprite != null)
+                StrechSprite (sprite.gameObject, m_Start.transform.position, m_End.transform.position, m_Width);
         }
+    }
+
+    private void StrechSprite (GameObject _sprite, Vector3 _initialPosition, Vector3 _finalPosition, float yScale)
+    {
+        Vector3 centerPos = (_initialPosition + _finalPosition) / 2f;
+        _sprite.transform.position = centerPos;
+        Vector3 direction = _finalPosition - _initialPosition;
+        direction = Vector3.Normalize (direction);
+        _sprite.transform.right = direction;
+        Vector3 scale = new Vector3 (1, 1, 1);
+        scale.x = Vector3.Distance (_initialPosition, _finalPosition);
+        scale.y = yScale;
+        _sprite.transform.localScale = scale;
     }
 
     public void BuildEdge()
@@ -113,7 +133,25 @@ public class EdgeView : MonoBehaviour
     {
         m_IsOriented = isOriented;
     }
-    
+
+    public bool IsVisible()
+    {
+        return m_IsVisible;
+    }
+
+    public void SetIsVisible (bool visible)
+    {
+        m_IsVisible = visible;
+        if (m_IsVisible)
+        {
+            m_Sprite.enabled = true;
+        }
+        else
+        {
+            m_Sprite.enabled = false;
+        }
+    }
+
     public bool IsValid()
     {
         return m_Start != null && m_End != null;

@@ -5,6 +5,7 @@ public class NodeView : MonoBehaviour
     private GameNode m_Node;
     [SerializeField] private Sprite m_Sprite;
     [SerializeField] private string m_Title;
+    [SerializeField] private bool m_IsVisible = false;
 
     public void BuildNode()
     {
