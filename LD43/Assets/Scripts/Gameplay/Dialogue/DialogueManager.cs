@@ -32,6 +32,7 @@ public class DialogueManager : MonoBehaviour
     private Dialogue m_HighestDialogue;
     private Dialogue m_CurrentDialogue;
     private bool m_IsInDialogue = false;
+    private bool m_IsWaitingChoice = false;
     private static string ms_DialogueFileName = "/Dialogues.txt";
 
     void Awake ()
@@ -56,7 +57,7 @@ public class DialogueManager : MonoBehaviour
 
     public void OnGameEvent (PlayerInputGameEvent inputEvent)
     {
-        if (inputEvent.GetInput () == "Submit" && inputEvent.GetInputState () == EInputState.Down && m_IsInDialogue)
+        if (!m_IsWaitingChoice && inputEvent.GetInput () == "Submit" && inputEvent.GetInputState () == EInputState.Down && m_IsInDialogue)
         {
             DisplayNextSentence ();
         }
@@ -122,6 +123,8 @@ public class DialogueManager : MonoBehaviour
         string speakerName = sentence.GetName ();
         if (speakerName == "Choice")
         {
+            m_IsWaitingChoice = true;
+            m_DialogeText.text = "";
             Dialogue.Choice choice = (Dialogue.Choice)sentence;
             Assert.IsTrue (choice.m_Choices.Count <= m_ChoicesButton.Count);
             
@@ -133,6 +136,7 @@ public class DialogueManager : MonoBehaviour
                 button.GetComponentInChildren<Text> ().text = pair.Key;
                 button.onClick.AddListener (delegate 
                 {
+                    m_IsWaitingChoice = false;
                     Dialogue d = FindSubdialogue (pair.Value);
                     if(d != null)
                     {
@@ -168,8 +172,7 @@ public class DialogueManager : MonoBehaviour
         m_Animator.SetBool ("IsOpen", false);
         if(m_CurrentDialogue.m_Action != null)
         {
-            Debug.Log (m_CurrentDialogue.m_Action.m_ActionType);
-            new DialogueActionGameEvent ("Game", m_CurrentDialogue.m_Action).Push ();
+            m_CurrentDialogue.m_Action.Action ();
         }
         m_CurrentDialogue = null;
         m_HighestDialogue = null;
@@ -194,6 +197,10 @@ public class DialogueManager : MonoBehaviour
         for (int i = 0; i < lines.Length; i++)
         {
             string[] datas = lines[i].Split (separators, System.StringSplitOptions.RemoveEmptyEntries);
+            if(datas.Length == 0)
+            {
+                continue;
+            }
 
             if (datas[0] == "[")
             {

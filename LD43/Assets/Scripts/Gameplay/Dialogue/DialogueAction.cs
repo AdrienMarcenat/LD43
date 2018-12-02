@@ -3,72 +3,56 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public enum EDialogueActionType
+public interface IDialogueAction
 {
-    AddToTeam,
-    RemoveFromTeam,
-    UseCapacity
+    void Action ();
 }
 
-public class DialogueActionGameEvent : GameEvent
-{
-    public DialogueActionGameEvent (string tag, DialogueAction action)
-        : base (tag)
-    {
-        m_Action = action;
-    }
-
-    public DialogueAction GetAction ()
-    {
-        return m_Action;
-    }
-
-    private DialogueAction m_Action;
-}
-
-public class DialogueAction
-{
-    public EDialogueActionType m_ActionType;
-
-    public DialogueAction(EDialogueActionType actionType)
-    {
-        m_ActionType = actionType;
-    }
-}
-
-public class AddToTeamAction : DialogueAction
+public class AddToTeamAction : IDialogueAction
 {
     public string m_CharacterName;
     public ECharacterClass m_CharacterClass;
 
     public AddToTeamAction (string characterName, ECharacterClass characterClass)
-        : base(EDialogueActionType.AddToTeam)
     {
         m_CharacterName = characterName;
         m_CharacterClass = characterClass;
     }
+
+    public void Action()
+    {
+        TeamManagerProxy.Get ().AddCharacter (new CharacterModel (m_CharacterName, m_CharacterClass));
+    }
 }
 
-public class RemoveFromTeamAction : DialogueAction
+public class RemoveFromTeamAction : IDialogueAction
 {
     public string m_CharacterName;
 
     public RemoveFromTeamAction (string characterName)
-        : base (EDialogueActionType.RemoveFromTeam)
     {
         m_CharacterName = characterName;
     }
+
+    public void Action ()
+    {
+        TeamManagerProxy.Get ().RemoveCharacter (m_CharacterName);
+    }
 }
 
-public class UseCapacityAction : DialogueAction
+public class UseCapacityAction : IDialogueAction
 {
     public string m_CharacterName;
     public ECharacterCapacity m_Capacity;
 
     public UseCapacityAction (string characterName, ECharacterCapacity capacity)
-        : base (EDialogueActionType.UseCapacity)
     {
         m_CharacterName = characterName;
         m_Capacity = capacity;
+    }
+
+    public void Action ()
+    {
+        TeamManagerProxy.Get ().UseCharacterCapacity (m_CharacterName);
     }
 }

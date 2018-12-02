@@ -3,9 +3,9 @@
 public interface ITeamManagerInterface
 {
     void AddCharacter (CharacterModel newCharacter);
-    void RemoveCharacter (int characterId);
-    CharacterModel GetCharacter (int characterId);
-    void UseCharacterCapacity (int characterId);
+    void RemoveCharacter (string characterId);
+    CharacterModel GetCharacter (string characterId);
+    void UseCharacterCapacity (string characterId);
     bool IsEnoughCharacters (int minCharacters);
     bool IsNotTooMuchCharacters (int maxCharacters);
     bool IsInRangeCharacters (int minCharacters, int maxCharacters);
@@ -14,26 +14,25 @@ public interface ITeamManagerInterface
 
 public class TeamManager : ITeamManagerInterface
 {
-
-    private Dictionary<int, CharacterModel> m_Characters;
+    private Dictionary<string, CharacterModel> m_Characters;
 
     public TeamManager()
     {
-        m_Characters = new Dictionary<int, CharacterModel> ();
+        m_Characters = new Dictionary<string, CharacterModel> ();
     }
 
     public void AddCharacter (CharacterModel newCharacter)
     {
-        m_Characters.Add (newCharacter.GetId (), newCharacter);
+        m_Characters.Add (newCharacter.GetName (), newCharacter);
     }
 
-    public void RemoveCharacter(int characterId)
+    public void RemoveCharacter(string characterId)
     {
         // TODO: Activate character dialog
         m_Characters.Remove (characterId);
     }
 
-    public CharacterModel GetCharacter (int characterId)
+    public CharacterModel GetCharacter (string characterId)
     {
         CharacterModel temp;
         if (m_Characters.TryGetValue (characterId, out temp))
@@ -44,9 +43,9 @@ public class TeamManager : ITeamManagerInterface
         return null;
     }
 
-    public void UseCharacterCapacity (int characterId)
+    public void UseCharacterCapacity (string characterId)
     {
-        ECharacterCapacity capacity = m_Characters[characterId].UseCapacity ();
+        ECharacterCapacity capacity = m_Characters[characterId].GetCapacity ();
 
         switch (capacity)
         {
