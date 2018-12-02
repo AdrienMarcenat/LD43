@@ -7,7 +7,7 @@ public class EdgePanel : MonoBehaviour
     private OverworldPlayerController m_Player;
     [SerializeField] private Button m_ChoosePathButton;
     [SerializeField] private Text m_Description;
-    private EEdgeType m_moveType;
+    private EEdgeType m_MoveType;
 
     private void Awake ()
     {
@@ -30,21 +30,21 @@ public class EdgePanel : MonoBehaviour
             case EEdgeType.Combat:
                 if (TeamManagerProxy.Get ().IsNotTooMuchCharacters (tempEdgeResource.GetEdgeCharacterNumber ()))
                 {
-                    m_moveType = EEdgeType.Normal;
+                    m_MoveType = EEdgeType.Normal;
                 }
                 else
                 {
-                    m_moveType = EEdgeType.Combat;
+                    m_MoveType = EEdgeType.Combat;
                 }
                 break;
             case EEdgeType.Obstacle:
                 if (TeamManagerProxy.Get ().IsCharacterClass (tempEdgeResource.GetEdgeCharacterClass ()))
                 {
-                    m_moveType = EEdgeType.Normal;
+                    m_MoveType = EEdgeType.Normal;
                 }
                 else
                 {
-                    m_moveType = EEdgeType.Obstacle;
+                    m_MoveType = EEdgeType.Obstacle;
                 }
                 break;
         }
@@ -66,6 +66,17 @@ public class EdgePanel : MonoBehaviour
 
     public void ChoosePath()
     {
+        // TODO: Implement encounter trigger
+        switch (m_MoveType)
+        {
+            case EEdgeType.Normal:
+                break;
+            case EEdgeType.Combat:
+                break;
+            case EEdgeType.Obstacle:
+                break;
+        }
+
         new OnEdgeGameEvent ("Player", m_CurrentEdge, true).Push ();
         gameObject.SetActive (false);
         UpdaterProxy.Get ().SetPause (false);
