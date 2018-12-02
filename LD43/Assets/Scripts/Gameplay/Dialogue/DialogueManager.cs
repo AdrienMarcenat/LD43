@@ -26,6 +26,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Text m_NameText;
     [SerializeField] private Animator m_Animator;
     [SerializeField] private Image m_Thumbnail;
+    [SerializeField] private List<Button> m_ChoicesButton;
 
     private Queue<Dialogue.ITextInterface> m_Sentences;
     private Dialogue m_CurrentDialogue;
@@ -62,21 +63,48 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue (Dialogue dialogue)
     {
-        m_CurrentDialogue = dialogue;
+        Reset ();
         m_IsInDialogue = true;
         m_Animator.SetBool ("IsOpen", true);
         m_Sentences.Clear ();
 
-        if(m_CurrentDialogue.m_IsSubDialogues)
+        if (dialogue.m_IsSubDialogues)
         {
-            dialogue = m_CurrentDialogue.m_SubDialogues[0];
+            m_CurrentDialogue = dialogue;
+            StartDialogue (m_CurrentDialogue.m_SubDialogues[0]);
         }
-        foreach (Dialogue.ITextInterface sentence in dialogue.m_Texts)
+        else
         {
-            m_Sentences.Enqueue (sentence);
+            foreach (Dialogue.ITextInterface sentence in dialogue.m_Texts)
+            {
+                m_Sentences.Enqueue (sentence);
+            }
+
+            DisplayNextSentence ();
+        }
+    }
+
+    private void Reset()
+    {
+        m_Sentences.Clear ();
+        foreach (Button b in m_ChoicesButton)
+        {
+            b.onClick.RemoveAllListeners ();
+            b.gameObject.SetActive (false);
         }
 
-        DisplayNextSentence ();
+    }
+
+    private Dialogue FindSubdialogue (string tag)
+    {
+        foreach(Dialogue d in m_CurrentDialogue.m_SubDialogues)
+        {
+            if(d.m_Tag == tag)
+            {
+                return d;
+            }
+        }
+        return null;
     }
 
     public void DisplayNextSentence ()
@@ -89,12 +117,36 @@ public class DialogueManager : MonoBehaviour
         StopAllCoroutines ();
         Dialogue.ITextInterface sentence = m_Sentences.Dequeue ();
         string speakerName = sentence.GetName ();
-        if (m_NameText.text != speakerName)
+        if (speakerName == "Choice")
         {
-            m_NameText.text = speakerName;
-            //m_Thumbnail.sprite = RessourceManager.LoadSprite (speakerName, 0);
+            Dialogue.Choice choice = (Dialogue.Choice)sentence;
+            Assert.IsTrue (choice.m_Choices.Count <= m_ChoicesButton.Count);
+            
+            for (int i = 0; i < choice.m_Choices.Count; ++i)
+            {
+                KeyValuePair<string, string> pair = choice.m_Choices[i];
+                Button button = m_ChoicesButton[i];
+                button.gameObject.SetActive(true);
+                button.GetComponentInChildren<Text> ().text = pair.Key;
+                button.onClick.AddListener (delegate 
+                {
+                    Dialogue d = FindSubdialogue (pair.Value);
+                    if(d != null)
+                    {
+                        StartDialogue (d);
+                    }
+                });
+            }
         }
-        StartCoroutine (TypeSentence (sentence.GetText ()));
+        else
+        {
+            if (m_NameText.text != speakerName)
+            {
+                m_NameText.text = speakerName;
+                //m_Thumbnail.sprite = RessourceManager.LoadSprite (speakerName, 0);
+            }
+            StartCoroutine (TypeSentence (sentence.GetText ()));
+        }
     }
 
     IEnumerator TypeSentence (string sentence)
@@ -111,6 +163,7 @@ public class DialogueManager : MonoBehaviour
     {
         m_IsInDialogue = false;
         m_Animator.SetBool ("IsOpen", false);
+        m_CurrentDialogue = null;
         new GameFlowEvent (EGameFlowAction.EndDialogue).Push ();
     }
 
@@ -233,7 +286,7 @@ public class DialogueManager : MonoBehaviour
                     if (string.Equals(datas[0], "Choice"))
                     {
                         Assert.IsTrue (datas.Length == 2);
-                        currSubDialogue.m_Texts.Add (new Dialogue.Choice ("You", ParseChoice (datas[1], i)));
+                        currSubDialogue.m_Texts.Add (new Dialogue.Choice ("Choice", ParseChoice (datas[1], i)));
                     }
                 }
             }
@@ -257,7 +310,7 @@ public class DialogueManager : MonoBehaviour
 
         for (int i = 0; i < (data.Length / 2); i++)
         {
-            choices.Add (new KeyValuePair<string, string> (data[2 * i], data[2 * i + 1]));
+            choices.Add (new KeyValuePair<string, string> (data[2 * i], data[2 * i + 1].Trim('"')));
         }
 
         return choices;

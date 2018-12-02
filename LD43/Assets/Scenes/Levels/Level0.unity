@@ -1511,7 +1511,7 @@ Prefab:
     - target: {fileID: 224282275979061174, guid: 02e564265b4247047bfb4b375851d93f,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0.3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224282275979061174, guid: 02e564265b4247047bfb4b375851d93f,
         type: 2}
@@ -1523,9 +1523,50 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1071016003136918, guid: 02e564265b4247047bfb4b375851d93f, type: 2}
-      propertyPath: m_TagString
-      value: Untagged
+    - target: {fileID: 114945913953090492, guid: 02e564265b4247047bfb4b375851d93f,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 114945913953090492, guid: 02e564265b4247047bfb4b375851d93f,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 114945913953090492, guid: 02e564265b4247047bfb4b375851d93f,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 114811675498388386, guid: 02e564265b4247047bfb4b375851d93f,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 114811675498388386, guid: 02e564265b4247047bfb4b375851d93f,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 114811675498388386, guid: 02e564265b4247047bfb4b375851d93f,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662570582424944, guid: 02e564265b4247047bfb4b375851d93f,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662570582424944, guid: 02e564265b4247047bfb4b375851d93f,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662570582424944, guid: 02e564265b4247047bfb4b375851d93f,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.509434
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02e564265b4247047bfb4b375851d93f, type: 2}
@@ -2559,6 +2600,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!84 &1442220396
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: SpriteLightKit RT
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 727
+  m_Height: 409
+  m_AntiAliasing: 1
+  m_DepthFormat: 0
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1455501729
 GameObject:
   m_ObjectHideFlags: 0
@@ -2952,37 +3024,6 @@ Transform:
   m_Father: {fileID: 42790411}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!84 &1599404824
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: SpriteLightKit RT
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 727
-  m_Height: 409
-  m_AntiAliasing: 1
-  m_DepthFormat: 0
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 0
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &1616297848
 Prefab:
   m_ObjectHideFlags: 0
@@ -3026,11 +3067,45 @@ Prefab:
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 1599404824}
+      objectReference: {fileID: 1929706096}
     - target: {fileID: 114025615796217506, guid: a788c783343da3d44abc8ff8393191de,
         type: 2}
       propertyPath: spriteLightRT
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114484665702041342, guid: a788c783343da3d44abc8ff8393191de,
+        type: 2}
+      propertyPath: lightLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 20555382284665094, guid: a788c783343da3d44abc8ff8393191de,
+        type: 2}
+      propertyPath: m_CullingMask.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 20882781327864710, guid: a788c783343da3d44abc8ff8393191de,
+        type: 2}
+      propertyPath: m_CullingMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 20882781327864710, guid: a788c783343da3d44abc8ff8393191de,
+        type: 2}
+      propertyPath: m_Depth
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114484665702041342, guid: a788c783343da3d44abc8ff8393191de,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4408393896000692, guid: a788c783343da3d44abc8ff8393191de, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20882781327864710, guid: a788c783343da3d44abc8ff8393191de,
+        type: 2}
+      propertyPath: m_ClearFlags
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a788c783343da3d44abc8ff8393191de, type: 2}
@@ -3596,7 +3671,7 @@ Canvas:
   m_GameObject: {fileID: 1915787969}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 2146520988}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -3857,6 +3932,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!84 &1929706096
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: SpriteLightKit RT
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 727
+  m_Height: 409
+  m_AntiAliasing: 1
+  m_DepthFormat: 0
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1932926755
 GameObject:
   m_ObjectHideFlags: 0

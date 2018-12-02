@@ -44,7 +44,7 @@ public class Dialogue
 
         public string GetName ()
         {
-            return m_Name;
+            return "Choice";
         }
 
         public string GetText ()
