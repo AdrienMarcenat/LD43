@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class OnEdgeGameEvent : GameEvent
 {
@@ -49,13 +50,15 @@ public class OverworldPlayerController : MonoBehaviour
 
     public void OnGameEvent (OnEdgeGameEvent edgeEvent)
     {
+        EdgeView edge = edgeEvent.GetEdge ();
         if (edgeEvent.IsEntering ())
         {
-            MoveToEdge (edgeEvent.GetEdge ());
+            MoveToEdge (edge);
         }
         else
         {
-            MoveToNode (edgeEvent.GetEdge ().GetEnd ());
+            Assert.IsTrue (edge.GetEdge ().UseNode (m_CurrentNode.GetNode ()));
+            MoveToNode (m_CurrentNode == edge.GetStart () ? edge.GetEnd () : edge.GetStart ());
         }
     }
 
@@ -87,7 +90,14 @@ public class OverworldPlayerController : MonoBehaviour
             Vector3 end = edge.GetEnd ().transform.position;
             m_TargetPos = (start + end) / 2;
             StartCoroutine (MoveRoutine ());
+            StartCoroutine (PushEvent (new OnEdgeActionEvent ("Game", edge)));
         }
+    }
+
+    IEnumerator PushEvent (GameEvent e)
+    {
+        yield return new WaitForSecondsRealtime (1f);
+        e.Push ();
     }
 
     IEnumerator MoveRoutine ()

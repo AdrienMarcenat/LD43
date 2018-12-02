@@ -16,6 +16,22 @@ public class OnEdgeClick : GameEvent
     private EdgeView m_Edge;
 }
 
+public class OnEdgeActionEvent : GameEvent
+{
+    public OnEdgeActionEvent (string tag, EdgeView edge)
+        : base (tag)
+    {
+        m_Edge = edge;
+    }
+
+    public EdgeView GetEdge ()
+    {
+        return m_Edge;
+    }
+
+    private EdgeView m_Edge;
+
+}
 [RequireComponent(typeof(EdgeCollider2D))]
 public class EdgeView : MonoBehaviour
 {
