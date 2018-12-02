@@ -33,14 +33,22 @@ public class OnEdgeActionEvent : GameEvent
 
 }
 [RequireComponent(typeof(EdgeCollider2D))]
+[RequireComponent (typeof (LineRenderer))]
 public class EdgeView : MonoBehaviour
 {
     private GameEdge m_Edge;
+    private LineRenderer m_Line;
 
     [SerializeField] private NodeView m_Start;
     [SerializeField] private NodeView m_End;
     [SerializeField] private bool m_IsOriented;
     [SerializeField] private Sprite m_Sprite;
+
+    private void Awake ()
+    {
+        m_Line = GetComponent<LineRenderer> ();
+        m_Line.enabled = false;
+    }
 
     public void ResizeCollider ()
     {
@@ -108,5 +116,16 @@ public class EdgeView : MonoBehaviour
     private void OnMouseUp ()
     {
         new OnEdgeClick ("Game", this).Push ();
+    }
+
+    private void OnMouseEnter ()
+    {
+        m_Line.SetPositions(new Vector3[] { m_Start.transform.position, m_End.transform.position });
+        m_Line.enabled = true;
+    }
+
+    private void OnMouseExit ()
+    {
+        m_Line.enabled = false;
     }
 }
