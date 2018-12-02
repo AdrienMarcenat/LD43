@@ -38,6 +38,7 @@ public class GraphView : MonoBehaviour
         }
         foreach (EdgeView edge in m_Edges)
         {
+            edge.ResizeCollider ();
             edge.BuildEdge ();
             m_Graph.AddEdge (edge.GetEdge ());
         }

@@ -1,28 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class EnterNodeGameEvent : GameEvent
+public class OnEdgeGameEvent : GameEvent
 {
-    public EnterNodeGameEvent (string tag, NodeView node)
+    public OnEdgeGameEvent (string tag, EdgeView edge, bool enter)
         : base(tag)
     {
-        m_Node = node;
-    }
-
-    public NodeView GetNode()
-    {
-        return m_Node;
-    }
-
-    private NodeView m_Node;
-}
-
-public class EnterEdgeGameEvent : GameEvent
-{
-    public EnterEdgeGameEvent (string tag, EdgeView edge)
-        : base (tag)
-    {
         m_Edge = edge;
+        m_Enter = enter;
     }
 
     public EdgeView GetEdge ()
@@ -30,7 +15,13 @@ public class EnterEdgeGameEvent : GameEvent
         return m_Edge;
     }
 
+    public bool IsEntering()
+    {
+        return m_Enter;
+    }
+
     private EdgeView m_Edge;
+    private bool m_Enter;
 }
 
 [RequireComponent (typeof (MovingObject))]
@@ -48,7 +39,7 @@ public class OverworldPlayerController : MonoBehaviour
         m_TargetPos = m_CurrentNode.transform.position;
         transform.position = m_TargetPos;
         //m_Animator = GetComponent<Animator> ();
-        this.RegisterAsListener ("Player", typeof (EnterNodeGameEvent), typeof (EnterEdgeGameEvent));
+        this.RegisterAsListener ("Player", typeof (OnEdgeGameEvent));
     }
 
     private void OnDestroy ()
@@ -56,14 +47,16 @@ public class OverworldPlayerController : MonoBehaviour
         this.UnregisterAsListener ("Player");
     }
 
-    public void OnGameEvent (EnterNodeGameEvent enterNodeEvent)
+    public void OnGameEvent (OnEdgeGameEvent edgeEvent)
     {
-        MoveToNode (enterNodeEvent.GetNode ());
-    }
-
-    public void OnGameEvent (EnterEdgeGameEvent enterEdgeEvent)
-    {
-        MoveToEdge (enterEdgeEvent.GetEdge ());
+        if (edgeEvent.IsEntering ())
+        {
+            MoveToEdge (edgeEvent.GetEdge ());
+        }
+        else
+        {
+            MoveToNode (edgeEvent.GetEdge ().GetEnd ());
+        }
     }
 
     public void MoveToNode (NodeView node)
@@ -78,10 +71,13 @@ public class OverworldPlayerController : MonoBehaviour
 
     public void MoveToEdge (EdgeView edge)
     {
-        Vector3 start = edge.GetStart ().transform.position;
-        Vector3 end = edge.GetEnd ().transform.position;
-        m_TargetPos = (start + end) / 2;
-        StartCoroutine (MoveRoutine ());
+        if (m_CurrentNode.GetNode ().IsNeighbor (edge.GetEnd ().GetNode()))
+        {
+            Vector3 start = edge.GetStart ().transform.position;
+            Vector3 end = edge.GetEnd ().transform.position;
+            m_TargetPos = (start + end) / 2;
+            StartCoroutine (MoveRoutine ());
+        }
     }
 
     IEnumerator MoveRoutine ()

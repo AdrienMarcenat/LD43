@@ -1,5 +1,22 @@
 ﻿using UnityEngine;
 
+public class OnEdgeClick : GameEvent
+{
+    public OnEdgeClick (string tag, EdgeView edge)
+        : base (tag)
+    {
+        m_Edge = edge;
+    }
+
+    public EdgeView GetEdge ()
+    {
+        return m_Edge;
+    }
+
+    private EdgeView m_Edge;
+}
+
+[RequireComponent(typeof(EdgeCollider2D))]
 public class EdgeView : MonoBehaviour
 {
     private GameEdge m_Edge;
@@ -8,6 +25,17 @@ public class EdgeView : MonoBehaviour
     [SerializeField] private NodeView m_End;
     [SerializeField] private bool m_IsOriented;
     [SerializeField] private Sprite m_Sprite;
+
+    public void ResizeCollider ()
+    {
+        if (IsValid ())
+        {
+            EdgeCollider2D collider = GetComponent<EdgeCollider2D> ();
+            collider.points = new Vector2[]{ m_Start.transform.position, m_End.transform.position };
+            collider.edgeRadius = 2f;
+            collider.isTrigger = true;
+        }
+    }
 
     public void BuildEdge()
     {
@@ -59,5 +87,10 @@ public class EdgeView : MonoBehaviour
     public bool IsValid()
     {
         return m_Start != null && m_End != null;
+    }
+
+    private void OnMouseUp ()
+    {
+        new OnEdgeClick ("Game", this).Push ();
     }
 }

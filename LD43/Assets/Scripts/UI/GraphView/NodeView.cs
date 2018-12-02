@@ -28,6 +28,5 @@ public class NodeView : MonoBehaviour
 
     public void OnMouseUp ()
     {
-        new EnterNodeGameEvent ("Player", this).Push();
     }
 }
