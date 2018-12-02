@@ -32,9 +32,30 @@ public class NodeView : MonoBehaviour
         this.RegisterAsListener ("Game", typeof (OnNodeEnterEvent));
     }
 
+    private void Start ()
+    {
+        if (m_IsVisited)
+        {
+            new OnNodeEnterEvent ("Game", this).Push ();
+        }
+    }
+
     private void OnDestroy ()
     {
         this.UnregisterAsListener ("Game");
+    }
+
+    public void OnGameEvent (OnNodeEnterEvent nodeEvent)
+    {
+        if (nodeEvent.GetNode () == this)
+        {
+            SetIsVisible (true);
+            OnEnter ();
+        }
+        else if(nodeEvent.GetNode().GetNode().IsNeighbor(m_Node))
+        {
+            SetIsVisible (true);
+        }
     }
 
     public void BuildNode()
@@ -62,7 +83,7 @@ public class NodeView : MonoBehaviour
         return m_Resource;
     }
 
-    public void OnEnter ()
+    private void OnEnter ()
     {
         if (!m_IsVisited)
         {

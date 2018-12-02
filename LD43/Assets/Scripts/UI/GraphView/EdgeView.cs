@@ -53,6 +53,20 @@ public class EdgeView : MonoBehaviour
         m_Line.enabled = false;
         m_Sprite = GetComponentInChildren<SpriteRenderer> ();
         SetIsVisible (m_IsVisible);
+        this.RegisterAsListener ("Game", typeof (OnNodeEnterEvent));
+    }
+
+    private void OnDestroy ()
+    {
+        this.UnregisterAsListener ("Game");
+    }
+
+    public void OnGameEvent (OnNodeEnterEvent nodeEvent)
+    {
+        if (m_Edge.UseNode(nodeEvent.GetNode ().GetNode()))
+        {
+            SetIsVisible (true);
+        }
     }
 
     public void ResizeCollider ()
