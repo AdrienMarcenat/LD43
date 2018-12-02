@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EAction
+{
+    Attack,
+    Defense,
+    Heal
+}
+
 public class Character : MonoBehaviour
 {
     protected CharacterModel m_Model;
     protected Health m_Health;
     protected SpriteRenderer m_Sprite;
-    protected List<BattleAction> m_BattleActions;
+    protected List<EAction> m_BattleActions;
     protected int m_Resistance = 0;
 
 
@@ -42,7 +49,7 @@ public class Character : MonoBehaviour
         StartCoroutine (HitRoutine (damageEvent.GetDamage ()));
     }
 
-    public List<BattleAction> GetBattleActions ()
+    public List<EAction> GetBattleActions ()
     {
         return m_BattleActions;
     }

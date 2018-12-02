@@ -76,6 +76,18 @@ public class BattleManager
         }
     }
 
+    public void ResetDefense ()
+    {
+        if (m_IsPlayerTurn)
+        {
+            m_EnnemyCharacters.Peek ().ResetResistance ();
+        }
+        else
+        {
+            m_PlayerCharacters.Peek ().ResetResistance ();
+        }
+    }
+
     public void Heal (int heal)
     {
         if (m_IsPlayerTurn)

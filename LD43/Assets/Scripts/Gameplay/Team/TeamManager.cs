@@ -5,10 +5,11 @@ public interface ITeamManagerInterface
     void AddCharacter (CharacterModel newCharacter);
     void RemoveCharacter (int characterId);
     CharacterModel GetCharacter (int characterId);
+    void UseCharacterCapacity (int characterId);
     bool IsEnoughCharacters (int minCharacters);
     bool IsNotTooMuchCharacters (int maxCharacters);
     bool IsInRangeCharacters (int minCharacters, int maxCharacters);
-    bool IsCharacterClass (int characterClass);
+    bool IsCharacterClass (ECharacterClass characterClass);
 }
 
 public class TeamManager : ITeamManagerInterface
@@ -28,6 +29,7 @@ public class TeamManager : ITeamManagerInterface
 
     public void RemoveCharacter(int characterId)
     {
+        // TODO: Activate character dialog
         m_Characters.Remove (characterId);
     }
 
@@ -40,6 +42,21 @@ public class TeamManager : ITeamManagerInterface
         }
 
         return null;
+    }
+
+    public void UseCharacterCapacity (int characterId)
+    {
+        ECharacterCapacity capacity = m_Characters[characterId].UseCapacity ();
+
+        switch (capacity)
+        {
+            case ECharacterCapacity.Heal:
+                // TODO: Do the Heal
+                break;
+            case ECharacterCapacity.Purify:
+                // TODO: PURIFY ALL INFIDELS
+                break;
+        }
     }
 
     public bool IsEnoughCharacters (int minCharacters)
@@ -57,7 +74,7 @@ public class TeamManager : ITeamManagerInterface
         return ((m_Characters.Count >= minCharacters) && (m_Characters.Count <= maxCharacters));
     }
 
-    public bool IsCharacterClass (int characterClass)
+    public bool IsCharacterClass (ECharacterClass characterClass)
     {
         foreach (CharacterModel character in m_Characters.Values)
         {
