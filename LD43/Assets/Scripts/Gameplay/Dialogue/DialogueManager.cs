@@ -324,6 +324,12 @@ public class DialogueManager : MonoBehaviour
                                 currSubDialogue.m_Action = new UseCapacityAction (action[1], (ECharacterCapacity)System.Enum.Parse (typeof (ECharacterCapacity), action[2]));
                                 break;
                             }
+
+                            case "SayGoodbye":
+                            {
+                                currSubDialogue.m_Action = new SayGoodbyeAction ();
+                                break;
+                            }
                         }
                     }
 

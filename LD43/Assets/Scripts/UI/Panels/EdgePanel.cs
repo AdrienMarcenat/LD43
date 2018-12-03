@@ -64,8 +64,6 @@ public class EdgePanel : MonoBehaviour
         }
 
         m_Description.text = tempEdgeResource.GetDescription ();
-
-        m_CurrentEdge.GetEdgeResource ().SetNormal ();
     }
 
     private void OnDestroy ()
@@ -82,6 +80,8 @@ public class EdgePanel : MonoBehaviour
 
     public void ChoosePath()
     {
+        m_CurrentEdge.GetEdgeResource ().SetNormal ();
+
         switch (m_MoveType )
         {
             case EEdgeType.Normal:

@@ -138,8 +138,8 @@ Charles recrutement
 	Add
 	[
 	[Sentence]Charles:"I have faith in you, my prince."
-	]
 	AddToTeam Charles None
+	]
 	NotAdd
 	[
 	[Sentence]Charles:"I suppose you're right."
@@ -189,14 +189,13 @@ Camilla recrutement
 	[Sentence]Camilla:"My prince, my prince is it you ? My prince, you must help me."
 	[Sentence]Camilla:"My only son is just down the street and I can't get to him."
 	[Sentence]Camilla:"I beg you, take me to him or at least save his life !"
-	[Choice]:"I can try to reunite you" (Add her to your party)/"Add"
-		/"I will save his life, but I cannot take you with me. For now."(Leave her)/"NotAdd"
+	[Choice]:"I can try to reunite you" (Add her to your party)/"Add"/"I will save his life, but I cannot take you with me. For now."(Leave her)/"NotAdd"
 	]
 	Add
 	[
 	[Sentence]Camilla:"You truly are our saviour, my prince."
-	]
 	AddToTeam Camilla Mother
+	]
 	NotAdd
 	[
 	[Sentence]Camilla:"I know he will be safe with you, my prince."
@@ -250,8 +249,7 @@ Isaac recrutement
 	[
 	[Sentence]Isaac:"Sir, sir ! I need you to help me, sir! I got separated from my mom."
 	[Sentence]Isaac:"She is just up the street, but there are monsters, and I am scared. Please, take me to her."
-	[Choice]:"I can try to reunite you" (Add him to your party)/"Add"
-		/"Okay Isaac, I'll try to take her here. Stay hidden." (Leave him)/"NotAdd"
+	[Choice]:"I can try to reunite you" (Add him to your party)/"Add"/"Okay Isaac, I'll try to take her here. Stay hidden." (Leave him)/"NotAdd"
 	]
 	Add
 	[
@@ -330,5 +328,6 @@ Prince Leave
 	THECAKEISALIIIIIIE
 	[
 	[Sentence]Prince:"No, I cannot leave. I must continue, even if I am barely standing."
+	SayGoodbye
 	]
 ]
