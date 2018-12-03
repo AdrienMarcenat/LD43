@@ -45,6 +45,7 @@ public class EdgePanel : MonoBehaviour
                 else
                 {
                     m_MoveType = EEdgeType.Obstacle;
+                    m_ChoosePathButton.interactable = false;
                 }
                 break;
         }
@@ -66,16 +67,9 @@ public class EdgePanel : MonoBehaviour
 
     public void ChoosePath()
     {
-        // TODO: Implement encounter trigger
-        switch (m_MoveType)
+        if (m_MoveType == EEdgeType.Combat)
         {
-            case EEdgeType.Normal:
-                break;
-            case EEdgeType.Combat:
-                new OnBattleGameEvent (true, m_CurrentEdge.GetEdgeResource ()).Push ();
-                break;
-            case EEdgeType.Obstacle:
-                break;
+            new OnBattleGameEvent (true, m_CurrentEdge.GetEdgeResource ()).Push ();
         }
 
         new OnEdgeGameEvent ("Player", m_CurrentEdge, true).Push ();
