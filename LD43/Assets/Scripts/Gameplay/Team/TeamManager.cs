@@ -11,6 +11,8 @@ public interface ITeamManagerInterface
     bool IsInRangeCharacters (int minCharacters, int maxCharacters);
     bool IsCharacterClass (ECharacterClass characterClass);
     void WaitForDiversion ();
+    void GetKey ();
+    bool HasKey ();
     Dictionary<string, CharacterModel> GetTeam();
     List<CharacterModel> GetSortedTeam ();
 }
@@ -19,6 +21,7 @@ public class TeamManager : ITeamManagerInterface
 {
     private Dictionary<string, CharacterModel> m_Characters;
     private bool m_WaitingForDiversion = false;
+    private bool m_HasKey = false;
 
     public TeamManager()
     {
@@ -125,6 +128,16 @@ public class TeamManager : ITeamManagerInterface
     public void WaitForDiversion ()
     {
         m_WaitingForDiversion = true;
+    }
+
+    public void GetKey ()
+    {
+        m_HasKey = true;
+    }
+
+    public bool HasKey ()
+    {
+        return m_HasKey;
     }
 }
 

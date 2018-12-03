@@ -88,11 +88,48 @@ public class NodeView : MonoBehaviour
         if (!m_IsVisited)
         {
             string tag = m_Resource.GetDialogueTag ();
-            if (tag != "")
-            {
-                DialogueManagerProxy.Get ().TriggerDialogue (tag);
-            }
             m_IsVisited = true;
+
+            switch (m_Resource.GetNodeType ())
+            {
+                case ENodeType.Normal:
+                    if (tag != "")
+                    {
+                        DialogueManagerProxy.Get ().TriggerDialogue (tag);
+                    }
+                    break;
+                case ENodeType.Battle:
+                    new OnNodeBattleGameEvent (true, this).Push ();
+                    break;
+                case ENodeType.Recruitment:
+                    DialogueManagerProxy.Get ().TriggerDialogue (tag);
+                    break;
+                case ENodeType.Key:
+                    break;
+                case ENodeType.End:
+                    if (m_Resource.NeedKey ())
+                    {
+                        if (TeamManagerProxy.Get ().HasKey ())
+                        {
+                            // End level
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                    else
+                    {
+
+                    }
+                    break;
+                default:
+                    if (tag != "")
+                    {
+                        DialogueManagerProxy.Get ().TriggerDialogue (tag);
+                    }
+                    break;
+            }
         }
     }
 

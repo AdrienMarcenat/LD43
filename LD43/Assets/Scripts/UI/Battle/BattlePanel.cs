@@ -6,7 +6,17 @@ using UnityEngine.Assertions;
 
 public class OnBattleGameEvent : GameEvent
 {
-    public OnBattleGameEvent(bool enter, EdgeView edge = null) : base("Game")
+    public OnBattleGameEvent (bool enter) : base ("Game")
+    {
+        m_Enter = enter;
+    }
+
+    public bool m_Enter;
+}
+
+public class OnEdgeBattleGameEvent : GameEvent
+{
+    public OnEdgeBattleGameEvent(bool enter, EdgeView edge = null) : base("Game")
     {
         m_Enter = enter;
         m_Edge = edge;
@@ -14,6 +24,18 @@ public class OnBattleGameEvent : GameEvent
 
     public bool m_Enter;
     public EdgeView m_Edge;
+}
+
+public class OnNodeBattleGameEvent : GameEvent
+{
+    public OnNodeBattleGameEvent(bool enter, NodeView node = null) : base ("Game")
+    {
+        m_Enter = enter;
+        m_Node = node;
+    }
+
+    public bool m_Enter;
+    public NodeView m_Node;
 }
 
 public class BattlePanel : MonoBehaviour
@@ -39,11 +61,25 @@ public class BattlePanel : MonoBehaviour
 
     private void Awake ()
     {
-        this.RegisterAsListener ("Game", typeof (OnBattleGameEvent));
+        this.RegisterAsListener ("Game", typeof (OnBattleGameEvent);
+        this.RegisterAsListener ("Game", typeof (OnEdgeBattleGameEvent));
+        this.RegisterAsListener ("Game", typeof (OnNodeBattleGameEvent));
         gameObject.SetActive (false);
     }
 
     public void OnGameEvent (OnBattleGameEvent battleEvent)
+    {
+        if (battleEvent.m_Enter)
+        {
+            // This should not happen
+        }
+        else
+        {
+            StartCoroutine (Reset ());
+        }
+    }
+
+    public void OnGameEvent (OnEdgeBattleGameEvent battleEvent)
     {
         if (battleEvent.m_Enter)
         {
@@ -53,6 +89,19 @@ public class BattlePanel : MonoBehaviour
         else
         {
             StartCoroutine(Reset ());
+        }
+    }
+
+    public void OnGameEvent (OnNodeBattleGameEvent battleEvent)
+    {
+        if (battleEvent.m_Enter)
+        {
+            gameObject.SetActive (true);
+            StartCoroutine (Init (battleEvent.m_Node));
+        }
+        else
+        {
+            StartCoroutine (Reset ());
         }
     }
 
@@ -100,6 +149,36 @@ public class BattlePanel : MonoBehaviour
         }
         BattleManagerProxy.Get ().Init (m_Team, m_Enemies);
         m_IsInBattle = true;
+        UpdateUI ();
+    }
+
+    IEnumerator Init (NodeView node)
+    {
+        yield return null;
+        m_CurrentIndex = 0;
+        m_IsEnemyTurn = false;
+        m_Team = new List<Character> ();
+        int index = 0;
+        foreach (CharacterModel model in TeamManagerProxy.Get ().GetTeam ().Values)
+        {
+            m_Team.Add (new Character (model));
+            m_PlayerThumbnails[index].sprite = RessourceManager.LoadSprite ("Models/" + model.GetClass ().ToString (), 0);
+            index++;
+        }
+        m_CurrentPlayer = m_Team[0];
+        ActivateButtons (true);
+
+        m_Enemies = new List<Character> ();
+        index = 0;
+        foreach (ECharacterClass characterClass in node.GetNodeResource ().GetEnemies ())
+        {
+            m_Enemies.Add (new Character (new CharacterModel ("Enemy", characterClass)));
+            m_EnemiesThumbnails[index].sprite = RessourceManager.LoadSprite ("Models/" + characterClass.ToString (), 0);
+            index++;
+        }
+        BattleManagerProxy.Get ().Init (m_Team, m_Enemies);
+        m_IsInBattle = true;
+        UpdateUI ();
     }
 
     IEnumerator Reset ()
