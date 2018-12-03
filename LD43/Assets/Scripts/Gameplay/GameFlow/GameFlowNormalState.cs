@@ -16,9 +16,6 @@ public class GameFlowNormalState : HSMState
             case EGameFlowAction.EnterEdge:
                 ChangeNextTransition (HSMTransition.EType.Siblings, typeof (GameFlowEdgeState));
                 break;
-            case EGameFlowAction.TeamManagement:
-                ChangeNextTransition (HSMTransition.EType.Child, typeof (GameFlowTeamManagementState));
-                break;
             case EGameFlowAction.StartDialogue:
                 ChangeNextTransition (HSMTransition.EType.Top, typeof (GameFlowDialogueState));
                 break;

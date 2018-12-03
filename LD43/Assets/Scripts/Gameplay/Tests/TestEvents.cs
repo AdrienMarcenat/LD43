@@ -22,12 +22,7 @@ public class TestEvents : MonoBehaviour
     {
         new GameOverGameEvent ("Player").Push ();
     }
-
-    public void PauseEvent ()
-    {
-        new GameFlowEvent (EGameFlowAction.Pause).Push ();
-    }
-
+    
     public void ExitEvent ()
     {
         new GameFlowEvent (EGameFlowAction.Exit).Push ();

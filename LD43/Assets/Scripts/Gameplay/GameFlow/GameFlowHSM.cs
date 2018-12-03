@@ -4,7 +4,6 @@
     LoadGame,
     EndGame,
     GameOver,
-    Pause,
     Exit,
     Resume,
     Menu,
@@ -26,7 +25,6 @@
 
     // Next ones are useful to not have issues with other files
     EndLevelPanel,
-    LevelSelection
 }
 
 public class GameFlowEvent : GameEvent
@@ -49,11 +47,9 @@ public class GameFlowHSM : HSM
     public GameFlowHSM ()
         : base (new GameFlowMenuState ()
               , new GameFlowLevelState ()
-              , new GameFlowPauseState ()
               , new GameFlowGameOverState ()
               , new GameFlowNodeState ()
               , new GameFlowEdgeState ()
-              , new GameFlowTeamManagementState ()
               , new GameFlowEndGameState ()
               , new GameFlowNormalState ()
               , new GameFlowDialogueState ()

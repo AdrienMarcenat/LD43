@@ -35,7 +35,6 @@ public class TeamPanel : MonoBehaviour
     private void UpdateUI ()
     {
         m_Models = new List<CharacterModel> ();
-        Dictionary<string, CharacterModel> team = TeamManagerProxy.Get ().GetTeam ();
         int index = 0;
         foreach (CharacterModel model in TeamManagerProxy.Get ().GetTeam ().Values)
         {
