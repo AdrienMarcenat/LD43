@@ -10,12 +10,14 @@ public interface ITeamManagerInterface
     bool IsNotTooMuchCharacters (int maxCharacters);
     bool IsInRangeCharacters (int minCharacters, int maxCharacters);
     bool IsCharacterClass (ECharacterClass characterClass);
+    void WaitForDiversion ();
     Dictionary<string, CharacterModel> GetTeam();
 }
 
 public class TeamManager : ITeamManagerInterface
 {
     private Dictionary<string, CharacterModel> m_Characters;
+    private bool m_WaitingForDiversion = false;
 
     public TeamManager()
     {
@@ -41,6 +43,12 @@ public class TeamManager : ITeamManagerInterface
         // TODO: Activate character dialog
         m_Characters.Remove (characterId);
         new UpdateUIGameEvent ().Push ();
+
+        if (m_WaitingForDiversion)
+        {
+            new OnCharacterDiversionEvent ().Push ();
+            m_WaitingForDiversion = false;
+        }
     }
 
     public CharacterModel GetCharacter (string characterId)
@@ -95,6 +103,11 @@ public class TeamManager : ITeamManagerInterface
         }
 
         return false;
+    }
+
+    public void WaitForDiversion ()
+    {
+        m_WaitingForDiversion = true;
     }
 }
 
