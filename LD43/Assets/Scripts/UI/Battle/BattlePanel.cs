@@ -191,7 +191,7 @@ public class BattlePanel : MonoBehaviour
                 continue;
             }
             m_CurrentPlayer = enemy;
-            int randomChoice = Random.Range (0, 1);
+            int randomChoice = Random.Range (0, 3);
             switch(randomChoice)
             {
                 case 0:
