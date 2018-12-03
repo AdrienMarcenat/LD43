@@ -10,7 +10,7 @@
 
 2S3C
 [
-	This way seems pretty safe : 2 of us could remain unseen, but 3 or more would drow the attention and we would be in for a fight.
+	This way seems pretty safe : 2 of us could remain unseen, but 3 or more would draw the attention and we would be in for a fight.
 ]
 
 3S4C
@@ -102,3 +102,17 @@ Camilla
 	A voice is calling someone. It sounds of despair and frustration.
 ]
 
+IsaacOrCamilla
+[
+	A faint voice can be heard crying for someone.
+]
+
+Normal
+[
+	Nothing in sight. Everyone should be safe.
+]
+
+Tuto
+[
+	Even the royal palace has been invaded. I shall fight to protect my people!
+]

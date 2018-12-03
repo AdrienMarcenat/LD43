@@ -105,22 +105,27 @@ public class NodeView : MonoBehaviour
                     DialogueManagerProxy.Get ().TriggerDialogue (tag);
                     break;
                 case ENodeType.Key:
+                    DialogueManagerProxy.Get ().TriggerDialogue ("Key Found");
+                    TeamManagerProxy.Get ().GetKey ();
                     break;
                 case ENodeType.End:
                     if (m_Resource.NeedKey ())
                     {
                         if (TeamManagerProxy.Get ().HasKey ())
                         {
-                            // End level
+                            DialogueManagerProxy.Get ().TriggerDialogue (tag);
+                            new GameFlowEvent (EGameFlowAction.LevelWon).Push ();
                         }
                         else
                         {
-
+                            DialogueManagerProxy.Get ().TriggerDialogue ("No Key");
+                            m_IsVisited = false;
                         }
                     }
                     else
                     {
-
+                        DialogueManagerProxy.Get ().TriggerDialogue (tag);
+                        new GameFlowEvent (EGameFlowAction.LevelWon).Push ();
                     }
                     break;
                 default:

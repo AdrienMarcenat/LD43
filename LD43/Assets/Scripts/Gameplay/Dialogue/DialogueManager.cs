@@ -360,7 +360,14 @@ public class DialogueManager : MonoBehaviour
         {"Yorick" , ECharacterClass.Soldier },
         {"Prince" , ECharacterClass.Prince },
         {"Francis" , ECharacterClass.Priest },
-        {"Mark" , ECharacterClass.FireMage }
+        {"Mark" , ECharacterClass.FireMage },
+        {"James", ECharacterClass.Soldier },
+        {"Lily", ECharacterClass.Lily },
+        {"Monica", ECharacterClass.Monica },
+        {"Peasant", ECharacterClass.Son },
+        {"Isaac", ECharacterClass.Son },
+        {"Camilla", ECharacterClass.Mother },
+        {"Charles", ECharacterClass.Soldier }
     };
 }
 

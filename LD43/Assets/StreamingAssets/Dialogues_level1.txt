@@ -193,3 +193,38 @@ Death MageFeu
 	[Sentence]Mark:"How strange. There's no fear anymore"
 	[Sentence]Mark:"Only regret"
 ]
+
+Key Found
+[
+	Found
+	[
+	[Sentence]Prince:"A strange sparkle is drawing my attention, what could it be?"
+	[Sentence]Prince:"A key? It may prove useful in the future..."
+	]
+]
+
+No Key
+[
+	No End
+	[
+	[Sentence]Prince:"I think we need a key to go leave this place"
+	[Sentence]Prince:"It must be somewhere around here"
+	]
+]
+
+End
+[
+	End
+	[
+	[Sentence]Prince:"Our journey is far from over. Yet, deep inside I know we will make it through"
+	]
+
+]
+
+Prince Leave
+[
+	THECAKEISALIIIIIIE
+	[
+	[Sentence]Prince:"No, I cannot leave. I must continue, even if I am barely standing."
+	]
+]

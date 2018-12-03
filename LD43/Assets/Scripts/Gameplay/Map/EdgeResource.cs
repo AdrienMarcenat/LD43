@@ -71,6 +71,13 @@ public class EdgeResource
         return m_EdgeType;
     }
 
+    public void SetNormal ()
+    {
+        m_EdgeType = EEdgeType.Normal;
+        m_EdgeDescriptionID = "Normal";
+        m_Description = null;
+    }
+
     public int GetEdgeCharacterNumber ()
     {
         return m_EdgeCharacterNumber;

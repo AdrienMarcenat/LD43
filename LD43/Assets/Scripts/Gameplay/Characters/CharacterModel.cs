@@ -17,7 +17,11 @@ public enum ECharacterClass
     Priest,
     FireMage,
     Tentacle,
-    Terror
+    Terror,
+    Son,
+    Mother,
+    Lily,
+    Monica
 }
 
 public class CharacterModel

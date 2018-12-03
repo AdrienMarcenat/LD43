@@ -1,0 +1,334 @@
+Lily recrutement
+[
+	Irate
+	[
+	[Sentence]Lily:"You there!"
+	[Sentence]Lily:"Finally royalty deigns concern itself with the situation."
+	[Sentence]Lily:"I need your help to take my revenge. See this street? I used to live there."
+	[Sentence]Lily:"They took my home. They took my husband and kids? I'll take their life."
+	[Sentence]Lily:"Will you come with me?"
+	[Choice]:"Yes. (Add her to your party)"/"Add"/"Wait for me, I need to prepare myself. (Leave her)"/"NotAdd"
+	]
+	Add
+	[
+	[Sentence]Lily:"I hope you're ready."
+	AddToTeam Lily Lily
+	GoTo Noeud
+	]
+	NotAdd
+	[
+	[Sentence]Lily:"I will wait, for now. Hurry. I'll help you if you help me."
+	]
+]
+
+Lily combat1
+[
+	[Sentence]Lily:"I. Will. Make. Them. Pay."
+]
+
+Lily combat2
+[
+	[Sentence]Lily:"The fire of hell won't be enough to make you forget the cold of my steel."
+]
+
+Lily combat3
+[
+	[Sentence]Lily:"I shall die fighting."
+]
+
+Lily diversion
+[
+	[Sentence]Lily:"I must say I am not happy with it, but since it is for the greater good..."
+	[Sentence]Lily:"I will try to take as much as possible with me."
+]
+
+Dialogue noeud Lily
+[
+	Let Go
+	[
+	[Sentence]Prince:"You must leave us. We are in danger if you stay."
+	[Sentence]Lily:"If you say so, we will part ways. I find some monsters to slay without you, anyway."
+	RemoveFromTeam Lily
+	]
+]
+
+Death Lily
+[
+	[Sentence]Lily:"I didn't took asmuch with me as I had hoped but this will do."
+	[Sentence]Lily:"I won't be alone on the other side anyway."
+	RemoveFromTeam Lily
+]
+
+Monica recrutement
+[
+	Faithless
+	[
+	[Sentence]Monica:"Oh, my lord! You seem so down! I get it, the premises are quite bleak..."
+	[Sentence]Monica:"But my lord, we can act! We can fight! There are people to save!"
+	[Sentence]Monica:"There is hope..."
+	[Choice]:"I am fighting. Help me in my mission. (Add her to your party)"/"Add"/"You're right! Keep on fighting!. (Leave her)"/"NotAdd"
+	]
+	Add
+	[
+	[Sentence]Monica:"What mission?"
+	[Sentence]Prince:"We must get to the temple to purifie the land."
+	[Sentence]Monica:"There we are! I will follow you."
+	AddToTeam Monica Monica
+	]
+	NotAdd
+	[
+	[Sentence]Lily:"It doesn't even make a difference anymore. Leave alone, at least I am safe by myself."
+	]
+]
+
+Monica combat1
+[
+	[Sentence]Monica:"There is no way we can lose."
+]
+
+Monica combat2
+[
+	[Sentence]Monica:"I almost pity them, to be in our way..."
+]
+
+Monica combat3
+[
+	[Sentence]Monica:"We just have to deal with this and then we can proceed."
+]
+
+
+Monica diversion
+[
+	[Sentence]Monica:"I am not sure. They are dangerous. On the other hand, I have been very lucky, so I think I'll make it!"
+]
+
+Dialogue noeud Monica
+[
+	Questions
+	[
+	[Sentence]Prince:"We need to talk"
+	[Sentence]Prince:"You must stay here. We would be less safe if you came with us" (Give her some food and leave her.)
+	[Sentence]Monica:"As long as you're going forward, that's fine by me!"
+	[Sentence]Monica:"We will survive!"
+	RemoveFromTeam Monica
+	]
+]
+
+
+Death Monica
+[
+	[Sentence]Monica:"I may have been... a tad... optimistic. But now is not the time to let that optimism falter."
+	[Sentence]Monica:"Not now."
+	[Sentence]Monica:"Please tell me everything is going to be alright... please..."
+	[Sentence]Monica:"Please say it..."
+	RemoveFromTeam Monica
+]
+
+
+Charles recrutement
+[
+	Protection
+	[
+	[Sentence]Charles:"Who's there ? You are not monsters ! Who are you ? Come into the light, so that I can see you !"
+	[Sentence]Prince:"I am your prince. We are on a mission, and must go to the temple."
+	[Sentence]Charles:"On a mission, eh ? Can you lead me to a safer place on the way ?"
+	[Choice]:"Of course, we'll keep you safe" (Add him to your party)/"Add"
+		/"I don't think there is anywhere safe. You might as well stay here."(Leave him)/"NotAdd"
+	]
+	Add
+	[
+	[Sentence]Charles:"I have faith in you, my prince."
+	]
+	AddToTeam Charles None
+	NotAdd
+	[
+	[Sentence]Charles:"I suppose you're right."
+	]
+]
+
+Charles combat1
+[
+	[Sentence]Charles:"What am I doing here ?"
+]
+
+Charles combat2
+[
+	[Sentence]Charles:"Why did I follow you ?"
+]
+
+Charles combat3
+[
+	[Sentence]Charles:"I don't even know how to fight !"
+]
+
+Charles diversion
+[
+	[Sentence]Charles:"You lied to me! You said I would be safe! You're killing me!"
+]
+
+Dialogue noeud Charles
+[
+	Let Go
+	[
+	[Sentence]:"Why must part ways, Charles. (Give him some food and leave him.)"
+	[Sentence]Charles:"Yes. Yes, I understand. I'm just a dead weight anyway and there is no monster here so, yeah, I understand."
+	]
+	RemoveFromTeam Charles
+]
+
+Death Charles
+[
+	[Sentence]Charles:"At last. I can't say I am surprised."
+]
+
+
+Camilla recrutement
+[
+	Reunion
+	[
+	[Sentence]Camilla:"My prince, my prince is it you ? My prince, you must help me."
+	[Sentence]Camilla:"My only son is just down the street and I can't get to him."
+	[Sentence]Camilla:"I beg you, take me to him or at least save his life !"
+	[Choice]:"I can try to reunite you" (Add her to your party)/"Add"
+		/"I will save his life, but I cannot take you with me. For now."(Leave her)/"NotAdd"
+	]
+	Add
+	[
+	[Sentence]Camilla:"You truly are our saviour, my prince."
+	]
+	AddToTeam Camilla Mother
+	NotAdd
+	[
+	[Sentence]Camilla:"I know he will be safe with you, my prince."
+	]
+]
+
+Camilla combat1
+[
+	[Sentence]Camilla:"Why has you forsaken us, Lord ?"
+]
+
+Camilla combat2
+[
+	[Sentence]Camilla:"I can't die here, I have someone to protect !"
+]
+
+Camilla combat3
+[
+	[Sentence]Camilla:"I don't even know how to fight !"
+]
+
+Camilla diversion
+[
+	[Sentence]Camilla:"No, I don't want to do it! I don't want to leave my son alone!"
+	[Sentence]Prince:"If you don't do it, you'll have no more son to protect"
+	[Sentence]Camilla:"..."
+]
+
+Dialogue noeud Camilla
+[
+	Let Go
+	[
+	[Sentence]Prince:"We must part ways, Camilla. (Give her some food and leave her.)"
+	[Sentence]Camilla:"Promise me. Promise me you'll keep an eye an Isaac when I am not there. Swear it."
+	[Choice]:"I will." (Leave her)/"Leave"/"I can't promise you that." (Keep her)/"Keep"
+	]
+	Leave
+	[
+	[Sentence]Camilla:"I can leave you peacefully, then."
+	]
+	RemoveFromTeam Camilla
+	Keep
+	[
+	[Sentence]Camilla:"I'll stay with you, then."
+	]
+]
+
+Isaac recrutement
+[
+	Reunion
+	[
+	[Sentence]Isaac:"Sir, sir ! I need you to help me, sir! I got separated from my mom."
+	[Sentence]Isaac:"She is just up the street, but there are monsters, and I am scared. Please, take me to her."
+	[Choice]:"I can try to reunite you" (Add him to your party)/"Add"
+		/"Okay Isaac, I'll try to take her here. Stay hidden." (Leave him)/"NotAdd"
+	]
+	Add
+	[
+	[Sentence]Isaac:"Thank you sooo much, sir."
+	]
+	AddToTeam Isaac Son
+	NotAdd
+	[
+	[Sentence]Isaac:"I hope she's okay. Do you think she's okay?"
+	]
+]
+
+Isaac combat1
+[
+	[Sentence]Isaac:"Mom, I'm scared!"
+]
+
+Isaac combat2
+[
+	[Sentence]Isaac:"Mom, I'm afraid."
+]
+
+Isaac combat3
+[
+	[Sentence]Isaac:*Softly sobs*
+]
+
+Isaac diversion
+[
+	[Sentence]Isaac:"And you say if I do it, my mom will be safe ?"
+]
+
+Dialogue noeud Isaac
+[
+	Let Go
+	[
+	[Sentence]Prince:"Isaac, you must stay here and hide. We can't take you any further. (Give him some food and leave him.)"
+	[Sentence]Isaac:"Yes sir. But my mom..."
+	[Sentence]Prince:"Be brave Isaac. She will be fine."
+]
+
+Death Isaac
+[
+	[Sentence]Isaac:"Mom. Mom. I'm scared. Mom ?"
+]
+
+Key Found
+[
+	RANDOMNAME101
+	[
+	[Sentence]Prince:"There is another key down this path, it will open the path to our destination."
+	]
+]
+
+No Key
+[
+	No End
+	[
+	{Sentence]Prince:"The path is blocked from here, it looks like we will need to find a key to open it."
+	[Sentence]Prince:"By searching around, we should find it."
+	]
+]
+
+End
+[
+	End
+	[
+	[Sentence]Prince:"Thank you my loyal subjects, I would never have arrived here if it was not for you"
+	[Sentence]Prince:"Alas, it is my duty to leave you here. I must go. Alone."
+	[Sentence]Prince:"Farewell"
+	]
+]
+
+Prince Leave
+[
+	THECAKEISALIIIIIIE
+	[
+	[Sentence]Prince:"No, I cannot leave. I must continue, even if I am barely standing."
+	]
+]

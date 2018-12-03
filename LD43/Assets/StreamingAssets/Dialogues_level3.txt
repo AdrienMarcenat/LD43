@@ -1,0 +1,43 @@
+The End
+[
+	Bilan
+	[
+	[Sentence]Voice:"Come, child."
+	[Sentence]Voice:"How much have sacrificed to arrive here?"
+	[Sentence]Voice:"... How many?"
+	[Choice]:"All"/"All"/"Too many."/"Too many"
+	]
+
+	All
+	[
+	[Sentence]Voice:"Not all."
+	[Sentence]Voice:"One remain."
+	]
+
+	Too many
+	[
+	[Sentence]Voice:"But it isn't over."
+	]
+]
+
+The sacrifice
+[
+	Condamnation
+	[
+	[Sentence]Voice:"You know what you have to do to reverse the plague."
+	[Sentence]Prince:"Yes..."
+	[Sentence]Prince:"But I am scared."
+	[Sentence]Prince:"So were all that you met."
+	[Sentence]Prince:"All those who died."
+	[Sentence]Prince:"..."
+	[Choice]:"I'll do it."/"he did it"/"I MUST do it!"/"he did it"/"I have no choice, anyway."/"he did it"
+	]
+]
+
+Prince Leave
+[
+	THECAKEISALIIIIIIE
+	[
+	[Sentence]Prince:"No, I cannot leave. I must continue, even if I am barely standing."
+	]
+]

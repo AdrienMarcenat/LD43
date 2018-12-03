@@ -7,7 +7,7 @@ public enum ENodeType
     Recruitment,
     Key,
     Battle,
-    End
+    End,
 }
 
 public enum ENodeReward

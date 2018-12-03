@@ -64,6 +64,8 @@ public class EdgePanel : MonoBehaviour
         }
 
         m_Description.text = tempEdgeResource.GetDescription ();
+
+        m_CurrentEdge.GetEdgeResource ().SetNormal ();
     }
 
     private void OnDestroy ()

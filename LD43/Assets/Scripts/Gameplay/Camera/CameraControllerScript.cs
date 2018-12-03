@@ -9,7 +9,7 @@ public class CameraControllerScript : MonoBehaviour {
     public float maxY;
 
     public float m_CameraMoveSpeed;
-    private float m_ScreenBorderMargin = 30;
+    private float m_ScreenBorderMargin = 40;
 
     // Use this for initialization
     void Start ()

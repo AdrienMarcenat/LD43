@@ -43,13 +43,20 @@ public class TeamManager : ITeamManagerInterface
     public void RemoveCharacter(string characterId)
     {
         // TODO: Activate character dialog
-        m_Characters.Remove (characterId);
-        new UpdateUIGameEvent ().Push ();
-
-        if (m_WaitingForDiversion)
+        if (!characterId.Equals ("Prince"))
         {
-            new OnCharacterDiversionEvent ().Push ();
-            m_WaitingForDiversion = false;
+            m_Characters.Remove (characterId);
+            new UpdateUIGameEvent ().Push ();
+
+            if (m_WaitingForDiversion)
+            {
+                new OnCharacterDiversionEvent ().Push ();
+                m_WaitingForDiversion = false;
+            }
+        }
+        else
+        {
+            DialogueManagerProxy.Get ().TriggerDialogue ("Prince Leave");
         }
     }
 
