@@ -8,23 +8,10 @@ public class CameraShake : MonoBehaviour
     [SerializeField] private float m_ShakeAmount = 0.2f;
 
     private float m_ShakeTimer = 0;
-
-    private void Awake ()
+    
+    public void Shake()
     {
-        this.RegisterAsListener ("Player", typeof (DamageGameEvent));
-    }
-
-    private void OnDestroy ()
-    {
-        this.UnregisterAsListener ("Player");
-    }
-
-    public void OnGameEvent (DamageGameEvent damageEvent)
-    {
-        if (damageEvent.GetDamage () >= m_DamageTreshold)
-        {
-            StartCoroutine (ShakeRoutine ());
-        }
+        StartCoroutine (ShakeRoutine ());
     }
 
     IEnumerator ShakeRoutine ()

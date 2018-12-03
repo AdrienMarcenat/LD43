@@ -24,6 +24,7 @@ public class BattlePanel : MonoBehaviour
     [SerializeField] Button m_DefendButton;
     [SerializeField] Button m_CapacityButton;
     [SerializeField] Text m_ActivePlayerName;
+    [SerializeField] float m_AnimationTime = 2f;
 
     private List<Character> m_Team;
     private List<Character> m_Enemies;
@@ -215,7 +216,7 @@ public class BattlePanel : MonoBehaviour
                     break;
             }
             // All animations are 1 second long
-            yield return new WaitForSeconds (2f);
+            yield return new WaitForSeconds (m_AnimationTime);
             action.ApplyAction ();
             action = BattleManagerProxy.Get ().DequeueAction ();
         }

@@ -855,25 +855,9 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114487422986658458, guid: 0ef6d7315f87d66409c6b38239a2fe48,
-        type: 2}
-      propertyPath: m_EnemiesThumbnails.Array.data[2]
-      value: 
-      objectReference: {fileID: 1947443079}
-    - target: {fileID: 114487422986658458, guid: 0ef6d7315f87d66409c6b38239a2fe48,
-        type: 2}
-      propertyPath: m_EnemiesThumbnails.Array.data[0]
-      value: 
-      objectReference: {fileID: 342059228}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ef6d7315f87d66409c6b38239a2fe48, type: 2}
   m_IsPrefabAsset: 0
---- !u!114 &342059228 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114256421868071524, guid: 0ef6d7315f87d66409c6b38239a2fe48,
-    type: 2}
-  m_PrefabInternal: {fileID: 59980401}
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &388855191
 Prefab:
   m_ObjectHideFlags: 0
@@ -1013,6 +997,37 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d2b1a47e7235764498573cd010d8dd5, type: 2}
   m_IsPrefabAsset: 0
+--- !u!84 &652707145
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: SpriteLightKit RT
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 727
+  m_Height: 409
+  m_AntiAliasing: 1
+  m_DepthFormat: 0
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &718972334
 Prefab:
   m_ObjectHideFlags: 0
@@ -1060,37 +1075,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd19dc11f96adcc43b1aeb8df141d290, type: 2}
   m_IsPrefabAsset: 0
---- !u!84 &926189343
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: SpriteLightKit RT
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 727
-  m_Height: 409
-  m_AntiAliasing: 1
-  m_DepthFormat: 0
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 0
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!114 &962300854 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114638421818619700, guid: 7fb0cdaaa13200749a610e61f3114e27,
@@ -1202,7 +1186,7 @@ Prefab:
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 926189343}
+      objectReference: {fileID: 652707145}
     - target: {fileID: 114025615796217506, guid: a788c783343da3d44abc8ff8393191de,
         type: 2}
       propertyPath: spriteLightRT
@@ -1294,17 +1278,25 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 974e13595956d1a4db7b2266ed5eaf76, type: 2}
   m_IsPrefabAsset: 0
---- !u!114 &1947443079 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114301099842831162, guid: 0ef6d7315f87d66409c6b38239a2fe48,
-    type: 2}
-  m_PrefabInternal: {fileID: 59980401}
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1995499875 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1768063742435878, guid: a788c783343da3d44abc8ff8393191de,
     type: 2}
   m_PrefabInternal: {fileID: 1616297848}
+--- !u!114 &1995499876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1995499875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 362dc7c09904fc7409e1f192709439e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DamageTreshold: 20
+  m_ShakeDuration: 0.2
+  m_ShakeAmount: 0.2
 --- !u!114 &1995499879
 MonoBehaviour:
   m_ObjectHideFlags: 0
