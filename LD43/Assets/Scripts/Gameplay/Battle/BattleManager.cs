@@ -10,6 +10,9 @@ public class BattleManager
 
     public void Init(List<Character> team)
     {
+        m_Actions = new Queue<BattleAction> ();
+        m_PlayerCharacters = new Stack<Character> ();
+        m_EnnemyCharacters = new Stack<Character> ();
         foreach (Character c in team)
         {
             m_PlayerCharacters.Push(c);
@@ -62,7 +65,7 @@ public class BattleManager
 
     public void ApplyActions ()
     {
-        foreach (BattleAction action in m_Actions)
+        while(m_Actions.Count != 0)
         {
             m_Actions.Dequeue ().ApplyAction ();
         }
@@ -79,7 +82,7 @@ public class BattleManager
 
         if (m_EnnemyCharacters.Count == 0)
         {
-            new BattleEvent (EBattleAction.Success).Push ();
+            m_HSM.Stop ();
             return;
         }
 

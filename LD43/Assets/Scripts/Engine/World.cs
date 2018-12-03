@@ -14,6 +14,7 @@ public class World : MonoBehaviour
     private SoundManager m_SoundManager;
     private LevelManager m_LevelManager;
     private TeamManager m_TeamManager;
+    private BattleManager m_BattleManager;
 
     private GameFlowHSM m_GameFlowHSM;
 
@@ -47,6 +48,8 @@ public class World : MonoBehaviour
             LevelManagerProxy.Open (m_LevelManager);
             m_TeamManager = new TeamManager ();
             TeamManagerProxy.Open (m_TeamManager);
+            m_BattleManager = new BattleManager ();
+            BattleManagerProxy.Open (m_BattleManager);
 
             m_GameFlowHSM = new GameFlowHSM ();
             m_GameFlowHSM.Start (typeof (GameFlowMenuState));

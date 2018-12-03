@@ -10,6 +10,7 @@ public enum ECharacterCapacity
 
 public enum ECharacterClass
 {
+    Prince,
     Soldier,
     Priest,
     FireMage,

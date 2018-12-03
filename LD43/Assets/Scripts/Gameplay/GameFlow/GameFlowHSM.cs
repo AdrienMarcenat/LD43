@@ -57,7 +57,7 @@ public class GameFlowHSM : HSM
               , new GameFlowTeamManagementState ()
               , new GameFlowEndGameState ()
               , new GameFlowNormalState ()
-              , new GameFlowDialogueState()
+              , new GameFlowDialogueState ()
         )
     {
         

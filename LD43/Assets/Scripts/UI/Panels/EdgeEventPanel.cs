@@ -6,7 +6,7 @@ public class EdgeEventPanel : MonoBehaviour
 
     private void Awake ()
     {
-        this.RegisterAsListener ("Game", typeof (OnEdgeActionEvent));
+        //this.RegisterAsListener ("Game", typeof (OnEdgeActionEvent));
         gameObject.SetActive (false);
     }
 
@@ -18,7 +18,7 @@ public class EdgeEventPanel : MonoBehaviour
 
     private void OnDestroy ()
     {
-        this.UnregisterAsListener ("Game");
+        //this.UnregisterAsListener ("Game");
     }
 
     public void Continue ()

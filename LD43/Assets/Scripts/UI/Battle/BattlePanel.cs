@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Collections;
 
 public class OnBattleGameEvent : GameEvent
 {
@@ -36,7 +37,8 @@ public class BattlePanel : MonoBehaviour
     {
         if (battleEvent.m_Enter)
         {
-            Init ();
+            gameObject.SetActive (true);
+            StartCoroutine (Init ());
         }
         else
         {
@@ -44,9 +46,9 @@ public class BattlePanel : MonoBehaviour
         }
     }
 
-    private void Init ()
+    IEnumerator Init ()
     {
-        gameObject.SetActive (true);
+        yield return null;
         m_CurrentIndex = 0;
         m_Team = new List<Character> ();
         foreach (CharacterModel model in TeamManagerProxy.Get ().GetTeam ().Values)
@@ -71,16 +73,19 @@ public class BattlePanel : MonoBehaviour
     public void Attack()
     {
         BattleManagerProxy.Get ().AddAction (EAction.Attack, m_CurrentPlayer);
+        NextPlayer ();
     }
 
     public void Defend ()
     {
         BattleManagerProxy.Get ().AddAction (EAction.Defense, m_CurrentPlayer);
+        NextPlayer ();
     }
 
     public void UseCapacity ()
     {
         BattleManagerProxy.Get ().AddAction (EAction.Defense, m_CurrentPlayer);
+        NextPlayer ();
     }
 
     private void NextPlayer()

@@ -16,10 +16,9 @@
                 BattleManagerProxy.Get ().NextPlayerTurn ();
                 break;
             case EBattleAction.Success:
-                // TODO: Determine what happens
                 break;
             case EBattleAction.Failure:
-                // TODO: Determine what happens
+                new GameFlowEvent (EGameFlowAction.GameOver).Push ();
                 break;
         }
     }

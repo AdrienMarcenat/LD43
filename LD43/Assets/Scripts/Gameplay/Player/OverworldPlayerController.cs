@@ -91,7 +91,6 @@ public class OverworldPlayerController : MonoBehaviour
             Vector3 end = edge.GetEnd ().transform.position;
             m_TargetPos = (start + end) / 2;
             StartCoroutine (MoveRoutine ());
-            StartCoroutine (PushEvent (new OnEdgeActionEvent ("Game", edge)));
             StartCoroutine (PushEvent (new GameFlowEvent (EGameFlowAction.EnterEdge)));
         }
     }

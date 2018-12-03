@@ -9,7 +9,7 @@
 
 public class BattleEvent : GameEvent
 {
-    public BattleEvent (EBattleAction action) : base ("Game")
+    public BattleEvent (EBattleAction action) : base ("Battle")
     {
         m_Action = action;
     }
