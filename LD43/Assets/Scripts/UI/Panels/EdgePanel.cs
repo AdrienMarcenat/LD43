@@ -27,6 +27,9 @@ public class EdgePanel : MonoBehaviour
 
         switch (tempEdgeResource.GetEdgeType ())
         {
+            case EEdgeType.Normal:
+                m_MoveType = EEdgeType.Normal;
+                break;
             case EEdgeType.Combat:
                 if (TeamManagerProxy.Get ().IsNotTooMuchCharacters (tempEdgeResource.GetEdgeCharacterNumber ()))
                 {
@@ -70,15 +73,17 @@ public class EdgePanel : MonoBehaviour
         switch (m_MoveType )
         {
             case EEdgeType.Normal:
+                m_Player.OnNormalEdge(m_CurrentEdge);
                 break;
             case EEdgeType.Combat:
                 new OnBattleGameEvent (true).Push ();
+                m_Player.OnEdge (m_CurrentEdge, true);
                 break;
             case EEdgeType.Obstacle:
+                m_Player.OnNormalEdge (m_CurrentEdge);
                 break;
         }
 
-        m_Player.OnEdge (m_CurrentEdge, true);
         gameObject.SetActive (false);
         UpdaterProxy.Get ().SetPause (false);
     }
