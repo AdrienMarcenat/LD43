@@ -3664,6 +3664,7 @@ MonoBehaviour:
   m_DefendButton: {fileID: 114559100131404814}
   m_CapacityButton: {fileID: 114769110189243564}
   m_ActivePlayerName: {fileID: 114797399524867580}
+  m_AnimationTime: 2
 --- !u!114 &114491660563940734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4146,7 +4147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

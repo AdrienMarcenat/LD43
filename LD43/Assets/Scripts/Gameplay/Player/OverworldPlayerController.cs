@@ -13,7 +13,7 @@ public class OverworldPlayerController : MonoBehaviour
     private EdgeView m_CurrentEdge;
     //private Animator m_Animator;
 
-    void Start ()
+    void Awake ()
     {
         m_TargetPos = m_CurrentNode.transform.position;
         transform.position = m_TargetPos;

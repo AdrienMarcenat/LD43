@@ -11,12 +11,13 @@ public enum ECharacterCapacity
 
 public enum ECharacterClass
 {
+    None,
     Prince,
     Soldier,
     Priest,
     FireMage,
-    Monster,
-    None
+    Tentacle,
+    Terror
 }
 
 public class CharacterModel

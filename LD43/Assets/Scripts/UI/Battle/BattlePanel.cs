@@ -61,9 +61,7 @@ public class BattlePanel : MonoBehaviour
 
     private void Awake ()
     {
-        this.RegisterAsListener ("Game", typeof (OnBattleGameEvent);
-        this.RegisterAsListener ("Game", typeof (OnEdgeBattleGameEvent));
-        this.RegisterAsListener ("Game", typeof (OnNodeBattleGameEvent));
+        this.RegisterAsListener ("Game", typeof (OnBattleGameEvent), typeof (OnEdgeBattleGameEvent), typeof (OnNodeBattleGameEvent));
         gameObject.SetActive (false);
     }
 

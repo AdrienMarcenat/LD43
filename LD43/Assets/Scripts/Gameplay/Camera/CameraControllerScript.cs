@@ -12,8 +12,10 @@ public class CameraControllerScript : MonoBehaviour {
     private float m_ScreenBorderMargin = 30;
 
     // Use this for initialization
-    void Start () {
-		
+    void Start ()
+    {
+        Vector3 playerPos = GameObject.FindGameObjectWithTag ("Player").transform.position;
+        transform.position = new Vector3(playerPos.x, playerPos.y, transform.position.z);
 	}
 
     // Update is called once per frame

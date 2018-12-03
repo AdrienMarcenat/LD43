@@ -29,7 +29,7 @@ public class LevelEvent : GameEvent
 
 public class LevelManager
 {
-    private int m_CurrentLevel = 0;
+    private int m_CurrentLevel = 1;
     private Dictionary<int, string> m_LevelIdToName;
     private Dictionary<int, int> m_LevelIdToScore;
     private static string ms_LevelFilename = "/LevelNames.txt";
