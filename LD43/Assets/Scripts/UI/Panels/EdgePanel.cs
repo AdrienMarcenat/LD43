@@ -51,6 +51,16 @@ public class EdgePanel : MonoBehaviour
                     m_ChoosePathButton.interactable = false;
                 }
                 break;
+            case EEdgeType.Diversion:
+                if (TeamManagerProxy.Get ().IsNotTooMuchCharacters (tempEdgeResource.GetEdgeCharacterNumber ()))
+                {
+                    m_MoveType = EEdgeType.Normal;
+                }
+                else
+                {
+                    m_MoveType = EEdgeType.Diversion;
+                }
+                break;
         }
 
         m_Description.text = tempEdgeResource.GetDescription ();
@@ -80,6 +90,10 @@ public class EdgePanel : MonoBehaviour
                 m_Player.OnEdge (m_CurrentEdge, true);
                 break;
             case EEdgeType.Obstacle:
+                break;
+            case EEdgeType.Diversion:
+                new OnDiversionEvent ();
+                m_Player.OnEdge (m_CurrentEdge, true);
                 break;
         }
 

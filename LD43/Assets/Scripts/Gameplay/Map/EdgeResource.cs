@@ -7,7 +7,7 @@ public enum EEdgeType
     Normal,
     Combat,
     Obstacle,
-    Diversion,
+    Diversion
 }
 
 [System.Serializable]

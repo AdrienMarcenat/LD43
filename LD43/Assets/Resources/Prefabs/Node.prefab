@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114458943881874288}
   - component: {fileID: 58421905388375638}
   m_Layer: 0
-  m_Name: SouthDoor
+  m_Name: Node
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

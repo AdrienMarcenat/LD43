@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 68258663272063648}
   - component: {fileID: 120084894157413594}
   m_Layer: 0
-  m_Name: SouthWestStreet
+  m_Name: Edge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,6 +104,8 @@ MonoBehaviour:
     m_EdgeType: 0
     m_EdgeId: 0
     m_EdgeDescriptionID: 1S2C
+    m_EdgeCharacterNumber: 2147483647
+    m_EdgeCharacterClass: 4
   m_Start: {fileID: 0}
   m_End: {fileID: 0}
   m_IsOriented: 0
