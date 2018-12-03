@@ -98,11 +98,6 @@ public class TestEvents : MonoBehaviour
         new GameFlowEvent (EGameFlowAction.SuccessEdge).Push ();
     }
 
-    public void FailureEdgeEvent ()
-    {
-        new GameFlowEvent (EGameFlowAction.FailureEdge).Push ();
-    }
-
     public void TeamManagementEvent ()
     {
         new GameFlowEvent (EGameFlowAction.TeamManagement).Push ();

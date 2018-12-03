@@ -5,14 +5,12 @@ using System.Collections;
 
 public class OnBattleGameEvent : GameEvent
 {
-    public OnBattleGameEvent(bool enter, EdgeResource resource) : base("Game")
+    public OnBattleGameEvent(bool enter) : base("Game")
     {
         m_Enter = enter;
-        m_Resource = resource;
     }
 
     public bool m_Enter;
-    public EdgeResource m_Resource;
 }
 
 public class BattlePanel : MonoBehaviour
@@ -42,7 +40,7 @@ public class BattlePanel : MonoBehaviour
         }
         else
         {
-            Reset ();
+            StartCoroutine(Reset ());
         }
     }
 
@@ -51,17 +49,24 @@ public class BattlePanel : MonoBehaviour
         yield return null;
         m_CurrentIndex = 0;
         m_Team = new List<Character> ();
+        int index = 0;
         foreach (CharacterModel model in TeamManagerProxy.Get ().GetTeam ().Values)
         {
             m_Team.Add (new Character(model));
+            m_PlayerThumbnails[index].sprite = RessourceManager.LoadSprite ("Models/" + model.GetClass().ToString(), 0);
+            index++;
         }
         m_CurrentPlayer = m_Team[0];
+        SetCurrentPlayerUI ();
         BattleManagerProxy.Get ().Init (m_Team);
     }
 
-    private void Reset ()
+    IEnumerator Reset ()
     {
+        yield return null;
         m_CurrentIndex = 0;
+        BattleManagerProxy.Get ().Shutdown ();
+        new GameFlowEvent (EGameFlowAction.SuccessEdge).Push ();
         gameObject.SetActive (false);
     }
 
@@ -90,6 +95,7 @@ public class BattlePanel : MonoBehaviour
 
     private void NextPlayer()
     {
+        m_PlayerThumbnails[m_CurrentIndex].color = Color.white;
         m_CurrentIndex++;
         if (m_CurrentIndex == m_Team.Count)
         {
@@ -101,9 +107,21 @@ public class BattlePanel : MonoBehaviour
             m_CurrentPlayer = m_Team[m_CurrentIndex];
             if(m_CurrentPlayer.IsBound ())
             {
+                m_PlayerThumbnails[m_CurrentIndex].color = Color.blue;
                 NextPlayer ();
             }
-            // TODO : Set up button
+            if (m_CurrentPlayer.IsDead ())
+            {
+                m_PlayerThumbnails[m_CurrentIndex].color = Color.black;
+                NextPlayer ();
+            }
+            SetCurrentPlayerUI ();
         }
+    }
+
+    private void SetCurrentPlayerUI ()
+    {
+        m_PlayerThumbnails[m_CurrentIndex].color = Color.green;
+        m_CapacityButton.GetComponentInChildren<Text> ().text = m_CurrentPlayer.GetModel ().GetCapacity ().ToString ();
     }
 }

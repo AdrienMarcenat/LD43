@@ -72,13 +72,13 @@ public class EdgePanel : MonoBehaviour
             case EEdgeType.Normal:
                 break;
             case EEdgeType.Combat:
-                new OnBattleGameEvent (true, m_CurrentEdge.GetEdgeResource ()).Push ();
+                new OnBattleGameEvent (true).Push ();
                 break;
             case EEdgeType.Obstacle:
                 break;
         }
 
-        new OnEdgeGameEvent ("Player", m_CurrentEdge, true).Push ();
+        m_Player.OnEdge (m_CurrentEdge, true);
         gameObject.SetActive (false);
         UpdaterProxy.Get ().SetPause (false);
     }

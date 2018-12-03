@@ -37,7 +37,6 @@ public class CharacterModel
 
     private void Build ()
     {
-        char[] separators = { ':' };
         string filename = "/CharacterModels/" + m_Class + ".txt";
         filename = Application.streamingAssetsPath + filename;
 

@@ -22,6 +22,12 @@ public class BattleManager
         m_HSM.Start (typeof (BattleStandbyState));
     }
 
+    public void Shutdown()
+    {
+        m_HSM.Stop ();
+        m_Actions.Clear ();
+    }
+
     public void NextPlayerTurn ()
     {
         m_IsPlayerTurn = !m_IsPlayerTurn;
@@ -76,13 +82,13 @@ public class BattleManager
     {
         if (m_PlayerCharacters.Count == 0)
         {
-            new BattleEvent (EBattleAction.Failure).Push ();
+            new GameFlowEvent (EGameFlowAction.GameOver).Push ();
             return;
         }
 
         if (m_EnnemyCharacters.Count == 0)
         {
-            m_HSM.Stop ();
+            new OnBattleGameEvent (false).Push ();
             return;
         }
 

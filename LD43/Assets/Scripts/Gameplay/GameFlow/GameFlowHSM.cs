@@ -19,7 +19,6 @@
     LevelWon,
     EnterEdge,
     SuccessEdge,
-    FailureEdge,
     TeamManagement,
     TeamManagementBack,
     StartDialogue,

@@ -2,29 +2,6 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class OnEdgeGameEvent : GameEvent
-{
-    public OnEdgeGameEvent (string tag, EdgeView edge, bool enter)
-        : base(tag)
-    {
-        m_Edge = edge;
-        m_Enter = enter;
-    }
-
-    public EdgeView GetEdge ()
-    {
-        return m_Edge;
-    }
-
-    public bool IsEntering()
-    {
-        return m_Enter;
-    }
-
-    private EdgeView m_Edge;
-    private bool m_Enter;
-}
-
 [RequireComponent (typeof (MovingObject))]
 public class OverworldPlayerController : MonoBehaviour
 {
@@ -33,6 +10,7 @@ public class OverworldPlayerController : MonoBehaviour
 
     private bool m_IsMoving = false;
     private Vector3 m_TargetPos;
+    private EdgeView m_CurrentEdge;
     //private Animator m_Animator;
 
     void Start ()
@@ -40,25 +18,23 @@ public class OverworldPlayerController : MonoBehaviour
         m_TargetPos = m_CurrentNode.transform.position;
         transform.position = m_TargetPos;
         //m_Animator = GetComponent<Animator> ();
-        this.RegisterAsListener ("Player", typeof (OnEdgeGameEvent));
     }
 
     private void OnDestroy ()
     {
-        this.UnregisterAsListener ("Player");
     }
 
-    public void OnGameEvent (OnEdgeGameEvent edgeEvent)
+    public void OnEdge (EdgeView edge, bool enter)
     {
-        EdgeView edge = edgeEvent.GetEdge ();
-        if (edgeEvent.IsEntering ())
+        if (enter)
         {
+            m_CurrentEdge = edge;
             MoveToEdge (edge);
         }
         else
         {
-            Assert.IsTrue (edge.GetEdge ().UseNode (m_CurrentNode.GetNode ()));
-            MoveToNode (m_CurrentNode == edge.GetStart () ? edge.GetEnd () : edge.GetStart ());
+            Assert.IsTrue (m_CurrentEdge.GetEdge ().UseNode (m_CurrentNode.GetNode ()));
+            MoveToNode (m_CurrentNode == m_CurrentEdge.GetStart () ? m_CurrentEdge.GetEnd () : m_CurrentEdge.GetStart ());
         }
     }
 
@@ -91,7 +67,7 @@ public class OverworldPlayerController : MonoBehaviour
             Vector3 end = edge.GetEnd ().transform.position;
             m_TargetPos = (start + end) / 2;
             StartCoroutine (MoveRoutine ());
-            StartCoroutine (PushEvent (new GameFlowEvent (EGameFlowAction.EnterEdge)));
+            new GameFlowEvent (EGameFlowAction.EnterEdge).Push();
         }
     }
 

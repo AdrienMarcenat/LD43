@@ -1,10 +1,15 @@
 ﻿
+using UnityEngine;
+
 public class GameFlowEdgeState : HSMState
 {
+    private OverworldPlayerController m_Player;
+
     public override void OnEnter ()
     {
         // TODO: Edge enter logic
         UpdaterProxy.Get ().SetPause (true);
+        m_Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<OverworldPlayerController> ();
         this.RegisterAsListener ("Game", typeof (GameFlowEvent));
     }
 
@@ -13,9 +18,7 @@ public class GameFlowEdgeState : HSMState
         switch (flowEvent.GetAction ())
         {
             case EGameFlowAction.SuccessEdge:
-                ChangeNextTransition (HSMTransition.EType.Siblings, typeof (GameFlowNormalState));
-                break;
-            case EGameFlowAction.FailureEdge:
+                m_Player.OnEdge (null, false);
                 ChangeNextTransition (HSMTransition.EType.Siblings, typeof (GameFlowNormalState));
                 break;
         }

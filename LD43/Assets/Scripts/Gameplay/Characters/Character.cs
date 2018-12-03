@@ -29,6 +29,11 @@ public class Character
         return m_BattleActions;
     }
 
+    public CharacterModel GetModel()
+    {
+        return m_Model;
+    }
+
     public bool TakeDamage (int damage)
     {
         // If character is protected
