@@ -1,6 +1,7 @@
 ﻿public class Bound : BattleAction
 {
-    public Bound ()
+    public Bound (Character source, Character target)
+        : base (source, target, EAction.Bound)
     {
 
     }

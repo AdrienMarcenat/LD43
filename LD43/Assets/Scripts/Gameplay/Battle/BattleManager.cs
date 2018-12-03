@@ -40,35 +40,37 @@ public class BattleManager
     public void AddAction(EAction action, Character chara)
     {
         BattleAction newAction = null;
-
+        Character playerPeek = m_PlayerCharacters.Peek ();
+        Character enemyPeek = m_EnnemyCharacters.Peek ();
         switch (action)
         {
             case EAction.Attack:
-                newAction = new Attack (chara.GetStrength ());
+                newAction = new Attack (chara.GetStrength (), chara, m_IsPlayerTurn ? enemyPeek : playerPeek );
                 break;
             case EAction.Defense:
-                newAction = new Defense (chara.GetMagic ());
+                newAction = new Defense (chara.GetMagic (), chara, chara);
                 break;
             case EAction.Heal:
-                newAction = new Heal (chara.GetMagic ());
+                newAction = new Heal (chara.GetMagic (), chara, m_IsPlayerTurn ? playerPeek : enemyPeek);
                 break;
             case EAction.Protect:
-                newAction = new Protect ();
+                newAction = new Protect (chara, m_IsPlayerTurn ? playerPeek : enemyPeek);
                 break;
             case EAction.Bound:
-                newAction = new Bound ();
+                newAction = new Bound (chara, m_IsPlayerTurn ? playerPeek : enemyPeek);
                 break;
         }
         
         m_Actions.Enqueue (newAction);
     }
 
-    public void ApplyActions ()
+    public BattleAction DequeueAction ()
     {
-        while(m_Actions.Count != 0)
+        if(m_Actions.Count != 0)
         {
-            m_Actions.Dequeue ().ApplyAction ();
+            return m_Actions.Dequeue ();
         }
+        return null;
     }
 
     public void TurnEnd ()

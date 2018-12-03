@@ -1,7 +1,8 @@
 ﻿public class Protect : BattleAction
 {
 
-    public Protect ()
+    public Protect (Character source, Character target)
+        : base (source, target, EAction.Protect)
     {
 
     }
