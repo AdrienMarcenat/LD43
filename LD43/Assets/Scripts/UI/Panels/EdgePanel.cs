@@ -45,6 +45,7 @@ public class EdgePanel : MonoBehaviour
                 else
                 {
                     m_MoveType = EEdgeType.Obstacle;
+                    m_ChoosePathButton.interactable = false;
                 }
                 break;
         }
@@ -66,8 +67,7 @@ public class EdgePanel : MonoBehaviour
 
     public void ChoosePath()
     {
-        // TODO: Implement encounter trigger
-        switch (m_MoveType)
+        switch (m_MoveType )
         {
             case EEdgeType.Normal:
                 break;
