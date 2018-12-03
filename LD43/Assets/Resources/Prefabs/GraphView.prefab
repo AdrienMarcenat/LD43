@@ -1537,6 +1537,8 @@ MonoBehaviour:
     m_EdgeType: 0
     m_EdgeId: 0
     m_EdgeDescriptionID: 
+    m_EdgeCharacterNumber: 2147483647
+    m_EdgeCharacterClass: 4
   m_Start: {fileID: 114638421818619700}
   m_End: {fileID: 114029170224697426}
   m_IsOriented: 0
@@ -1557,6 +1559,8 @@ MonoBehaviour:
     m_EdgeType: 0
     m_EdgeId: 0
     m_EdgeDescriptionID: 
+    m_EdgeCharacterNumber: 2147483647
+    m_EdgeCharacterClass: 4
   m_Start: {fileID: 114028049771161870}
   m_End: {fileID: 114434455866738390}
   m_IsOriented: 0
@@ -1577,6 +1581,8 @@ MonoBehaviour:
     m_EdgeType: 0
     m_EdgeId: 0
     m_EdgeDescriptionID: 
+    m_EdgeCharacterNumber: 2147483647
+    m_EdgeCharacterClass: 4
   m_Start: {fileID: 114029170224697426}
   m_End: {fileID: 114028049771161870}
   m_IsOriented: 0
@@ -1615,6 +1621,8 @@ MonoBehaviour:
     m_EdgeType: 0
     m_EdgeId: 0
     m_EdgeDescriptionID: 
+    m_EdgeCharacterNumber: 2147483647
+    m_EdgeCharacterClass: 4
   m_Start: {fileID: 114434455866738390}
   m_End: {fileID: 114158790728349434}
   m_IsOriented: 0
@@ -1635,6 +1643,8 @@ MonoBehaviour:
     m_EdgeType: 0
     m_EdgeId: 0
     m_EdgeDescriptionID: 
+    m_EdgeCharacterNumber: 2147483647
+    m_EdgeCharacterClass: 4
   m_Start: {fileID: 114029170224697426}
   m_End: {fileID: 114525720661423056}
   m_IsOriented: 1
@@ -1655,6 +1665,8 @@ MonoBehaviour:
     m_EdgeType: 0
     m_EdgeId: 0
     m_EdgeDescriptionID: 1S2C
+    m_EdgeCharacterNumber: 2147483647
+    m_EdgeCharacterClass: 4
   m_Start: {fileID: 114638421818619700}
   m_End: {fileID: 114586757750913862}
   m_IsOriented: 0
@@ -1747,6 +1759,8 @@ MonoBehaviour:
     m_EdgeType: 0
     m_EdgeId: 0
     m_EdgeDescriptionID: 
+    m_EdgeCharacterNumber: 2147483647
+    m_EdgeCharacterClass: 4
   m_Start: {fileID: 114029170224697426}
   m_End: {fileID: 114726535576454200}
   m_IsOriented: 0
@@ -1816,6 +1830,8 @@ MonoBehaviour:
     m_EdgeType: 0
     m_EdgeId: 0
     m_EdgeDescriptionID: 
+    m_EdgeCharacterNumber: 2147483647
+    m_EdgeCharacterClass: 4
   m_Start: {fileID: 114525720661423056}
   m_End: {fileID: 114158790728349434}
   m_IsOriented: 0
@@ -1836,6 +1852,8 @@ MonoBehaviour:
     m_EdgeType: 0
     m_EdgeId: 0
     m_EdgeDescriptionID: 
+    m_EdgeCharacterNumber: 2147483647
+    m_EdgeCharacterClass: 4
   m_Start: {fileID: 114726535576454200}
   m_End: {fileID: 114028049771161870}
   m_IsOriented: 0
@@ -1856,6 +1874,8 @@ MonoBehaviour:
     m_EdgeType: 0
     m_EdgeId: 0
     m_EdgeDescriptionID: 
+    m_EdgeCharacterNumber: 2147483647
+    m_EdgeCharacterClass: 4
   m_Start: {fileID: 114586757750913862}
   m_End: {fileID: 114726535576454200}
   m_IsOriented: 0
@@ -1901,7 +1921,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 1.28}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1947,7 +1967,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 1.28}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1993,7 +2013,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 1.28}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2039,7 +2059,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 1.28}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2085,7 +2105,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 1.28}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2361,7 +2381,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 1.28}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2591,7 +2611,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 1.28}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2637,7 +2657,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 1.28}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
