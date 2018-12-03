@@ -1,12 +1,21 @@
 ﻿using System.IO;
 using UnityEngine;
 
+public enum EEdgeType
+{
+    Combat,
+    Obstacle,
+    Normal
+}
+
 [System.Serializable]
 public class EdgeResource
 {
-    [SerializeField] private int m_EdgeType;
+    [SerializeField] private EEdgeType m_EdgeType;
     [SerializeField] private int m_EdgeId;
     [SerializeField] private string m_EdgeDescriptionID;
+    [SerializeField] private int m_EdgeCharacterNumber = int.MaxValue;
+    [SerializeField] private ECharacterClass m_EdgeCharacterClass = ECharacterClass.None;
 
     private static string ms_EdgeDescriptionFileName = "/edgetext.txt";
 
@@ -52,6 +61,21 @@ public class EdgeResource
         {
             m_Description = string.Concat (m_Description, lines[i]);
         }
+    }
+
+    public EEdgeType GetEdgeType ()
+    {
+        return m_EdgeType;
+    }
+
+    public int GetEdgeCharacterNumber ()
+    {
+        return m_EdgeCharacterNumber;
+    }
+
+    public ECharacterClass GetEdgeCharacterClass ()
+    {
+        return m_EdgeCharacterClass;
     }
 
     public string GetDescription()

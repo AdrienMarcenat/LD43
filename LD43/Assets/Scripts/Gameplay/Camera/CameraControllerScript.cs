@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class CameraControllerScript : MonoBehaviour {
 
+    public float minX;
+    public float minY;
+    public float maxX;
+    public float maxY;
+
     public float m_CameraMoveSpeed;
     private float m_ScreenBorderMargin = 30;
 
@@ -36,5 +41,13 @@ public class CameraControllerScript : MonoBehaviour {
         //Keyboard movement
         transform.Translate ((new Vector3 (0, Input.GetAxis ("Vertical"), 0) * m_CameraMoveSpeed * Time.deltaTime), Space.Self);
         transform.Translate ((new Vector3 (Input.GetAxis ("Horizontal"), 0, 0) * m_CameraMoveSpeed * Time.deltaTime), Space.Self);
+    }
+
+    private void LateUpdate ()
+    {
+        var v3 = transform.position;
+        v3.x = Mathf.Clamp (v3.x, minX, maxX);
+        v3.y = Mathf.Clamp (v3.y, minY, maxY);
+        transform.position = v3;
     }
 }
