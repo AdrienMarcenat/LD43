@@ -11,6 +11,7 @@ public interface ITeamManagerInterface
     bool IsInRangeCharacters (int minCharacters, int maxCharacters);
     bool IsCharacterClass (ECharacterClass characterClass);
     Dictionary<string, CharacterModel> GetTeam();
+    List<CharacterModel> GetSortedTeam ();
 }
 
 public class TeamManager : ITeamManagerInterface
@@ -95,6 +96,22 @@ public class TeamManager : ITeamManagerInterface
         }
 
         return false;
+    }
+
+    public List<CharacterModel> GetSortedTeam()
+    {
+        List<CharacterModel> sortedList = new List<CharacterModel> ();
+        foreach(CharacterModel c in m_Characters.Values)
+        {
+            sortedList.Add (c);
+        }
+        sortedList.Sort (SortByID);
+        return sortedList;
+    }
+
+    static int SortByID (CharacterModel p1, CharacterModel p2)
+    {
+        return p2.GetId ().CompareTo (p1.GetId ());
     }
 }
 

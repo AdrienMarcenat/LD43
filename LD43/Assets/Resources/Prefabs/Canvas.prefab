@@ -3657,12 +3657,13 @@ MonoBehaviour:
   - {fileID: 114422849196233774}
   - {fileID: 114645087016597402}
   m_EnemiesThumbnails:
-  - {fileID: 114301099842831162}
-  - {fileID: 114015017758795894}
   - {fileID: 114256421868071524}
+  - {fileID: 114015017758795894}
+  - {fileID: 114301099842831162}
   m_AttackButton: {fileID: 114331687541513304}
   m_DefendButton: {fileID: 114559100131404814}
   m_CapacityButton: {fileID: 114769110189243564}
+  m_ActivePlayerName: {fileID: 114797399524867580}
 --- !u!114 &114491660563940734
 MonoBehaviour:
   m_ObjectHideFlags: 1

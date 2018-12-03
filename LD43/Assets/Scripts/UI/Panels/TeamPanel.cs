@@ -43,7 +43,7 @@ public class TeamPanel : MonoBehaviour
     {
         m_Models = new List<CharacterModel> ();
         int index = 0;
-        foreach (CharacterModel model in TeamManagerProxy.Get ().GetTeam ().Values)
+        foreach (CharacterModel model in TeamManagerProxy.Get ().GetSortedTeam ())
         {
             m_Models.Add (model);
             m_Players[index].SetActive (true);

@@ -23,6 +23,7 @@ public class BattlePanel : MonoBehaviour
     [SerializeField] Button m_AttackButton;
     [SerializeField] Button m_DefendButton;
     [SerializeField] Button m_CapacityButton;
+    [SerializeField] Text m_ActivePlayerName;
 
     private List<Character> m_Team;
     private List<Character> m_Enemies;
@@ -65,13 +66,18 @@ public class BattlePanel : MonoBehaviour
         m_Healths = new Dictionary<Character, Image> ();
         m_Animators = new Dictionary<Character, Animator> ();
         int index = 0;
-        foreach (CharacterModel model in TeamManagerProxy.Get ().GetTeam ().Values)
+        foreach (CharacterModel model in TeamManagerProxy.Get ().GetSortedTeam ())
         {
             m_Team.Add (new Character(model));
+            m_PlayerThumbnails[index].gameObject.SetActive (true);
             m_PlayerThumbnails[index].sprite = RessourceManager.LoadSprite ("Models/" + model.GetClass().ToString(), 0);
             m_Animators.Add (m_Team[index], m_PlayerThumbnails[index].GetComponent<Animator>());
             m_Healths.Add (m_Team[index], m_PlayerThumbnails[index].transform.Find("Health").GetComponent<Image> ());
             index++;
+        }
+        for (int i = index; i < m_PlayerThumbnails.Count; ++i)
+        {
+            m_PlayerThumbnails[i].gameObject.SetActive (false);
         }
         m_CurrentPlayer = m_Team[0];
         ActivateButtons (true);
@@ -81,10 +87,15 @@ public class BattlePanel : MonoBehaviour
         foreach (ECharacterClass characterClass in edge.GetEdgeResource ().GetEnemies ())
         {
             m_Enemies.Add (new Character (new CharacterModel("Enemy", characterClass)));
+            m_EnemiesThumbnails[index].gameObject.SetActive (true);
             m_EnemiesThumbnails[index].sprite = RessourceManager.LoadSprite ("Models/" + characterClass.ToString (), 0);
             m_Animators.Add (m_Enemies[index], m_EnemiesThumbnails[index].GetComponent<Animator> ());
             m_Healths.Add (m_Enemies[index], m_EnemiesThumbnails[index].transform.Find ("Health").GetComponent<Image> ());
             index++;
+        }
+        for (int i = index; i < m_EnemiesThumbnails.Count; ++i)
+        {
+            m_EnemiesThumbnails[i].gameObject.SetActive (false);
         }
         BattleManagerProxy.Get ().Init (m_Team, m_Enemies);
         m_IsInBattle = true;
@@ -119,7 +130,17 @@ public class BattlePanel : MonoBehaviour
 
     public void UseCapacity ()
     {
-        BattleManagerProxy.Get ().AddAction (EAction.Defense, m_CurrentPlayer);
+        EAction action = EAction.Defense;
+        switch(m_CurrentPlayer.GetModel().GetCapacity())
+        {
+            case ECharacterCapacity.Heal:
+                action = EAction.Heal;
+                break;
+            case ECharacterCapacity.Bound:
+                action = EAction.Bound;
+                break;
+        }
+        BattleManagerProxy.Get ().AddAction (action, m_CurrentPlayer);
         NextPlayer ();
     }
 
@@ -173,20 +194,18 @@ public class BattlePanel : MonoBehaviour
                     target.SetTrigger ("Hit");
                     break;
                 case EAction.Defense:
-                    source.SetTrigger ("Defense");
+                    source.SetTrigger ("Heal");
                     break;
                 case EAction.Heal:
-                    source.SetTrigger ("Defense");
+                case EAction.Protect:
                     if (source != target)
                     {
+                        source.SetTrigger ("Defense");
                         target.SetTrigger ("Heal");
                     }
-                    break;
-                case EAction.Protect:
-                    source.SetTrigger ("Defense");
-                    if (source != target)
+                    else
                     {
-                        target.SetTrigger ("Heal");
+                        source.SetTrigger ("Heal");
                     }
                     break;
                 case EAction.Bound:
@@ -233,11 +252,9 @@ public class BattlePanel : MonoBehaviour
         {
             m_Animators[m_CurrentPlayer].SetBool ("Active", !m_IsApplyingAction);
             ECharacterCapacity capactity = m_CurrentPlayer.GetModel ().GetCapacity ();
-            if (capactity == ECharacterCapacity.None)
-            {
-                m_CapacityButton.interactable = false;
-            }
+            m_CapacityButton.interactable = capactity != ECharacterCapacity.None;
             m_CapacityButton.GetComponentInChildren<Text> ().text = capactity.ToString ();
+            m_ActivePlayerName.text = m_CurrentPlayer.GetModel ().GetName ();
         }
     }
 

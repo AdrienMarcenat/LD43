@@ -5,6 +5,7 @@ public enum ECharacterCapacity
 {
     Heal,
     Purify,
+    Bound,
     None
 }
 
