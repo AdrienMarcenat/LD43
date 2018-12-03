@@ -1,3 +1,8 @@
+0S1C
+[
+	There is nowhere to hide, we must fight to progress ! But it should be easy. Provided you're not alone.
+]
+
 1S2C
 [
 	That street seem really dangerous: I may walk by unnoticed if I am alone, but if we are more we'll have to fight for our lives.
@@ -13,14 +18,14 @@
 	I guess walking a street in a group of three is the best we can hope this times. It doesn't get less risky than that.
 ]
 
+0S1D
+[
+	We stand no chance if one of us doesn't lure the hord of enemy's hord out of the way.
+]
+
 1S2D
 [
 	Someone small can still sneak through but the foes are so numerous that the only hope to have a party traverse is for someone to make a diversion.
-]
-
-0S1C
-[
-	There is nowhere to hide, we must fight to progress ! But it should be easy. Provided you're not alone.
 ]
 
 Eglise
@@ -28,7 +33,7 @@ Eglise
 	The churches are holy protections are falling, one after an other, but this one stands. We might find a priest inside.
 ]
 
-Soldat
+Yorick
 [
 	I can hear the echos of the ring steel makes when it hit bones. One of our man is still fighting there.
 ]
@@ -60,5 +65,40 @@ Small passage
 Unholy
 [
 	Some kind of unholy blight seem to have overtaken this path. Only a holy man could free the way.
+]
+
+Camp Fire
+[
+	A sudden flare of the campfire set the trees ablaze. Walls of flames are closing in on you. The slowest of you won't make it.
+]
+
+Forge
+[
+	It seems the heat has somewhat kept the corruption away. In the forge, you find a red hot iron bar. A unconventionnal weapon to be sure, but a welcome one.
+]
+
+Petard
+[
+	The alchemist used to live in the neighbourhood. Maybe we'll find something useful in the laboratories.
+]
+
+Healing fountain
+[
+	There is a healing fountain there. It probably would be useful to make a halt there.
+]
+
+Dispensary
+[
+	The priests used to heal the poor here. I'm sure there will be some bandages we can use.
+]
+
+Isaac
+[
+	A child is weeping softly in the distance.
+]
+
+Camilla
+[
+	A voice is calling someone. It sounds of despair and frustration.
 ]
 

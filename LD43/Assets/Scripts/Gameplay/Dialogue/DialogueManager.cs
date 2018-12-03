@@ -185,7 +185,7 @@ public class DialogueManager : MonoBehaviour
         Dialogue dialogue = new Dialogue (tag);
 
         char[] separators = { ':' };
-        string filename = ms_DialogueFileName;
+        string filename = "/Dialogues_level" + LevelManagerProxy.Get ().GetCurrentLevelID () + ".txt";
         filename = Application.streamingAssetsPath + filename;
 
         string[] lines = File.ReadAllLines (filename);
@@ -357,7 +357,10 @@ public class DialogueManager : MonoBehaviour
 
     private Dictionary<string, ECharacterClass> m_SpeakerClass = new Dictionary<string, ECharacterClass> ()
     {
-        {"Yorick" , ECharacterClass.Soldier }
+        {"Yorick" , ECharacterClass.Soldier },
+        {"Prince" , ECharacterClass.Prince },
+        {"Francis" , ECharacterClass.Priest },
+        {"Mark" , ECharacterClass.FireMage }
     };
 }
 
