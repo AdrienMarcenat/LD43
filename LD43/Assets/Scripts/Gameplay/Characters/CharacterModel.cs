@@ -14,6 +14,7 @@ public enum ECharacterClass
     Soldier,
     Priest,
     FireMage,
+    Monster,
     None
 }
 

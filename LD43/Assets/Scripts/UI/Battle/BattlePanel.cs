@@ -5,12 +5,14 @@ using System.Collections;
 
 public class OnBattleGameEvent : GameEvent
 {
-    public OnBattleGameEvent(bool enter) : base("Game")
+    public OnBattleGameEvent(bool enter, EdgeView edge = null) : base("Game")
     {
         m_Enter = enter;
+        m_Edge = edge;
     }
 
     public bool m_Enter;
+    public EdgeView m_Edge;
 }
 
 public class BattlePanel : MonoBehaviour
@@ -22,6 +24,7 @@ public class BattlePanel : MonoBehaviour
     [SerializeField] Button m_CapacityButton;
 
     private List<Character> m_Team;
+    private List<Character> m_Enemies;
     private Character m_CurrentPlayer;
     private int m_CurrentIndex;
 
@@ -36,7 +39,7 @@ public class BattlePanel : MonoBehaviour
         if (battleEvent.m_Enter)
         {
             gameObject.SetActive (true);
-            StartCoroutine (Init ());
+            StartCoroutine (Init (battleEvent.m_Edge));
         }
         else
         {
@@ -44,7 +47,7 @@ public class BattlePanel : MonoBehaviour
         }
     }
 
-    IEnumerator Init ()
+    IEnumerator Init (EdgeView edge)
     {
         yield return null;
         m_CurrentIndex = 0;
@@ -58,7 +61,15 @@ public class BattlePanel : MonoBehaviour
         }
         m_CurrentPlayer = m_Team[0];
         SetCurrentPlayerUI ();
-        BattleManagerProxy.Get ().Init (m_Team);
+
+        m_Enemies = new List<Character> ();
+        index = 0;
+        foreach (ECharacterClass characterClass in edge.GetEdgeResource ().GetEnemies ())
+        {
+            m_Enemies.Add (new Character (new CharacterModel("Enemy", characterClass)));
+            m_EnemiesThumbnails[index].sprite = RessourceManager.LoadSprite ("Models/" + characterClass.ToString (), 0);
+        }
+        BattleManagerProxy.Get ().Init (m_Team, m_Enemies);
     }
 
     IEnumerator Reset ()

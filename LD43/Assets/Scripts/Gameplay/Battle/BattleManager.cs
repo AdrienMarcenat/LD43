@@ -8,7 +8,7 @@ public class BattleManager
     private Queue<BattleAction> m_Actions;
     private BattleHSM m_HSM;
 
-    public void Init(List<Character> team)
+    public void Init(List<Character> team, List<Character> enemies)
     {
         m_Actions = new Queue<BattleAction> ();
         m_PlayerCharacters = new Stack<Character> ();
@@ -17,7 +17,10 @@ public class BattleManager
         {
             m_PlayerCharacters.Push(c);
         }
-
+        foreach (Character c in enemies)
+        {
+            m_EnnemyCharacters.Push (c);
+        }
         m_HSM = new BattleHSM ();
         m_HSM.Start (typeof (BattleStandbyState));
     }
@@ -102,6 +105,10 @@ public class BattleManager
             if(m_EnnemyCharacters.Peek ().TakeDamage (damage))
             {
                 m_EnnemyCharacters.Pop ();
+                if(m_EnnemyCharacters.Count == 0)
+                {
+                    m_Actions.Clear ();
+                }
             }
         }
         else
@@ -109,6 +116,10 @@ public class BattleManager
             if(m_PlayerCharacters.Peek ().TakeDamage (damage))
             {
                 m_PlayerCharacters.Pop ();
+                if (m_PlayerCharacters.Count == 0)
+                {
+                    m_Actions.Clear ();
+                }
             }
         }
     }

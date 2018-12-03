@@ -38,7 +38,7 @@ public class OverworldPlayerController : MonoBehaviour
         }
     }
 
-     public void OnNormalEdge (EdgeView edge)
+    public void OnNormalEdge (EdgeView edge)
     {
         Assert.IsTrue (edge.GetEdge ().UseNode (m_CurrentNode.GetNode ()));
         MoveToNode (m_CurrentNode == edge.GetStart () ? edge.GetEnd () : edge.GetStart ());
