@@ -20,7 +20,6 @@ public class OnCharacterDiversionEvent : GameEvent
 public class DiversionPanel : MonoBehaviour
 {
     [SerializeField] private Text m_Warning;
-    private bool m_WaitingForDiversion = false;
     
 	void Awake () {
         this.RegisterAsListener ("Game", typeof (OnDiversionEvent));

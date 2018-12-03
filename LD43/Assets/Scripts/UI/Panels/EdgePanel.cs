@@ -92,7 +92,7 @@ public class EdgePanel : MonoBehaviour
             case EEdgeType.Obstacle:
                 break;
             case EEdgeType.Diversion:
-                new OnDiversionEvent ();
+                new OnDiversionEvent ().Push ();
                 m_Player.OnEdge (m_CurrentEdge, true);
                 break;
         }
