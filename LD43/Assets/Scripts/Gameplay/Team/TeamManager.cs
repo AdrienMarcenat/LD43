@@ -10,6 +10,7 @@ public interface ITeamManagerInterface
     bool IsNotTooMuchCharacters (int maxCharacters);
     bool IsInRangeCharacters (int minCharacters, int maxCharacters);
     bool IsCharacterClass (ECharacterClass characterClass);
+    Dictionary<string, CharacterModel> GetTeam();
 }
 
 public class TeamManager : ITeamManagerInterface
@@ -19,6 +20,11 @@ public class TeamManager : ITeamManagerInterface
     public TeamManager()
     {
         m_Characters = new Dictionary<string, CharacterModel> ();
+    }
+
+    public Dictionary<string, CharacterModel> GetTeam ()
+    {
+        return m_Characters;
     }
 
     public void AddCharacter (CharacterModel newCharacter)

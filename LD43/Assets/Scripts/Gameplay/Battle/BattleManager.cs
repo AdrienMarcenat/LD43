@@ -6,6 +6,18 @@ public class BattleManager
     private Stack<Character> m_PlayerCharacters;
     private Stack<Character> m_EnnemyCharacters;
     private Queue<BattleAction> m_Actions;
+    private BattleHSM m_HSM;
+
+    public void Init(List<Character> team)
+    {
+        foreach (Character c in team)
+        {
+            m_PlayerCharacters.Push(c);
+        }
+
+        m_HSM = new BattleHSM ();
+        m_HSM.Start (typeof (BattleStandbyState));
+    }
 
     public void NextPlayerTurn ()
     {
@@ -16,6 +28,10 @@ public class BattleManager
     {
         m_Actions.Clear ();
         // TODO: Setup the turn depending on who's turn it is (player or ennemy)
+        if (!m_IsPlayerTurn)
+        {
+            new BattleEvent (EBattleAction.ChooseAction).Push ();
+        }
     }
 
     public void AddAction(EAction action, Character chara)
@@ -40,7 +56,6 @@ public class BattleManager
                 newAction = new Bound ();
                 break;
         }
-
         
         m_Actions.Enqueue (newAction);
     }
@@ -75,13 +90,17 @@ public class BattleManager
     {
         if (m_IsPlayerTurn)
         {
-            m_EnnemyCharacters.Peek ().TakeDamage (damage);
-            // Implement Character death
+            if(m_EnnemyCharacters.Peek ().TakeDamage (damage))
+            {
+                m_EnnemyCharacters.Pop ();
+            }
         }
         else
         {
-            m_PlayerCharacters.Peek ().TakeDamage (damage);
-            // Implement character death
+            if(m_PlayerCharacters.Peek ().TakeDamage (damage))
+            {
+                m_PlayerCharacters.Pop ();
+            }
         }
     }
 

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 
 public enum EAction
 {
@@ -11,43 +9,19 @@ public enum EAction
     Bound
 }
 
-public class Character : MonoBehaviour
+public class Character
 {
     protected CharacterModel m_Model;
-    protected Health m_Health;
-    protected SpriteRenderer m_Sprite;
     protected List<EAction> m_BattleActions;
+    protected int m_CurrentHealth;
     protected int m_Resistance = 0;
     protected bool m_Protected = false;
     protected bool m_Bound = false;
-
-
-	// Use this for initialization
-	protected void Start ()
+    
+    public Character(CharacterModel model)
     {
-        m_Health = GetComponent<Health> ();
-		
-	}
-
-    private void OnDestroy ()
-    {
-    }
-
-    // Update is called once per frame
-    protected void Update ()
-    {
-		
-	}
-
-    IEnumerator HitRoutine(float damage)
-    {
-        // TODO: Define damage routine
-        yield return null;
-    }
-
-    public void OnGameEvent (DamageGameEvent damageEvent)
-    {
-        StartCoroutine (HitRoutine (damageEvent.GetDamage ()));
+        m_Model = model;
+        m_CurrentHealth = model.GetVitality ();
     }
 
     public List<EAction> GetBattleActions ()
@@ -62,13 +36,18 @@ public class Character : MonoBehaviour
         {
             return false;
         }
-        // TODO: Implement taking damage, return true if character is dead, false if not
-        return false;
+        m_CurrentHealth -= System.Math.Max(damage - m_Resistance, 0);
+        return IsDead ();
     }
 
     public void Heal (int heal)
     {
-        // TODO: Implement healing
+        m_CurrentHealth = System.Math.Max(m_CurrentHealth + heal, m_Model.GetVitality ());
+    }
+
+    public bool IsDead()
+    {
+        return m_CurrentHealth <= 0;
     }
 
     public void Resistance (int resistance)
@@ -84,6 +63,11 @@ public class Character : MonoBehaviour
     public void Bound ()
     {
         m_Bound = true;
+    }
+
+    public bool IsBound ()
+    {
+        return m_Bound;
     }
 
     public void ResetCondition ()

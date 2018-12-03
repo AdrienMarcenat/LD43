@@ -33,11 +33,9 @@ public class OnEdgeActionEvent : GameEvent
 }
 
 [RequireComponent(typeof(EdgeCollider2D))]
-[RequireComponent (typeof (LineRenderer))]
 public class EdgeView : MonoBehaviour
 {
     private GameEdge m_Edge;
-    private LineRenderer m_Line;
     private SpriteRenderer m_Sprite;
 
     [SerializeField] private EdgeResource m_Resource;
@@ -49,8 +47,6 @@ public class EdgeView : MonoBehaviour
 
     private void Awake ()
     {
-        m_Line = GetComponent<LineRenderer> ();
-        m_Line.enabled = false;
         m_Sprite = GetComponentInChildren<SpriteRenderer> ();
         SetIsVisible (m_IsVisible);
         this.RegisterAsListener ("Game", typeof (OnNodeEnterEvent));
@@ -173,7 +169,7 @@ public class EdgeView : MonoBehaviour
 
     private void OnMouseUp ()
     {
-        if (!UpdaterProxy.Get ().IsPaused())
+        if (m_IsVisible && !UpdaterProxy.Get ().IsPaused())
         {
             new OnEdgeClick ("Game", this).Push ();
         }
@@ -183,13 +179,12 @@ public class EdgeView : MonoBehaviour
     {
         if (!UpdaterProxy.Get ().IsPaused ())
         {
-            m_Line.SetPositions (new Vector3[] { m_Start.transform.position, m_End.transform.position });
-            m_Line.enabled = true;
+            m_Sprite.color = Color.green;
         }
     }
 
     private void OnMouseExit ()
     {
-        m_Line.enabled = false;
+        m_Sprite.color = Color.white;
     }
 }
