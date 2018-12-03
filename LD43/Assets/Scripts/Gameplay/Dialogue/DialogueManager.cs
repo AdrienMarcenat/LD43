@@ -150,7 +150,7 @@ public class DialogueManager : MonoBehaviour
             if (m_NameText.text != speakerName)
             {
                 m_NameText.text = speakerName;
-                //m_Thumbnail.sprite = RessourceManager.LoadSprite (speakerName, 0);
+                m_Thumbnail.sprite = RessourceManager.LoadSprite ("Models/" + m_SpeakerClass[speakerName].ToString(), 0);
             }
             StartCoroutine (TypeSentence (sentence.GetText ()));
         }
@@ -354,6 +354,11 @@ public class DialogueManager : MonoBehaviour
 
         return choices;
     }
+
+    private Dictionary<string, ECharacterClass> m_SpeakerClass = new Dictionary<string, ECharacterClass> ()
+    {
+        {"Yorick" , ECharacterClass.Soldier }
+    };
 }
 
 public class DialogueManagerProxy : UniqueProxy<DialogueManager>

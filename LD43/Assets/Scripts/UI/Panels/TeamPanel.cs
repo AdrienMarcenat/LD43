@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class UpdateUIGameEvent : GameEvent
 {
-    UpdateUIGameEvent () : base ("UI")
+    public UpdateUIGameEvent () : base ("UI")
     {}
 }
 
@@ -60,5 +60,10 @@ public class TeamPanel : MonoBehaviour
     {
         m_WarningPanel.SetActive (false);
         TeamManagerProxy.Get ().RemoveCharacter (m_Models[m_PendingRemoveIndex].GetName());
+    }
+
+    public void CancelRemove ()
+    {
+        m_WarningPanel.SetActive (false);
     }
 }

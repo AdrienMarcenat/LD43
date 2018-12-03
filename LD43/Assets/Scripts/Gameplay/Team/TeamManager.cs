@@ -33,12 +33,14 @@ public class TeamManager : ITeamManagerInterface
     public void AddCharacter (CharacterModel newCharacter)
     {
         m_Characters.Add (newCharacter.GetName (), newCharacter);
+        new UpdateUIGameEvent ().Push ();
     }
 
     public void RemoveCharacter(string characterId)
     {
         // TODO: Activate character dialog
         m_Characters.Remove (characterId);
+        new UpdateUIGameEvent ().Push ();
     }
 
     public CharacterModel GetCharacter (string characterId)
