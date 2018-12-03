@@ -24,6 +24,11 @@ public class Character
         m_CurrentHealth = model.GetVitality ();
     }
 
+    public int GetCurrentHealth()
+    {
+        return m_CurrentHealth;
+    }
+
     public List<EAction> GetBattleActions ()
     {
         return m_BattleActions;

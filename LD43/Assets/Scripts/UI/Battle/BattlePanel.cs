@@ -27,6 +27,7 @@ public class BattlePanel : MonoBehaviour
     private List<Character> m_Team;
     private List<Character> m_Enemies;
     private Dictionary<Character, Animator> m_Animators;
+    private Dictionary<Character, Image> m_Healths;
     private Character m_CurrentPlayer;
     private int m_CurrentIndex;
     private bool m_IsEnemyTurn;
@@ -61,6 +62,7 @@ public class BattlePanel : MonoBehaviour
         m_IsEnemyTurn = false;
         m_IsApplyingAction = false;
         m_Team = new List<Character> ();
+        m_Healths = new Dictionary<Character, Image> ();
         m_Animators = new Dictionary<Character, Animator> ();
         int index = 0;
         foreach (CharacterModel model in TeamManagerProxy.Get ().GetTeam ().Values)
@@ -68,6 +70,7 @@ public class BattlePanel : MonoBehaviour
             m_Team.Add (new Character(model));
             m_PlayerThumbnails[index].sprite = RessourceManager.LoadSprite ("Models/" + model.GetClass().ToString(), 0);
             m_Animators.Add (m_Team[index], m_PlayerThumbnails[index].GetComponent<Animator>());
+            m_Healths.Add (m_Team[index], m_PlayerThumbnails[index].transform.Find("Health").GetComponent<Image> ());
             index++;
         }
         m_CurrentPlayer = m_Team[0];
@@ -80,6 +83,7 @@ public class BattlePanel : MonoBehaviour
             m_Enemies.Add (new Character (new CharacterModel("Enemy", characterClass)));
             m_EnemiesThumbnails[index].sprite = RessourceManager.LoadSprite ("Models/" + characterClass.ToString (), 0);
             m_Animators.Add (m_Enemies[index], m_EnemiesThumbnails[index].GetComponent<Animator> ());
+            m_Healths.Add (m_Enemies[index], m_EnemiesThumbnails[index].transform.Find ("Health").GetComponent<Image> ());
             index++;
         }
         BattleManagerProxy.Get ().Init (m_Team, m_Enemies);
@@ -209,6 +213,9 @@ public class BattlePanel : MonoBehaviour
             m_Animators[c].SetBool ("Bound", c.IsBound ());
             m_Animators[c].SetBool ("Dead", c.IsDead ());
             m_Animators[c].SetBool ("Active", false);
+            float fraction = Mathf.Clamp01 (((float)c.GetCurrentHealth()) / c.GetModel().GetVitality ());
+            Image health = m_Healths[c];
+            health.fillAmount  = fraction;
             index++;
         }
         index = 0;
@@ -217,6 +224,9 @@ public class BattlePanel : MonoBehaviour
             m_Animators[c].SetBool ("Bound", c.IsBound ());
             m_Animators[c].SetBool ("Dead", c.IsDead ());
             m_Animators[c].SetBool ("Active", false);
+            float fraction = Mathf.Clamp01 (((float)c.GetCurrentHealth ()) / c.GetModel ().GetVitality ());
+            Image health = m_Healths[c];
+            health.fillAmount = fraction;
             index++;
         }
         if (!m_IsEnemyTurn)
