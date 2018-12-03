@@ -19,19 +19,26 @@ public class TeamPanel : MonoBehaviour
     void Awake ()
     {
         this.RegisterAsListener ("UI", typeof (UpdateUIGameEvent));
+        this.RegisterAsListener ("Player", typeof (GameOverGameEvent));
         UpdateUI ();
     }
 
     private void OnDestroy ()
     {
         this.UnregisterAsListener ("UI");
+        this.UnregisterAsListener ("Player");
     }
 
     public void OnGameEvent(UpdateUIGameEvent uiEvent)
     {
         UpdateUI ();
     }
-    
+
+    public void OnGameEvent (GameOverGameEvent uiEvent)
+    {
+        gameObject.SetActive (false);
+    }
+
     private void UpdateUI ()
     {
         m_Models = new List<CharacterModel> ();

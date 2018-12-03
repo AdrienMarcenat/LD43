@@ -19,6 +19,11 @@ public class CameraControllerScript : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+        if(UpdaterProxy.Get().IsPaused())
+        {
+            return;
+        }
+
         // Mouse movement
         if (Input.mousePosition.y <= 20 && Input.mousePosition.y >= 0)
         {

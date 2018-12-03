@@ -6,7 +6,6 @@ public class BattleManager
     private Stack<Character> m_PlayerCharacters;
     private Stack<Character> m_EnnemyCharacters;
     private Queue<BattleAction> m_Actions;
-    private BattleHSM m_HSM;
 
     public void Init(List<Character> team, List<Character> enemies)
     {
@@ -21,13 +20,10 @@ public class BattleManager
         {
             m_EnnemyCharacters.Push (c);
         }
-        m_HSM = new BattleHSM ();
-        m_HSM.Start (typeof (BattleStandbyState));
     }
 
     public void Shutdown()
     {
-        m_HSM.Stop ();
         m_Actions.Clear ();
     }
 
@@ -39,11 +35,6 @@ public class BattleManager
     public void SetupTurn ()
     {
         m_Actions.Clear ();
-        // TODO: Setup the turn depending on who's turn it is (player or ennemy)
-        if (!m_IsPlayerTurn)
-        {
-            new BattleEvent (EBattleAction.ChooseAction).Push ();
-        }
     }
 
     public void AddAction(EAction action, Character chara)
@@ -78,7 +69,6 @@ public class BattleManager
         {
             m_Actions.Dequeue ().ApplyAction ();
         }
-        new BattleEvent (EBattleAction.Effect).Push ();
     }
 
     public void TurnEnd ()
@@ -86,6 +76,7 @@ public class BattleManager
         if (m_PlayerCharacters.Count == 0)
         {
             new GameFlowEvent (EGameFlowAction.GameOver).Push ();
+            new OnBattleGameEvent (false).Push ();
             return;
         }
 
@@ -95,7 +86,7 @@ public class BattleManager
             return;
         }
 
-        new BattleEvent (EBattleAction.Nothing).Push ();
+        NextPlayerTurn ();
     }
 
     public void Attack (int damage)
@@ -115,7 +106,8 @@ public class BattleManager
         {
             if(m_PlayerCharacters.Peek ().TakeDamage (damage))
             {
-                m_PlayerCharacters.Pop ();
+                Character player = m_PlayerCharacters.Pop ();
+                TeamManagerProxy.Get ().RemoveCharacter (player.GetModel ().GetName ());
                 if (m_PlayerCharacters.Count == 0)
                 {
                     m_Actions.Clear ();

@@ -24,6 +24,9 @@ public class GameFlowLevelState : HSMState
                     ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowEndGameState));
                 }
                 break;
+            case EGameFlowAction.GameOver:
+                ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowGameOverState));
+                break;
         }
     }
 

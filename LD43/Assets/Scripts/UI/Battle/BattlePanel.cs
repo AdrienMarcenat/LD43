@@ -27,6 +27,7 @@ public class BattlePanel : MonoBehaviour
     private List<Character> m_Enemies;
     private Character m_CurrentPlayer;
     private int m_CurrentIndex;
+    private bool m_IsEnemyTurn;
 
     private void Awake ()
     {
@@ -51,6 +52,7 @@ public class BattlePanel : MonoBehaviour
     {
         yield return null;
         m_CurrentIndex = 0;
+        m_IsEnemyTurn = false;
         m_Team = new List<Character> ();
         int index = 0;
         foreach (CharacterModel model in TeamManagerProxy.Get ().GetTeam ().Values)
@@ -60,7 +62,7 @@ public class BattlePanel : MonoBehaviour
             index++;
         }
         m_CurrentPlayer = m_Team[0];
-        SetCurrentPlayerUI ();
+        ActivateButtons (true);
 
         m_Enemies = new List<Character> ();
         index = 0;
@@ -68,8 +70,10 @@ public class BattlePanel : MonoBehaviour
         {
             m_Enemies.Add (new Character (new CharacterModel("Enemy", characterClass)));
             m_EnemiesThumbnails[index].sprite = RessourceManager.LoadSprite ("Models/" + characterClass.ToString (), 0);
+            index++;
         }
         BattleManagerProxy.Get ().Init (m_Team, m_Enemies);
+        UpdateUI ();
     }
 
     IEnumerator Reset ()
@@ -106,33 +110,113 @@ public class BattlePanel : MonoBehaviour
 
     private void NextPlayer()
     {
-        m_PlayerThumbnails[m_CurrentIndex].color = Color.white;
+        if(m_IsEnemyTurn)
+        {
+            return;
+        }
         m_CurrentIndex++;
         if (m_CurrentIndex == m_Team.Count)
         {
-            new BattleEvent (EBattleAction.ChooseAction).Push ();
+            BattleManagerProxy.Get ().ApplyActions ();
+            BattleManagerProxy.Get ().TurnEnd ();
             m_CurrentIndex = 0;
+            StartCoroutine (EnemyTurn ());
         }
         else
         {
             m_CurrentPlayer = m_Team[m_CurrentIndex];
             if(m_CurrentPlayer.IsBound ())
             {
-                m_PlayerThumbnails[m_CurrentIndex].color = Color.blue;
                 NextPlayer ();
+                return;
             }
             if (m_CurrentPlayer.IsDead ())
             {
-                m_PlayerThumbnails[m_CurrentIndex].color = Color.black;
                 NextPlayer ();
+                return;
             }
-            SetCurrentPlayerUI ();
         }
+        UpdateUI ();
     }
 
-    private void SetCurrentPlayerUI ()
+    private void UpdateUI ()
     {
+        int index = 0;
+        foreach (Character c in m_Team)
+        {
+            if (c.IsBound ())
+            {
+                m_PlayerThumbnails[index].color = Color.blue;
+            }
+            else if (c.IsDead ())
+            {
+                m_PlayerThumbnails[index].color = Color.black;
+            }
+            else
+            {
+                m_PlayerThumbnails[index].color = Color.white;
+            }
+            index++;
+        }
+        index = 0;
+        foreach (Character c in m_Enemies)
+        {
+            if (c.IsBound ())
+            {
+                m_EnemiesThumbnails[index].color = Color.blue;
+            }
+            if (c.IsDead ())
+            {
+                m_EnemiesThumbnails[index].color = Color.black;
+            }
+            else
+            {
+                m_EnemiesThumbnails[index].color = Color.white;
+            }
+            index++;
+        }
         m_PlayerThumbnails[m_CurrentIndex].color = Color.green;
         m_CapacityButton.GetComponentInChildren<Text> ().text = m_CurrentPlayer.GetModel ().GetCapacity ().ToString ();
+    }
+
+
+    IEnumerator EnemyTurn ()
+    {
+        m_IsEnemyTurn = true;
+        ActivateButtons (false);
+        foreach (Character enemy in m_Enemies)
+        {
+            if(enemy.IsBound() || enemy.IsDead())
+            {
+                continue;
+            }
+            m_CurrentPlayer = enemy;
+            int randomChoice = Random.Range (0, 1);
+            switch(randomChoice)
+            {
+                case 0:
+                    Attack ();
+                    break;
+                case 1:
+                    Defend ();
+                    break;
+                case 2:
+                    UseCapacity ();
+                    break;
+            }
+        }
+        yield return new WaitForSecondsRealtime (0.5f);
+        BattleManagerProxy.Get ().ApplyActions ();
+        BattleManagerProxy.Get ().TurnEnd ();
+        ActivateButtons (true);
+        m_IsEnemyTurn = false;
+        UpdateUI ();
+    }
+
+    private void ActivateButtons(bool activate)
+    {
+        m_AttackButton.interactable = activate;
+        m_CapacityButton.interactable = activate;
+        m_DefendButton.interactable = activate;
     }
 }
