@@ -227,3 +227,12 @@ Prince Leave
 	[Sentence]Prince:"No, I cannot leave. I must continue, even if I am barely standing."
 	]
 ]
+
+Begin
+[
+	Begin
+	[
+	[Sentence]Prince:"There is only chaos and despair all around us. We must take action right now in order to end this madness."
+	[Sentence]Prince:"It is my duty as Prince of this kingdom to save my people."
+	]
+]
