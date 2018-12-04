@@ -62,7 +62,7 @@ Peasant meeting
 	[
 	[Sentence]Prince:"Why are you crying? Why don't you hide somewhere instead of staying in the middle of the way, up for the first monster to grab?
 	[Sentence]Peasant:"Snif... Why would I? I want to rejoin the side of my loved ones. They were all taken from me."
-	[Sentence]Peasant:"Death can come, even at the hands of those monsters, I am wanting for her."
+	[Sentence]Peasant:"Death can come, even at the hands of those monsters, I am waiting for her."
 	]
 ]
 

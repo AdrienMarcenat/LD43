@@ -65,7 +65,7 @@ public class TeamPanel : MonoBehaviour
     public void ConfirmRemove()
     {
         m_WarningPanel.SetActive (false);
-        TeamManagerProxy.Get ().RemoveCharacter (m_Models[m_PendingRemoveIndex].GetName());
+        TeamManagerProxy.Get ().RemoveCharacterWithDialogue (m_Models[m_PendingRemoveIndex].GetName());
     }
 
     public void CancelRemove ()

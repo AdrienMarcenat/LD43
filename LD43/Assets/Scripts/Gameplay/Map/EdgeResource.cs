@@ -62,7 +62,7 @@ public class EdgeResource
 
         for (int i = descriptionBeginning; i < descriptionEnd; i++)
         {
-            m_Description = string.Concat (m_Description, lines[i]);
+            m_Description = string.Concat (m_Description, lines[i].Trim());
         }
     }
 

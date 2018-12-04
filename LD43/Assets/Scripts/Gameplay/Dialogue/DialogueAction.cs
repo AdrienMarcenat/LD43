@@ -49,7 +49,7 @@ public class RemoveFromTeamAction : IDialogueAction
 
     public void Action ()
     {
-        TeamManagerProxy.Get ().RemoveCharacter (m_CharacterName);
+        TeamManagerProxy.Get ().RemoveCharacterWithDialogue (m_CharacterName);
     }
 }
 

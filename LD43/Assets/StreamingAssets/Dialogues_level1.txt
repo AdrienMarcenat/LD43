@@ -61,7 +61,7 @@ Francis recrutement
 	]
 	NotAdd
 	[
-	[Sentence]Yorick:"It doesn't even make a difference anymore. Leave alone, at least I am safe by myself."
+	[Sentence]Francis:"It doesn't even make a difference anymore. Leave me alone, at least I am safe by myself."
 	]
 ]
 
@@ -95,8 +95,8 @@ Dialogue noeud priest
 	Heal
 	[
 	[Sentence]Francis:"I can try to delay the inevitable." 
-	]
 	UsePower Francis
+	]
 	Let Go
 	[
 	[Sentence]Prince:"I have seen our fate, father. You must leave us. (Give him some food and leave him.))"

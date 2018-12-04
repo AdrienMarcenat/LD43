@@ -158,10 +158,12 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeSentence (string sentence)
     {
-        m_DialogeText.text = "";
-        foreach (char letter in sentence.ToCharArray ())
+        int index = 0;
+        while (index < sentence.Length)
         {
-            m_DialogeText.text += letter;
+            index++;
+            m_DialogeText.text = sentence.Insert (index, "<color=#00000000>");
+            m_DialogeText.text += "</color>";
             yield return null;
         }
     }

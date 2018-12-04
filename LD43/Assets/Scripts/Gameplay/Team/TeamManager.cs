@@ -4,6 +4,7 @@ public interface ITeamManagerInterface
 {
     void AddCharacter (CharacterModel newCharacter);
     void RemoveCharacter (string characterId);
+    void RemoveCharacterWithDialogue (string characterId);
     CharacterModel GetCharacter (string characterId);
     void UseCharacterCapacity (string characterId);
     bool IsEnoughCharacters (int minCharacters);
@@ -45,7 +46,12 @@ public class TeamManager : ITeamManagerInterface
         new UpdateUIGameEvent ().Push ();
     }
 
-    public void RemoveCharacter(string characterId)
+    public void RemoveCharacter (string characterId)
+    {
+        m_Characters.Remove (characterId);
+    }
+
+    public void RemoveCharacterWithDialogue (string characterId)
     {
         if (!characterId.Equals ("Prince"))
         {
