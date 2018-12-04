@@ -40,6 +40,10 @@ public class TeamManager : ITeamManagerInterface
 
     public void AddCharacter (CharacterModel newCharacter)
     {
+        if(m_Characters.Count == 6)
+        {
+            return;
+        }
         m_Characters.Add (newCharacter.GetName (), newCharacter);
         new UpdateUIGameEvent ().Push ();
     }

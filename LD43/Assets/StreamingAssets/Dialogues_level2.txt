@@ -135,7 +135,7 @@ Charles recrutement
 	Add
 	[
 	[Sentence]Charles:"I have faith in you, my prince."
-	AddToTeam Charles None
+	AddToTeam Charles Soldier
 	]
 	NotAdd
 	[
