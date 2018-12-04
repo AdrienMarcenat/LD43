@@ -116,3 +116,8 @@ Tuto
 [
 	Even the royal palace has been invaded. I shall fight to protect my people!
 ]
+
+Palace
+[
+	My Fate await on this path.
+]

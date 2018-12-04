@@ -35,14 +35,13 @@ Yorick combat3
 	[Sentence]Yorick:"I shall die fighting."
 ]
 
-Dialogue noeud Yorick
+Yorick Leave
 [
 	Let Go
 	[
 	[Sentence]Prince:"You must leave us. We are in danger if you stay."
 	[Sentence]Yorick:"So be it. I have no more reasons to live than when I met you."
 	[Sentence]Yorick:"But think about this, little lord: you'll still be in danger when I'm gone."
-	RemoveFromTeam Yorick
 	]
 ]
 
@@ -54,7 +53,7 @@ Death Soldat
 ]
 
 
-Pretre01 recrutement
+Francis recrutement
 [
 	Faithless
 	[

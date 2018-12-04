@@ -58,10 +58,7 @@ public class TeamManager : ITeamManagerInterface
                 m_WaitingForDiversion = false;
             }
         }
-        else
-        {
-            DialogueManagerProxy.Get ().TriggerDialogue ("Prince Leave");
-        }
+        DialogueManagerProxy.Get ().TriggerDialogue (characterId + " Leave");
     }
 
     public CharacterModel GetCharacter (string characterId)

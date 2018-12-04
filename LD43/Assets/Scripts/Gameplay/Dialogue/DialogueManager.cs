@@ -373,7 +373,8 @@ public class DialogueManager : MonoBehaviour
         {"Peasant", ECharacterClass.Son },
         {"Isaac", ECharacterClass.Son },
         {"Camilla", ECharacterClass.Mother },
-        {"Charles", ECharacterClass.Soldier }
+        {"Charles", ECharacterClass.Soldier },
+        {"Voice", ECharacterClass.Voice }
     };
 }
 
