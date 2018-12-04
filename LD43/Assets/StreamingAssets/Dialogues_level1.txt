@@ -130,7 +130,6 @@ Francis LetGo
 	[Sentence]Prince:"I have seen our fate, father. You must leave us. (Give him some food and leave him.))"
 	[Sentence]Francis:"And what good do you think your two apples will do me, alone in the middle of this madness ?"
 	[Sentence]Francis:"You've taken and have thrown me away. I guess God isn't the only betrayer I got to unmask."
-	RemoveFromTeam Francis
 	]
 ]
 
@@ -139,7 +138,6 @@ Death Priest
 [
 	[Sentence]Francis:"I am not sure of what is to come anymore. I'll see..."
 	[Sentence]Francis:"... or perhaps not."
-	RemoveFromTeam Francis
 ]
 
 
@@ -263,6 +261,5 @@ James LetGo
 	[Sentence]Prince:"I must leave you. I must accomplish my mission."
 	[Sentence]James:"But my lord, I must protect you !"
 	[Sentence]James:"You have served me well already. I must continue with you now."
-	RemoveFromTeam James
 	]
 ]

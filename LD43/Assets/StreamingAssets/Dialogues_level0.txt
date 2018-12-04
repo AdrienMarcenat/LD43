@@ -46,7 +46,6 @@ James LetGo
 	[Sentence]Prince:"I must leave you. I must accomplish my mission."
 	[Sentence]James:"But my lord, I must protect you !"
 	[Sentence]James:"You have served me well already. I must continue with you now."
-	RemoveFromTeam James
 	]
 ]
 

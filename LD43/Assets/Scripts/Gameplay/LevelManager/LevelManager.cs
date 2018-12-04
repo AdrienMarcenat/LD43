@@ -29,7 +29,7 @@ public class LevelEvent : GameEvent
 
 public class LevelManager
 {
-    private int m_CurrentLevel = 3;
+    private int m_CurrentLevel = 2;
     private static int ms_MaxLevel = 3;
 
     public void LoadScene (int sceneIndex)
