@@ -145,7 +145,7 @@ Mark recrutement
 	Add
 	[
 	[Sentence]Mark:"Wait, fight ?"
-	AddToTeam Scott FireMage
+	AddToTeam Mark FireMage
 	]
 	NotAdd
 	[
