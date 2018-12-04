@@ -19,8 +19,6 @@ public class OnCharacterDiversionEvent : GameEvent
 
 public class DiversionPanel : MonoBehaviour
 {
-    [SerializeField] private Text m_Warning;
-    
 	void Awake ()
     {
         this.RegisterAsListener ("Game", typeof (OnDiversionEvent), typeof (OnCharacterDiversionEvent));

@@ -34,7 +34,7 @@ public class NodeView : MonoBehaviour
 
     private void Start ()
     {
-        if (m_IsVisited)
+        if (m_IsVisible)
         {
             new OnNodeEnterEvent ("Game", this).Push ();
         }
