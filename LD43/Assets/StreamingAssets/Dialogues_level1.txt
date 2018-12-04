@@ -2,7 +2,7 @@ Yorick recrutement
 [
 	Depressed
 	[
-	[Sentence]Yorick:"What are you doing here, little lord ? This is not a place for children..."
+	[Sentence]Yorick:"What are you doing here, little lord? This is not a place for children..."
 	[Sentence]Yorick:"... but it seems there is no more place for children anymore."
 	[Sentence]Yorick:"Or for anyone. I have nothing to fight for anymore. I might as well let this plague take me..."
 	[Choice]:"Fight for me. (Add him to your party)"/"Add"/"Do not fall into despair, there is hope. (Leave him)"/"NotAdd"
@@ -11,7 +11,7 @@ Yorick recrutement
 	[
 	[Sentence]Yorick:"Royalty is of little importance for a lot of people, now, little lord."
 	[Sentence]Yorick:"It is of little importance to me."
-	[Sentence]Yorick:"But if I am to die, it might as well be with some panache !"
+	[Sentence]Yorick:"But if I am to die, it might as well be with some panache!"
 	AddToTeam Yorick Soldier
 	]
 	NotAdd
@@ -22,7 +22,7 @@ Yorick recrutement
 
 Yorick combat1
 [
-	[Sentence]Yorick:"They are gonna die ! Painfully !"
+	[Sentence]Yorick:"They are gonna die! Painfully!"
 ]
 
 Yorick combat2
@@ -48,13 +48,13 @@ Francis recrutement
 	Faithless
 	[
 	[Sentence]Francis:"The light of God is leaving His house, my son."
-	[Sentence]Francis:"Look at that relic : once an everflowing phial of holy oil, there is now barely enough for one exorcism. Two, maybe."
+	[Sentence]Francis:"Look at that relic: once an everflowing phial of holy oil, there is now barely enough for one exorcism. Two, maybe."
 	[Sentence]Francis:"For the first time, I am alone."
 	[Choice]:"You still have the company of Man. (Add him to your party)"/"Add"/"Maybe it is just the first time you notice. (Leave him)"/"NotAdd"
 	]
 	Add
 	[
-	[Sentence]Francis:"For how long ?"
+	[Sentence]Francis:"For how long?"
 	[Sentence]Prince:"For as long as you and I will be able to fight."
 	[Sentence]Francis:"Mpf."
 	AddToTeam Francis Priest
@@ -82,7 +82,7 @@ Francis combat1
 
 Francis combat2
 [
-	[Sentence]Francis:"If this life is the only one, I will defend mine fiercely !"
+	[Sentence]Francis:"If this life is the only one, I will defend mine fiercely!"
 ]
 
 
@@ -90,7 +90,7 @@ Dialogue noeud priest
 [
 	Questions
 	[
-	[Choice]:"Can you make a bandage, father ?"/"Heal"/"We need to talk"/"Let Go"/"There is something unholy in our path"/"Purifie"
+	[Choice]:"Can you make a bandage, father?"/"Heal"/"We need to talk"/"Let Go"/"There is something unholy in our path"/"Purifie"
 	]
 	Heal
 	[
@@ -100,8 +100,8 @@ Dialogue noeud priest
 	Let Go
 	[
 	[Sentence]Prince:"I have seen our fate, father. You must leave us. (Give him some food and leave him.))"
-	[Sentence]Francis:"And what good do you think your two apples will do me, alone in the middle of this madness ?"
-	[Sentence]Francis:"You've taken and have thrown me away. I guess God isn't the only betrayer I got to unmask."
+	[Sentence]Francis:"And what good do you think your two apples will do me, alone in the middle of this madness?"
+	[Sentence]Francis:"You've taken and thrown me away. I guess God isn't the only betrayer I got to unmask."
 	RemoveFromTeam Francis
 	]
 	Purifie
@@ -110,6 +110,16 @@ Dialogue noeud priest
 	]
 	[
 	[Sentence]Francis:"Alas, my son, the last of my holy oil is gone, and the unholy abominations seem to call this world home, already."
+	]
+]
+
+Francis LetGo
+[
+	LetGo
+	[
+	[Sentence]Prince:"I have seen our fate, father. You must leave us. (Give him some food and leave him.))"
+	[Sentence]Francis:"And what good do you think your two apples will do me, alone in the middle of this madness?"
+	[Sentence]Francis:"You've taken and thrown me away. I guess God isn't the only betrayer I got to unmask."
 	]
 ]
 
@@ -124,14 +134,14 @@ Mark recrutement
 [
 	Fearful
 	[
-	[Sentence]Mark:"D-D-Don't make a step more. I am a mage, m-m-master of fire and I won't hesitate to conjure my almighty magic !"
+	[Sentence]Mark:"D-D-Don't make a step more. I am a mage, m-m-master of fire and I won't hesitate to conjure my almighty magic!"
 	[Sentence]Prince:"I know. We are no threat. I am your Prince and..."
-	[Sentence]Mark:"Ah prince ! Take me with you !"
+	[Sentence]Mark:"Ah prince! Take me with you!"
 	[Choice]:"Mmh. Yes. Come. Your 'almighty magic' might be useful in our fight. (Add him to your party)"/"Add"/"If it's safety you seek, you better not follow us. (Leave him)"/"NotAdd"
 	]
 	Add
 	[
-	[Sentence]Mark:"Wait, fight ?"
+	[Sentence]Mark:"Wait, fight?"
 	AddToTeam Mark FireMage
 	]
 	NotAdd
@@ -142,17 +152,17 @@ Mark recrutement
 
 Mark combat1
 [
-	[Sentence]Mark:"We are gonna die ! Painfully !"
+	[Sentence]Mark:"We are gonna die! Painfully!"
 ]
 
 Mark combat2
 [
-	[Sentence]Mark:"Why did I follow you ?"
+	[Sentence]Mark:"Why did I follow you?"
 ]
 
 Mark combat3
 [
-	[Sentence]Mark:"I am too young to see the end of the world !"
+	[Sentence]Mark:"I am too young to see the end of the world!"
 ]
 
 Dialogue noeud MageFeu
@@ -164,13 +174,22 @@ Dialogue noeud MageFeu
 	Let Go
 	[
 	[Sentence]Prince:"If you come with us, we won't make it. You must leave. (Give him some food and leave him.)"
-	[Sentence]Mark:"No. No. NO ! Sir don't leave me alone ! I have served you well ! Sir ! I am done for if I stay. Sir ! Have some pity..."
+	[Sentence]Mark:"No. No. NO! Sir don't leave me alone! I have served you well! Sir! I am done for if I stay. Sir! Have some pity..."
 	]
 	RemoveFromTeam Scott
 	Burn
 	[
-	[Sentence]Prince:There is something to burn in our way. You seem to be the most capable person to deal with this. Surprisingly.
+	[Sentence]Prince:"There is something to burn in our way. You seem to be the most capable person to deal with this. Surprisingly."
 	[Sentence]Mark:"I will help you. If there's no monster. And no danger. And if it's not too dark."
+	]
+]
+
+Mark LetGo
+[
+	LetGo
+	[
+	[Sentence]Prince:"If you come with us, we won't make it. You must leave. (Give him some food and leave him.)"
+	[Sentence]Mark:"No. No. NO! Sir don't leave me alone! I have served you well! Sir! I am done for if I stay. Sir! Have some pity..."
 	]
 ]
 
@@ -229,8 +248,8 @@ James LetGo
 	Let Go
 	[
 	[Sentence]Prince:"I must leave you. I must accomplish my mission."
-	[Sentence]James:"But my lord, I must protect you !"
-	[Sentence]James:"You have served me well already. I must continue with you now."
+	[Sentence]James:"But my lord, I must protect you!"
+	[Sentence]Prince:"You have served me well already. I must continue without you now."
 	]
 ]
 
@@ -241,24 +260,5 @@ Yorick LetGo
 	[Sentence]Prince:"You must leave us. We are in danger if you stay."
 	[Sentence]Yorick:"So be it. I have no more reasons to live than when I met you."
 	[Sentence]Yorick:"But think about this, little lord: you'll still be in danger when I'm gone."
-	]
-]
-
-Francis LetGo
-[
-	LetGo
-	[
-	[Sentence]Prince:"I have seen our fate, father. You must leave us. (Give him some food and leave him.))"
-	[Sentence]Francis:"And what good do you think your two apples will do me, alone in the middle of this madness ?"
-	[Sentence]Francis:"You've taken and have thrown me away. I guess God isn't the only betrayer I got to unmask."
-	]
-]
-
-Mark LetGo
-[
-	LetGo
-	[
-	[Sentence]Prince:"If you come with us, we won't make it. You must leave. (Give him some food and leave him.)"
-	[Sentence]Mark:"No. No. NO ! Sir don't leave me alone ! I have served you well ! Sir ! I am done for if I stay. Sir ! Have some pity..."
 	]
 ]

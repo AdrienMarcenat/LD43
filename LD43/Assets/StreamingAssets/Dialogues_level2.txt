@@ -5,7 +5,7 @@ Lily recrutement
 	[Sentence]Lily:"You there!"
 	[Sentence]Lily:"Finally royalty deigns concern itself with the situation."
 	[Sentence]Lily:"I need your help to take my revenge. See this street? I used to live there."
-	[Sentence]Lily:"They took my home. They took my husband and kids? I'll take their life."
+	[Sentence]Lily:"They took my home. They took my husband and kids. I'll take their life."
 	[Sentence]Lily:"Will you come with me?"
 	[Choice]:"Yes. (Add her to your party)"/"Add"/"Wait for me, I need to prepare myself. (Leave her)"/"NotAdd"
 	]
@@ -43,7 +43,7 @@ Lily diversion
 
 Death Lily
 [
-	[Sentence]Lily:"I didn't took asmuch with me as I had hoped but this will do."
+	[Sentence]Lily:"I didn't take as much with me as I had hoped but this will do."
 	[Sentence]Lily:"I won't be alone on the other side anyway."
 	RemoveFromTeam Lily
 ]
@@ -60,7 +60,7 @@ Monica recrutement
 	Add
 	[
 	[Sentence]Monica:"What mission?"
-	[Sentence]Prince:"We must get to the temple to purifie the land."
+	[Sentence]Prince:"We must get to the temple to purify the land."
 	[Sentence]Monica:"There we are! I will follow you."
 	AddToTeam Monica Monica
 	]
@@ -104,9 +104,9 @@ Charles recrutement
 [
 	Protection
 	[
-	[Sentence]Charles:"Who's there ? You are not monsters ! Who are you ? Come into the light, so that I can see you !"
+	[Sentence]Charles:"Who's there? You are not monsters! Who are you? Come into the light, so that I can see you !"
 	[Sentence]Prince:"I am your prince. We are on a mission, and must go to the temple."
-	[Sentence]Charles:"On a mission, eh ? Can you lead me to a safer place on the way ?"
+	[Sentence]Charles:"On a mission, eh? Can you lead me to a safer place on the way?"
 	[Choice]:"Of course, we'll keep you safe" (Add him to your party)/"Add"
 		/"I don't think there is anywhere safe. You might as well stay here."(Leave him)/"NotAdd"
 	]
@@ -123,17 +123,17 @@ Charles recrutement
 
 Charles combat1
 [
-	[Sentence]Charles:"What am I doing here ?"
+	[Sentence]Charles:"What am I doing here?"
 ]
 
 Charles combat2
 [
-	[Sentence]Charles:"Why did I follow you ?"
+	[Sentence]Charles:"Why did I follow you?"
 ]
 
 Charles combat3
 [
-	[Sentence]Charles:"I don't even know how to fight !"
+	[Sentence]Charles:"I don't even know how to fight!"
 ]
 
 Charles diversion
@@ -151,9 +151,9 @@ Camilla recrutement
 [
 	Reunion
 	[
-	[Sentence]Camilla:"My prince, my prince is it you ? My prince, you must help me."
+	[Sentence]Camilla:"My prince, my prince is it you? My prince, you must help me."
 	[Sentence]Camilla:"My only son is just down the street and I can't get to him."
-	[Sentence]Camilla:"I beg you, take me to him or at least save his life !"
+	[Sentence]Camilla:"I beg you, take me to him or at least save his life!"
 	[Choice]:"I can try to reunite you" (Add her to your party)/"Add"/"I will save his life, but I cannot take you with me. For now."(Leave her)/"NotAdd"
 	]
 	Add
@@ -169,17 +169,17 @@ Camilla recrutement
 
 Camilla combat1
 [
-	[Sentence]Camilla:"Why has you forsaken us, Lord ?"
+	[Sentence]Camilla:"Why have you forsaken us, Lord?"
 ]
 
 Camilla combat2
 [
-	[Sentence]Camilla:"I can't die here, I have someone to protect !"
+	[Sentence]Camilla:"I can't die here, I have someone to protect!"
 ]
 
 Camilla combat3
 [
-	[Sentence]Camilla:"I don't even know how to fight !"
+	[Sentence]Camilla:"I don't even know how to fight!"
 ]
 
 Camilla diversion
@@ -194,7 +194,7 @@ Dialogue noeud Camilla
 	Let Go
 	[
 	[Sentence]Prince:"We must part ways, Camilla. (Give her some food and leave her.)"
-	[Sentence]Camilla:"Promise me. Promise me you'll keep an eye an Isaac when I am not there. Swear it."
+	[Sentence]Camilla:"Promise me. Promise me you'll keep an eye on Isaac when I am not there. Swear it."
 	[Choice]:"I will." (Leave her)/"Leave"/"I can't promise you that." (Keep her)/"Keep"
 	]
 	Leave
@@ -212,7 +212,7 @@ Isaac recrutement
 [
 	Reunion
 	[
-	[Sentence]Isaac:"Sir, sir ! I need you to help me, sir! I got separated from my mom."
+	[Sentence]Isaac:"Sir, sir! I need you to help me, sir! I got separated from my mom."
 	[Sentence]Isaac:"She is just up the street, but there are monsters, and I am scared. Please, take me to her."
 	[Choice]:"I can try to reunite you" (Add him to your party)/"Add"/"Okay Isaac, I'll try to take her here. Stay hidden." (Leave him)/"NotAdd"
 	]
@@ -244,19 +244,19 @@ Isaac combat3
 
 Isaac diversion
 [
-	[Sentence]Isaac:"And you say if I do it, my mom will be safe ?"
+	[Sentence]Isaac:"And you say if I do it, my mom will be safe?"
 ]
 
 Death Isaac
 [
-	[Sentence]Isaac:"Mom. Mom. I'm scared. Mom ?"
+	[Sentence]Isaac:"Mom. Mom. I'm scared. Mom?"
 ]
 
 Key Found
 [
 	RANDOMNAME101
 	[
-	[Sentence]Prince:"There is another key down this path, it will open the path to our destination."
+	[Sentence]Prince:"There is another key down this aisle, it will open the path to our destination."
 	]
 ]
 
@@ -264,7 +264,7 @@ No Key
 [
 	No End
 	[
-	{Sentence]Prince:"The path is blocked from here, it looks like we will need to find a key to open it."
+	{Sentence]Prince:"The path is blocked from here, it looks like we will need to find a key to open the Gate."
 	[Sentence]Prince:"By searching around, we should find it."
 	]
 ]
@@ -273,9 +273,9 @@ End
 [
 	End
 	[
-	[Sentence]Prince:"Thank you my loyal subjects, I would never have arrived here if it was not for you"
+	[Sentence]Prince:"Thank you my loyal subjects, I would never have arrived here if it was not for you."
 	[Sentence]Prince:"Alas, it is my duty to leave you here. I must go. Alone."
-	[Sentence]Prince:"Farewell"
+	[Sentence]Prince:"Farewell."
 	SayGoodbye
 	]
 ]
@@ -302,8 +302,8 @@ James LetGo
 	Let Go
 	[
 	[Sentence]Prince:"I must leave you. I must accomplish my mission."
-	[Sentence]James:"But my lord, I must protect you !"
-	[Sentence]James:"You have served me well already. I must continue with you now."
+	[Sentence]James:"But my lord, I must protect you!"
+	[Sentence]Prince:"You have served me well already. I must continue without you now."
 	]
 ]
 
@@ -312,7 +312,7 @@ Mark LetGo
 	LetGo
 	[
 	[Sentence]Prince:"If you come with us, we won't make it. You must leave. (Give him some food and leave him.)"
-	[Sentence]Mark:"No. No. NO ! Sir don't leave me alone ! I have served you well ! Sir ! I am done for if I stay. Sir ! Have some pity..."
+	[Sentence]Mark:"No. No. NO! Sir don't leave me alone! I have served you well! Sir! I am done for if I stay. Sir! Have some pity..."
 	]
 ]
 
@@ -321,8 +321,8 @@ Francis LetGo
 	LetGo
 	[
 	[Sentence]Prince:"I have seen our fate, father. You must leave us. (Give him some food and leave him.))"
-	[Sentence]Francis:"And what good do you think your two apples will do me, alone in the middle of this madness ?"
-	[Sentence]Francis:"You've taken and have thrown me away. I guess God isn't the only betrayer I got to unmask."
+	[Sentence]Francis:"And what good do you think your two apples will do me, alone in the middle of this madness?"
+	[Sentence]Francis:"You've taken and thrown me away. I guess God isn't the only betrayer I got to unmask."
 	]
 ]
 
@@ -331,7 +331,7 @@ Camilla LetGo
 	Let Go
 	[
 	[Sentence]Prince:"We must part ways, Camilla. (Give her some food and leave her.)"
-	[Sentence]Camilla:"Promise me. Promise me you'll keep an eye an Isaac when I am not there. Swear it."
+	[Sentence]Camilla:"Promise me. Promise me you'll keep an eye on Isaac when I am not there. Swear it."
 	[Sentence]Prince:"I will."
 	[Sentence]Camilla:"I can leave you peacefully, then."
 	]
@@ -347,12 +347,22 @@ Yorick LetGo
 	]
 ]
 
+Isaac LetGo
+[
+	Let Go
+	[
+	[Sentence]Prince:"Isaac, you must stay here and hide. We can't take you any further. (Give him some food and leave him.)"
+	[Sentence]Isaac:"Yes sir. But my mom..."
+	[Sentence]Prince:"Be brave Isaac. She will be fine."
+	]
+]
+
 Lily LetGo
 [
 	Let Go
 	[
 	[Sentence]Prince:"You must leave us. We are in danger if you stay."
-	[Sentence]Lily:"If you say so, we will part ways. I find some monsters to slay without you, anyway."
+	[Sentence]Lily:"If you say so, we will part ways. I will find some monsters to slay without you, anyway."
 	]
 ]
 
@@ -360,8 +370,8 @@ Monica LetGo
 [
 	Questions
 	[
-	[Sentence]Prince:"We need to talk"
-	[Sentence]Prince:"You must stay here. We would be less safe if you came with us" (Give her some food and leave her.)
+	[Sentence]Prince:"We need to talk."
+	[Sentence]Prince:"You must stay here. We would be less safe if you came with us." (Give her some food and leave her.)
 	[Sentence]Monica:"As long as you're going forward, that's fine by me!"
 	[Sentence]Monica:"We will survive!"
 	]
@@ -371,17 +381,7 @@ Charles LetGo
 [
 	Let Go
 	[
-	[Sentence]Prince:"Why must part ways, Charles. (Give him some food and leave him.)"
+	[Sentence]Prince:"We must part ways, Charles. (Give him some food and leave him.)"
 	[Sentence]Charles:"Yes. Yes, I understand. I'm just a dead weight anyway and there is no monster here so, yeah, I understand."
-	]
-]
-
-Isaac LetGo
-[
-	Let Go
-	[
-	[Sentence]Prince:"Isaac, you must stay here and hide. We can't take you any further. (Give him some food and leave him.)"
-	[Sentence]Isaac:"Yes sir. But my mom..."
-	[Sentence]Prince:"Be brave Isaac. She will be fine."
 	]
 ]

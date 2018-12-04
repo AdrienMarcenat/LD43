@@ -447,16 +447,11 @@ Prefab:
     - target: {fileID: 114134188216437786, guid: caa870ed230faec4e98b5bd59ec8e2e1,
         type: 2}
       propertyPath: m_Resource.m_EdgeCharacterNumber
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114134188216437786, guid: caa870ed230faec4e98b5bd59ec8e2e1,
-        type: 2}
-      propertyPath: m_IsVisible
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114134188216437786, guid: caa870ed230faec4e98b5bd59ec8e2e1,
         type: 2}
-      propertyPath: m_Resource.m_EdgeCharacterClass
+      propertyPath: m_IsVisible
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -540,7 +535,7 @@ Prefab:
     - target: {fileID: 114134188216437786, guid: caa870ed230faec4e98b5bd59ec8e2e1,
         type: 2}
       propertyPath: m_Resource.m_EdgeDescriptionID
-      value: 2S3C
+      value: Key
       objectReference: {fileID: 0}
     - target: {fileID: 114134188216437786, guid: caa870ed230faec4e98b5bd59ec8e2e1,
         type: 2}
@@ -938,6 +933,37 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 376732740}
   m_Script: {fileID: 11500000, guid: 5dfd064dbc1238a48ae316f49a7101df, type: 3}
+--- !u!84 &557384772
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: SpriteLightKit RT
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 529
+  m_Height: 291
+  m_AntiAliasing: 1
+  m_DepthFormat: 0
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &617665661
 Prefab:
   m_ObjectHideFlags: 0
@@ -1300,7 +1326,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4525320440215578, guid: ebec6a3e81d424f41bde2e7bc40cb2c1, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1191703584661724, guid: ebec6a3e81d424f41bde2e7bc40cb2c1, type: 2}
       propertyPath: m_Name
@@ -1531,8 +1557,8 @@ Transform:
   - {fileID: 57967527}
   - {fileID: 376732741}
   - {fileID: 733364515}
-  - {fileID: 802637893}
   - {fileID: 1883701965}
+  - {fileID: 802637893}
   - {fileID: 369454920}
   - {fileID: 1750495106}
   m_Father: {fileID: 1634693848}
@@ -1938,7 +1964,7 @@ Prefab:
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 2005855882}
+      objectReference: {fileID: 557384772}
     - target: {fileID: 20882781327864710, guid: a788c783343da3d44abc8ff8393191de,
         type: 2}
       propertyPath: orthographic size
@@ -2189,11 +2215,6 @@ Prefab:
     - target: {fileID: 114134188216437786, guid: caa870ed230faec4e98b5bd59ec8e2e1,
         type: 2}
       propertyPath: m_IsVisible
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114134188216437786, guid: caa870ed230faec4e98b5bd59ec8e2e1,
-        type: 2}
-      propertyPath: m_Resource.m_EdgeCharacterClass
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -3119,87 +3140,46 @@ Prefab:
     - target: {fileID: 224963926896283484, guid: 0ef6d7315f87d66409c6b38239a2fe48,
         type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224258956015914406, guid: 0ef6d7315f87d66409c6b38239a2fe48,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224048362284215864, guid: 0ef6d7315f87d66409c6b38239a2fe48,
         type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224035299302166536, guid: 0ef6d7315f87d66409c6b38239a2fe48,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224291926822757332, guid: 0ef6d7315f87d66409c6b38239a2fe48,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224953825026498234, guid: 0ef6d7315f87d66409c6b38239a2fe48,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224362263958886660, guid: 0ef6d7315f87d66409c6b38239a2fe48,
         type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 224233770249155016, guid: 0ef6d7315f87d66409c6b38239a2fe48,
+    - target: {fileID: 114854246970550852, guid: 0ef6d7315f87d66409c6b38239a2fe48,
         type: 2}
-      propertyPath: m_RootOrder
-      value: 8
+      propertyPath: m_Text
+      value: Are you sure you want to leave this person alone in this world full of
+        fear and despair?
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ef6d7315f87d66409c6b38239a2fe48, type: 2}
-  m_IsPrefabAsset: 0
---- !u!1001 &1713490071
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4335904987331210, guid: f2337e025c7f31741a3d61255dae48bd, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4335904987331210, guid: f2337e025c7f31741a3d61255dae48bd, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4335904987331210, guid: f2337e025c7f31741a3d61255dae48bd, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4335904987331210, guid: f2337e025c7f31741a3d61255dae48bd, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4335904987331210, guid: f2337e025c7f31741a3d61255dae48bd, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4335904987331210, guid: f2337e025c7f31741a3d61255dae48bd, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4335904987331210, guid: f2337e025c7f31741a3d61255dae48bd, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4335904987331210, guid: f2337e025c7f31741a3d61255dae48bd, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f2337e025c7f31741a3d61255dae48bd, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1726798426
 Prefab:
@@ -3485,7 +3465,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4525320440215578, guid: ebec6a3e81d424f41bde2e7bc40cb2c1, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1191703584661724, guid: ebec6a3e81d424f41bde2e7bc40cb2c1, type: 2}
       propertyPath: m_Name
@@ -3506,18 +3486,6 @@ Prefab:
       propertyPath: m_IsVisible
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4525320440215578, guid: ebec6a3e81d424f41bde2e7bc40cb2c1, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4525320440215578, guid: ebec6a3e81d424f41bde2e7bc40cb2c1, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4525320440215578, guid: ebec6a3e81d424f41bde2e7bc40cb2c1, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebec6a3e81d424f41bde2e7bc40cb2c1, type: 2}
   m_IsPrefabAsset: 0
@@ -3532,37 +3500,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1883701964}
   m_Script: {fileID: 11500000, guid: 5dfd064dbc1238a48ae316f49a7101df, type: 3}
---- !u!84 &2005855882
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: SpriteLightKit RT
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 670
-  m_Height: 377
-  m_AntiAliasing: 1
-  m_DepthFormat: 0
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 0
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &2006846189
 Prefab:
   m_ObjectHideFlags: 0
@@ -3629,16 +3566,11 @@ Prefab:
     - target: {fileID: 114134188216437786, guid: caa870ed230faec4e98b5bd59ec8e2e1,
         type: 2}
       propertyPath: m_Resource.m_EdgeCharacterNumber
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114134188216437786, guid: caa870ed230faec4e98b5bd59ec8e2e1,
-        type: 2}
-      propertyPath: m_IsVisible
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114134188216437786, guid: caa870ed230faec4e98b5bd59ec8e2e1,
         type: 2}
-      propertyPath: m_Resource.m_EdgeCharacterClass
+      propertyPath: m_IsVisible
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:

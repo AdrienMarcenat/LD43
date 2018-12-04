@@ -1,6 +1,6 @@
 0S1C
 [
-	There is nowhere to hide, we must fight to progress ! But it should be easy. Provided you're not alone.
+	There is nowhere to hide, we must fight to progress! But it should be easy. Provided you're not alone.
 ]
 
 1S2C
@@ -10,17 +10,17 @@
 
 2S3C
 [
-	This way seems pretty safe : 2 of us could remain unseen, but 3 or more would draw the attention and we would be in for a fight.
+	This way seems pretty safe: 2 of us could remain unseen, but 3 or more would draw the attention and we would be in for a fight.
 ]
 
 3S4C
 [
-	I guess walking a street in a group of three is the best we can hope this times. It doesn't get less risky than that.
+	I guess walking a street in a group of three is the best we can hope this time. It doesn't get less risky than that.
 ]
 
 0S1D
 [
-	We stand no chance if one of us doesn't lure the hord of enemy's hord out of the way.
+	We stand no chance if one of us doesn't lure the hord of enemies out of the way.
 ]
 
 1S2D
@@ -30,12 +30,12 @@
 
 Eglise
 [
-	The churches are holy protections are falling, one after an other, but this one stands. We might find a priest inside.
+	The churches' holy protections are falling, one after another, but this one stands. We might find a priest inside.
 ]
 
 Yorick
 [
-	I can hear the echos of the ring steel makes when it hit bones. One of our man is still fighting there.
+	I can hear the echoes the ring steel makes when it hits bones. One of our man is still fighting there.
 ]
 
 Fight
@@ -50,7 +50,8 @@ Gate
 
 Key
 [
-	Here lived the keeper of the Bridge. If God is willing, we will be able to lower it. If God is willing, our salvation is here.
+	Here lived the keeper of the Gate. If God is willing, we will be able to lower it. If God is willing, our salvation is here.
+]
 
 Wood
 [
@@ -59,7 +60,7 @@ Wood
 
 Small passage
 [
-	Some floating debris make a precarious bridge. Maybe someone light enough could walk to the other side, but anyone of normal stature would surely drow.
+	Some floating debris make a precarious bridge. Maybe someone light enough could walk to the other side, but anyone of normal stature would surely drown.
 ]
 
 Unholy
@@ -69,7 +70,7 @@ Unholy
 
 Camp Fire
 [
-	A sudden flare of the campfire set the trees ablaze. Walls of flames are closing in on you. The slowest of you won't make it.
+	A sudden flare of the campfire sets the trees ablaze. Walls of flames are closing in on you. The slowest of you won't make it.
 ]
 
 Forge

@@ -3,7 +3,7 @@ The End
 	Bilan
 	[
 	[Sentence]Voice:"Come, child."
-	[Sentence]Voice:"How much have sacrificed to arrive here?"
+	[Sentence]Voice:"How much have been sacrificed to arrive here?"
 	[Sentence]Voice:"... How many?"
 	[Choice]:"All"/"All"/"Too many."/"Too many"
 	]
@@ -16,7 +16,7 @@ The End
 
 	Too many
 	[
-	[Sentence]Voice:"But it isn't over."
+	[Sentence]Voice:"But it isn't over yet."
 	]
 ]
 
@@ -27,8 +27,8 @@ The Sacrifice
 	[Sentence]Voice:"You know what you have to do to reverse the plague."
 	[Sentence]Prince:"Yes..."
 	[Sentence]Prince:"But I am scared."
-	[Sentence]Prince:"So were all that you met."
-	[Sentence]Prince:"All those who died."
+	[Sentence]Voice:"So were all that you met."
+	[Sentence]Voice:"All those who died."
 	[Sentence]Prince:"..."
 	[Choice]:"I'll do it."/"he did it"/"I MUST do it!"/"he did it"/"I have no choice, anyway."/"he did it"
 	]
@@ -43,5 +43,75 @@ Prince LetGo
 	THECAKEISALIIIIIIE
 	[
 	[Sentence]Prince:"No, I cannot leave. I must continue, even if I am barely standing."
+	]
+]
+
+James LetGo
+[
+	Let Go
+	[
+	[Sentence]Prince:"I must leave you. I must accomplish my mission."
+	[Sentence]James:"But my lord, I must protect you!"
+	[Sentence]James:"You have served me well already. I must continue with you now."
+	]
+]
+
+Mark LetGo
+[
+	LetGo
+	[
+	[Sentence]Prince:"If you come with us, we won't make it. You must leave. (Give him some food and leave him.)"
+	[Sentence]Mark:"No. No. NO! Sir don't leave me alone! I have served you well! Sir! I am done for if I stay. Sir! Have some pity..."
+	]
+]
+
+Francis LetGo
+[
+	LetGo
+	[
+	[Sentence]Prince:"I have seen our fate, father. You must leave us. (Give him some food and leave him.))"
+	[Sentence]Francis:"And what good do you think your two apples will do me, alone in the middle of this madness?"
+	[Sentence]Francis:"You've taken and have thrown me away. I guess God isn't the only betrayer I got to unmask."
+	]
+]
+
+Monica LetGo
+[
+	Questions
+	[
+	[Sentence]Prince:"We need to talk."
+	[Sentence]Prince:"You must stay here. We would be less safe if you came with us." (Give her some food and leave her.)
+	[Sentence]Monica:"As long as you're going forward, that's fine by me!"
+	[Sentence]Monica:"We will survive!"
+	]
+]
+
+Charles LetGo
+[
+	Let Go
+	[
+	[Sentence]Prince:"We must part ways, Charles. (Give him some food and leave him.)"
+	[Sentence]Charles:"Yes. Yes, I understand. I'm just a dead weight anyway and there is no monster here so, yeah, I understand."
+	]
+]
+
+Camilla LetGo
+[
+	Let Go
+	[
+	[Sentence]Prince:"We must part ways, Camilla. (Give her some food and leave her.)"
+	[Sentence]Camilla:"Promise me. Promise me you'll keep an eye on Isaac when I am not there. Swear it."
+	[Sentence]Prince:"I will."
+	[Sentence]Camilla:"I can leave you peacefully, then."
+	]
+]
+
+Isaac LetGo
+[
+	Let Go
+	[
+	[Sentence]Prince:"Isaac, you must stay here and hide. We can't take you any further. (Give him some food and leave him.)"
+	[Sentence]Isaac:"Yes sir. But my mom..."
+	[Sentence]Prince:"Be brave Isaac. She will be fine."
 	]
 ]
