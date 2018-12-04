@@ -14,7 +14,7 @@ James recrutement
 [
 	Protector
 	[
-	[Sentence]James:"Your majesty ! You should not be here ! The chaos has take ever the town. You should stay safe inside."
+	[Sentence]James:"Your majesty ! You should not be here ! The chaos has taken over the town. You should stay safe inside."
 	[Sentence]James:"By order of the queen, I am not to let anyone cross the gate of the palace - one way or another."
 	[Sentence]Prince:"My mother is dead. You respond to me now. We have to act, and we have to act now. There is much to do."
 	[Sentence]Prince:"Follow me."
@@ -26,12 +26,12 @@ James recrutement
 
 James combat1
 [
-	[Sentence]James:"Stay put, my lord ! I'll protect you !"
+	[Sentence]James:"Stay put, my lord! I'll protect you!"
 ]
 
 James combat2
 [
-	[Sentence]James:"I won't live your family down !"
+	[Sentence]James:"I won't let your family down!"
 ]
 
 James combat3
@@ -39,9 +39,19 @@ James combat3
 	[Sentence]James:"I must face these ordeals for you, my lord."
 ]
 
+James LetGo
+[
+	Let Go
+	[
+	[Sentence]Prince:"I must leave you. I must accomplish my mission."
+	[Sentence]James:"But my lord, I must protect you!"
+	[Sentence]Prince:"You have served me well already. I must continue without you now."
+	]
+]
+
 Death James
 [
-	[Sentence]James:"Flee ! You must survive. Your mission is more important !"
+	[Sentence]James:"Flee! You must survive. Your mission is more important!"
 	RemoveFromTeam James
 ]
 
@@ -50,8 +60,8 @@ Peasant meeting
 [
 	ErpaDerp
 	[
-	[Sentence]Prince:"Why are you crying ? Why don't you hide somewhere instead of staying in the middle of the way, up for the first monster to grab ?
-	[Sentence]Peasant:"Snif... Why would I ? I want to rejoin the side of my loved ones. They were all taken from me."
+	[Sentence]Prince:"Why are you crying? Why don't you hide somewhere instead of staying in the middle of the way, up for the first monster to grab?
+	[Sentence]Peasant:"Snif... Why would I? I want to rejoin the side of my loved ones. They were all taken from me."
 	[Sentence]Peasant:"Death can come, even at the hands of those monsters, I am wanting for her."
 	]
 ]
@@ -61,15 +71,5 @@ Prince LetGo
 	THECAKEISALIIIIIIE
 	[
 	[Sentence]Prince:"No, I cannot leave. I must continue, even if I am barely standing."
-	]
-]
-
-James LetGo
-[
-	Let Go
-	[
-	[Sentence]Prince:"I must leave you. I must accomplish my mission."
-	[Sentence]James:"But my lord, I must protect you !"
-	[Sentence]James:"You have served me well already. I must continue with you now."
 	]
 ]

@@ -295,8 +295,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Are you sure you want to leave this person alone in this wordl full of fear
-    and despair ?
+  m_Text: Are you sure you want to leave this person alone in this world full of fear
+    and despair?
 --- !u!114 &114559613480511416
 MonoBehaviour:
   m_ObjectHideFlags: 1
