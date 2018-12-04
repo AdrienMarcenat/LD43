@@ -21,7 +21,8 @@ public enum ECharacterClass
     Son,
     Mother,
     Lily,
-    Monica
+    Monica,
+    Voice
 }
 
 public class CharacterModel

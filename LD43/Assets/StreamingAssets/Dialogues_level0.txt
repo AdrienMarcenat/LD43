@@ -1,4 +1,4 @@
-Prophétie
+Prophecy
 [
 	Erm
 	[
@@ -20,8 +20,8 @@ James recrutement
 	[Sentence]Prince:"Follow me."
 	[Sentence]James:"But my lord..."
 	[Sentence]Prince:"Enough. Put your faith in me, I know what to do."
-	]
 	AddToTeam James Soldier
+	]
 ]
 
 James combat1

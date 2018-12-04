@@ -42,7 +42,6 @@ Yorick LetGo
 	[Sentence]Prince:"You must leave us. We are in danger if you stay."
 	[Sentence]Yorick:"So be it. I have no more reasons to live than when I met you."
 	[Sentence]Yorick:"But think about this, little lord: you'll still be in danger when I'm gone."
-	RemoveFromTeam Yorick
 	]
 ]
 
@@ -54,7 +53,7 @@ Death Soldat
 ]
 
 
-Pretre01 recrutement
+Francis recrutement
 [
 	Faithless
 	[
@@ -156,7 +155,7 @@ Mark recrutement
 	Add
 	[
 	[Sentence]Mark:"Wait, fight ?"
-	AddToTeam Scott FireMage
+	AddToTeam Mark FireMage
 	]
 	NotAdd
 	[
