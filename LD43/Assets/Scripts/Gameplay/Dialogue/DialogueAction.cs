@@ -25,6 +25,19 @@ public class AddToTeamAction : IDialogueAction
     }
 }
 
+public class SayGoodbyeAction : IDialogueAction
+{
+    public SayGoodbyeAction ()
+    {
+
+    }
+
+    public void Action ()
+    {
+        TeamManagerProxy.Get ().SayGoodbye ();
+    }
+}
+
 public class RemoveFromTeamAction : IDialogueAction
 {
     public string m_CharacterName;

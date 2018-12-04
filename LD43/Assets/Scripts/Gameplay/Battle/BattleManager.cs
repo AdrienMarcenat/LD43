@@ -9,6 +9,7 @@ public class BattleManager
 
     public void Init(List<Character> team, List<Character> enemies)
     {
+        m_IsPlayerTurn = true;
         m_Actions = new Queue<BattleAction> ();
         m_PlayerCharacters = new Stack<Character> ();
         m_EnnemyCharacters = new Stack<Character> ();

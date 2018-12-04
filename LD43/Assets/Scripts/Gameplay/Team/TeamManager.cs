@@ -15,6 +15,7 @@ public interface ITeamManagerInterface
     bool HasKey ();
     Dictionary<string, CharacterModel> GetTeam();
     List<CharacterModel> GetSortedTeam ();
+    void SayGoodbye ();
 }
 
 public class TeamManager : ITeamManagerInterface
@@ -144,6 +145,17 @@ public class TeamManager : ITeamManagerInterface
     public bool HasKey ()
     {
         return m_HasKey;
+    }
+
+    public void SayGoodbye ()
+    {
+        foreach (CharacterModel model in m_Characters.Values)
+        {
+            if (!model.GetName ().Equals ("Prince"))
+            {
+                RemoveCharacter (model.GetName ());
+            }
+        }
     }
 }
 

@@ -140,14 +140,13 @@ Mark recrutement
 	[Sentence]Mark:"D-D-Don't make a step more. I am a mage, m-m-master of fire and I won't hesitate to conjure my almighty magic !"
 	[Sentence]Prince:"I know. We are no threat. I am your Prince and..."
 	[Sentence]Mark:"Ah prince ! Take me with you !"
-	[Choice]:"Mmh. Yes. Come. Your 'almighty magic' might be useful in our fight. (Add him to your party)"/"Add"
-		/"If it's safety you seek, you better not follow us. (Leave him)"/"NotAdd"
+	[Choice]:"Mmh. Yes. Come. Your 'almighty magic' might be useful in our fight. (Add him to your party)"/"Add"/"If it's safety you seek, you better not follow us. (Leave him)"/"NotAdd"
 	]
 	Add
 	[
 	[Sentence]Mark:"Wait, fight ?"
-	]
 	AddToTeam Scott FireMage
+	]
 	NotAdd
 	[
 	[Sentence]Mark:"I suppose you're right."
