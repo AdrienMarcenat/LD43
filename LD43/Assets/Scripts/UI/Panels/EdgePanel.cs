@@ -82,6 +82,8 @@ public class EdgePanel : MonoBehaviour
     {
         m_CurrentEdge.GetEdgeResource ().SetNormal ();
 
+        new CameraFollowEvent ().Push ();
+
         switch (m_MoveType )
         {
             case EEdgeType.Normal:

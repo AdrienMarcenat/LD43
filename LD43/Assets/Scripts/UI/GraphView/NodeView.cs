@@ -85,6 +85,8 @@ public class NodeView : MonoBehaviour
 
     private void OnEnter ()
     {
+        new CameraUnfollowEvent ().Push ();
+
         if (!m_IsVisited)
         {
             string tag = m_Resource.GetDialogueTag ();
