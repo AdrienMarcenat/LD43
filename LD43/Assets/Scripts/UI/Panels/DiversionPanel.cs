@@ -21,23 +21,22 @@ public class DiversionPanel : MonoBehaviour
 {
     [SerializeField] private Text m_Warning;
     
-	void Awake () {
-        this.RegisterAsListener ("Game", typeof (OnDiversionEvent));
-        this.RegisterAsListener ("Game", typeof (OnCharacterDiversionEvent));
+	void Awake ()
+    {
+        this.RegisterAsListener ("Game", typeof (OnDiversionEvent), typeof (OnCharacterDiversionEvent));
         gameObject.SetActive (false);
 	}
 	
     public void OnGameEvent (OnDiversionEvent diversionEvent)
     {
         gameObject.SetActive (true);
-        UpdaterProxy.Get ().SetPause (true);
         TeamManagerProxy.Get ().WaitForDiversion ();
     }
 
     public void OnGameEvent (OnCharacterDiversionEvent characterDiversionEvent)
     {
         gameObject.SetActive (false);
-        UpdaterProxy.Get ().SetPause (false);
+        new GameFlowEvent (EGameFlowAction.SuccessEdge).Push();
     }
 
     public void OnDestroy ()
