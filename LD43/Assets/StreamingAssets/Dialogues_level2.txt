@@ -331,3 +331,12 @@ Prince Leave
 	SayGoodbye
 	]
 ]
+
+Begin
+[
+	Begin
+	[
+	[Sentence]Prince:"Over this town overhangs the High Temple."
+	[Sentence]Prince:"All must be done to reach it."
+	]
+]
