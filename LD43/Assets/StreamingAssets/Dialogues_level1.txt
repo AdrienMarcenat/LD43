@@ -35,7 +35,7 @@ Yorick combat3
 	[Sentence]Yorick:"I shall die fighting."
 ]
 
-Dialogue noeud Yorick
+Yorick LetGo
 [
 	Let Go
 	[
@@ -124,6 +124,17 @@ Dialogue noeud priest
 	]
 ]
 
+Francis LetGo
+[
+	LetGo
+	[
+	[Sentence]Prince:"I have seen our fate, father. You must leave us. (Give him some food and leave him.))"
+	[Sentence]Francis:"And what good do you think your two apples will do me, alone in the middle of this madness ?"
+	[Sentence]Francis:"You've taken and have thrown me away. I guess God isn't the only betrayer I got to unmask."
+	RemoveFromTeam Francis
+	]
+]
+
 
 Death Priest
 [
@@ -187,6 +198,15 @@ Dialogue noeud MageFeu
 	]
 ]
 
+Mark LetGo
+[
+	LetGo
+	[
+	[Sentence]Prince:"If you come with us, we won't make it. You must leave. (Give him some food and leave him.)"
+	[Sentence]Mark:"No. No. NO ! Sir don't leave me alone ! I have served you well ! Sir ! I am done for if I stay. Sir ! Have some pity..."
+	]
+]
+
 Death MageFeu
 [
 	[Sentence]Mark:"How strange. There's no fear anymore"
@@ -234,5 +254,16 @@ Begin
 	[
 	[Sentence]Prince:"There is only chaos and despair all around us. We must take action right now in order to end this madness."
 	[Sentence]Prince:"It is my duty as Prince of this kingdom to save my people."
+	]
+]
+
+James LetGo
+[
+	Let Go
+	[
+	[Sentence]Prince:"I must leave you. I must accomplish my mission."
+	[Sentence]James:"But my lord, I must protect you !"
+	[Sentence]James:"You have served me well already. I must continue with you now."
+	RemoveFromTeam James
 	]
 ]

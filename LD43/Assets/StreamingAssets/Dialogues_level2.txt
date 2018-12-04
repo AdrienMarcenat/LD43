@@ -42,7 +42,7 @@ Lily diversion
 	[Sentence]Lily:"I will try to take as much as possible with me."
 ]
 
-Dialogue noeud Lily
+Lily LetGo
 [
 	Let Go
 	[
@@ -102,7 +102,7 @@ Monica diversion
 	[Sentence]Monica:"I am not sure. They are dangerous. On the other hand, I have been very lucky, so I think I'll make it!"
 ]
 
-Dialogue noeud Monica
+Monica LetGo
 [
 	Questions
 	[
@@ -166,14 +166,14 @@ Charles diversion
 	[Sentence]Charles:"You lied to me! You said I would be safe! You're killing me!"
 ]
 
-Dialogue noeud Charles
+Charles LetGo
 [
 	Let Go
 	[
 	[Sentence]:"Why must part ways, Charles. (Give him some food and leave him.)"
 	[Sentence]Charles:"Yes. Yes, I understand. I'm just a dead weight anyway and there is no monster here so, yeah, I understand."
-	]
 	RemoveFromTeam Charles
+	]
 ]
 
 Death Charles
@@ -282,13 +282,15 @@ Isaac diversion
 	[Sentence]Isaac:"And you say if I do it, my mom will be safe ?"
 ]
 
-Dialogue noeud Isaac
+Isaac LetGo
 [
 	Let Go
 	[
 	[Sentence]Prince:"Isaac, you must stay here and hide. We can't take you any further. (Give him some food and leave him.)"
 	[Sentence]Isaac:"Yes sir. But my mom..."
 	[Sentence]Prince:"Be brave Isaac. She will be fine."
+	RemoveFromTeam Isaac
+	]
 ]
 
 Death Isaac
@@ -338,5 +340,48 @@ Begin
 	[
 	[Sentence]Prince:"Over this town overhangs the High Temple."
 	[Sentence]Prince:"All must be done to reach it."
+	]
+]
+
+James LetGo
+[
+	Let Go
+	[
+	[Sentence]Prince:"I must leave you. I must accomplish my mission."
+	[Sentence]James:"But my lord, I must protect you !"
+	[Sentence]James:"You have served me well already. I must continue with you now."
+	RemoveFromTeam James
+	]
+]
+
+Mark LetGo
+[
+	LetGo
+	[
+	[Sentence]Prince:"If you come with us, we won't make it. You must leave. (Give him some food and leave him.)"
+	[Sentence]Mark:"No. No. NO ! Sir don't leave me alone ! I have served you well ! Sir ! I am done for if I stay. Sir ! Have some pity..."
+	]
+]
+
+Francis LetGo
+[
+	LetGo
+	[
+	[Sentence]Prince:"I have seen our fate, father. You must leave us. (Give him some food and leave him.))"
+	[Sentence]Francis:"And what good do you think your two apples will do me, alone in the middle of this madness ?"
+	[Sentence]Francis:"You've taken and have thrown me away. I guess God isn't the only betrayer I got to unmask."
+	RemoveFromTeam Francis
+	]
+]
+
+Camilla LetGo
+[
+	Let Go
+	[
+	[Sentence]Prince:"We must part ways, Camilla. (Give her some food and leave her.)"
+	[Sentence]Camilla:"Promise me. Promise me you'll keep an eye an Isaac when I am not there. Swear it."
+	[Sentence]:"I will."
+	[Sentence]Camilla:"I can leave you peacefully, then."
+	RemoveFromTeam Camilla
 	]
 ]
