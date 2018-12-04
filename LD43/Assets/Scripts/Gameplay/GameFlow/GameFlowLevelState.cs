@@ -36,6 +36,9 @@ public class GameFlowLevelState : HSMState
             case EGameFlowAction.LevelWon:
                 m_HasEnded = true;
                 break;
+            case EGameFlowAction.Menu:
+                ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowMenuState));
+                break;
         }
     }
 

@@ -3,6 +3,8 @@
     public override void OnEnter ()
     {
         LevelManagerProxy.Get ().LoadScene ("Scenes/MainMenu");
+        LevelManagerProxy.Get ().SetLevelIndex (0);
+        TeamManagerProxy.Get ().SayGoodbye ();
         this.RegisterAsListener ("Game", typeof (GameFlowEvent));
     }
 
