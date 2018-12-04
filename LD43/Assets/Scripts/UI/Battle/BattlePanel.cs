@@ -82,7 +82,7 @@ public class BattlePanel : MonoBehaviour
         if (battleEvent.m_Enter)
         {
             gameObject.SetActive (true);
-            StartCoroutine (Init (battleEvent.m_Edge));
+            StartCoroutine (Init (battleEvent.m_Edge.GetEdgeResource().GetEnemies()));
         }
         else
         {
@@ -95,7 +95,7 @@ public class BattlePanel : MonoBehaviour
         if (battleEvent.m_Enter)
         {
             gameObject.SetActive (true);
-            StartCoroutine (Init (battleEvent.m_Node));
+            StartCoroutine (Init (battleEvent.m_Node.GetNodeResource().GetEnemies()));
         }
         else
         {
@@ -103,7 +103,7 @@ public class BattlePanel : MonoBehaviour
         }
     }
 
-    IEnumerator Init (EdgeView edge)
+    IEnumerator Init (List<ECharacterClass> enemies)
     {
         yield return null;
         m_CurrentIndex = 0;
@@ -132,7 +132,7 @@ public class BattlePanel : MonoBehaviour
 
         m_Enemies = new List<Character> ();
         index = 0;
-        foreach (ECharacterClass characterClass in edge.GetEdgeResource ().GetEnemies ())
+        foreach (ECharacterClass characterClass in enemies)
         {
             m_Enemies.Add (new Character (new CharacterModel("Enemy", characterClass)));
             m_EnemiesThumbnails[index].gameObject.SetActive (true);
@@ -149,51 +149,7 @@ public class BattlePanel : MonoBehaviour
         m_IsInBattle = true;
         UpdateUI ();
     }
-
-    IEnumerator Init (NodeView node)
-    {
-        yield return null;
-        m_CurrentIndex = 0;
-        m_ShoudDoEnemyTurn = false;
-        m_IsEnemyTurn = false;
-        m_IsApplyingAction = false;
-        m_Team = new List<Character> ();
-        m_Healths = new Dictionary<Character, Image> ();
-        m_Animators = new Dictionary<Character, Animator> ();
-        int index = 0;
-        foreach (CharacterModel model in TeamManagerProxy.Get ().GetTeam ().Values)
-        {
-            m_Team.Add (new Character (model));
-            m_PlayerThumbnails[index].sprite = RessourceManager.LoadSprite ("Models/" + model.GetClass ().ToString (), 0);
-            m_Animators.Add (m_Team[index], m_PlayerThumbnails[index].GetComponent<Animator> ());
-            m_Healths.Add (m_Team[index], m_PlayerThumbnails[index].transform.Find ("Health").GetComponent<Image> ());
-            index++;
-        }
-        for (int i = index; i < m_PlayerThumbnails.Count; ++i)
-        {
-            m_PlayerThumbnails[i].gameObject.SetActive (false);
-        }
-        m_CurrentPlayer = m_Team[0];
-        ActivateButtons (true);
-
-        m_Enemies = new List<Character> ();
-        index = 0;
-        foreach (ECharacterClass characterClass in node.GetNodeResource ().GetEnemies ())
-        {
-            m_Enemies.Add (new Character (new CharacterModel ("Enemy", characterClass)));
-            m_EnemiesThumbnails[index].sprite = RessourceManager.LoadSprite ("Models/" + characterClass.ToString (), 0);
-            m_Animators.Add (m_Enemies[index], m_EnemiesThumbnails[index].GetComponent<Animator> ());
-            m_Healths.Add (m_Enemies[index], m_EnemiesThumbnails[index].transform.Find ("Health").GetComponent<Image> ());
-            index++;
-        }
-        for (int i = index; i < m_EnemiesThumbnails.Count; ++i)
-        {
-            m_EnemiesThumbnails[i].gameObject.SetActive (false);
-        }
-        BattleManagerProxy.Get ().Init (m_Team, m_Enemies);
-        m_IsInBattle = true;
-        UpdateUI ();
-    }
+    
 
     IEnumerator Reset ()
     {

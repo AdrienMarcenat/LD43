@@ -18,13 +18,7 @@ public class CameraUnfollowEvent : GameEvent
 
 public class CameraControllerScript : MonoBehaviour
 {
-    [SerializeField] private float minX;
-    [SerializeField] private float minY;
-    [SerializeField] private float maxX;
-    [SerializeField] private float maxY;
     [SerializeField] private float m_CameraMoveSpeed;
-
-    private float m_ScreenBorderMargin = 40;
     private bool m_FollowPlayer = false;
     
     void Start ()
@@ -46,14 +40,6 @@ public class CameraControllerScript : MonoBehaviour
             GameObject player = GameObject.FindGameObjectWithTag ("Player");
             transform.position = new Vector3 (player.transform.position.x, player.transform.position.y, transform.position.z);
         }
-    }
-
-    private void LateUpdate ()
-    {
-        var v3 = transform.position;
-        v3.x = Mathf.Clamp (v3.x, minX, maxX);
-        v3.y = Mathf.Clamp (v3.y, minY, maxY);
-        transform.position = v3;
     }
 
     public void OnGameEvent (CameraFollowEvent gameEvent)

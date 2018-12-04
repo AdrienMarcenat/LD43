@@ -49,14 +49,14 @@ public class TeamManager : ITeamManagerInterface
     public void RemoveCharacter (string characterId)
     {
         m_Characters.Remove (characterId);
+        new UpdateUIGameEvent ().Push ();
     }
 
     public void RemoveCharacterWithDialogue (string characterId)
     {
         if (!characterId.Equals ("Prince"))
         {
-            m_Characters.Remove (characterId);
-            new UpdateUIGameEvent ().Push ();
+            RemoveCharacter (characterId);
 
             if (m_WaitingForDiversion)
             {
