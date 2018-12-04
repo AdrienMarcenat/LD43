@@ -1,8 +1,11 @@
 ﻿
 public class GameFlowLevelState : HSMState
 {
+    private bool m_HasEnded;
+
     public override void OnEnter ()
     {
+        m_HasEnded = false;
         LevelManagerProxy.Get ().LoadLevel();
         this.RegisterAsListener ("Game", typeof (GameFlowEvent));
 
@@ -13,19 +16,25 @@ public class GameFlowLevelState : HSMState
     {
         switch (flowEvent.GetAction ())
         {
-            case EGameFlowAction.LevelWon:
-                if (!LevelManagerProxy.Get ().IsLastLevel ())
+            case EGameFlowAction.EndDialogue:
+                if (m_HasEnded)
                 {
-                    LevelManagerProxy.Get ().NextLevel ();
-                    ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowLevelState));
-                }
-                else
-                {
-                    ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowEndGameState));
+                    if (!LevelManagerProxy.Get ().IsLastLevel ())
+                    {
+                        LevelManagerProxy.Get ().NextLevel ();
+                        ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowLevelState));
+                    }
+                    else
+                    {
+                        ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowEndGameState));
+                    }
                 }
                 break;
             case EGameFlowAction.GameOver:
                 ChangeNextTransition (HSMTransition.EType.Clear, typeof (GameFlowGameOverState));
+                break;
+            case EGameFlowAction.LevelWon:
+                m_HasEnded = true;
                 break;
         }
     }

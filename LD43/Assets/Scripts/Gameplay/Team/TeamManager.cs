@@ -29,6 +29,8 @@ public class TeamManager : ITeamManagerInterface
         m_Characters = new Dictionary<string, CharacterModel> ();
         AddCharacter (new CharacterModel ("Prince", ECharacterClass.Prince));
         AddCharacter (new CharacterModel ("Soldat", ECharacterClass.Soldier));
+        AddCharacter (new CharacterModel ("FireMage", ECharacterClass.FireMage));
+        AddCharacter (new CharacterModel ("Priest", ECharacterClass.Priest));
     }
 
     public Dictionary<string, CharacterModel> GetTeam ()
