@@ -298,7 +298,11 @@ public class DialogueManager : MonoBehaviour
                 {
                     if (string.Equals(datas[0], "Sentence"))
                     {
-                        Assert.IsTrue (datas.Length == 3);
+                        //Assert.IsTrue (datas.Length == 3);
+                        if(datas.Length != 3)
+                        {
+                            Debug.Log (filename + " line: " + i);
+                        }
                         currSubDialogue.m_Texts.Add (new Dialogue.Sentence (datas[1].Trim (), datas[2]));
                     }
                     else if (string.Equals(datas[0], "Choice"))

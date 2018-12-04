@@ -48,7 +48,7 @@ Francis recrutement
 	Faithless
 	[
 	[Sentence]Francis:"The light of God is leaving His house, my son."
-	[Sentence]Francis:"Look at that relic: once an everflowing phial of holy oil, there is now barely enough for one exorcism. Two, maybe."
+	[Sentence]Francis:"Look at that relic... once an everflowing phial of holy oil, there is now barely enough for one exorcism. Two, maybe."
 	[Sentence]Francis:"For the first time, I am alone."
 	[Choice]:"You still have the company of Man. (Add him to your party)"/"Add"/"Maybe it is just the first time you notice. (Leave him)"/"NotAdd"
 	]

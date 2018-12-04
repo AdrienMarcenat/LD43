@@ -5,6 +5,7 @@
         LevelManagerProxy.Get ().LoadScene ("Scenes/MainMenu");
         LevelManagerProxy.Get ().SetLevelIndex (0);
         TeamManagerProxy.Get ().SayGoodbye ();
+        TeamManagerProxy.Get().AddCharacter (new CharacterModel ("Prince", ECharacterClass.Prince));
         this.RegisterAsListener ("Game", typeof (GameFlowEvent));
     }
 
