@@ -20,7 +20,7 @@ The End
 	]
 ]
 
-The sacrifice
+The Sacrifice
 [
 	Condamnation
 	[
@@ -31,6 +31,10 @@ The sacrifice
 	[Sentence]Prince:"All those who died."
 	[Sentence]Prince:"..."
 	[Choice]:"I'll do it."/"he did it"/"I MUST do it!"/"he did it"/"I have no choice, anyway."/"he did it"
+	]
+	he did it
+	[
+	[Sentence]Voice:"You've met with a terrible fate, but this world shall not suffer anymore."
 	]
 ]
 

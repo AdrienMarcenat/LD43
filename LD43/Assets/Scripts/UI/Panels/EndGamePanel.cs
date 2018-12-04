@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class EndLevelPanel : MonoBehaviour
+public class EndGamePanel : MonoBehaviour
 {
     private void Awake ()
     {
@@ -10,7 +10,7 @@ public class EndLevelPanel : MonoBehaviour
 
     public void OnGameEvent (GameFlowEvent gameFlowEvent)
     {
-        if(gameFlowEvent.GetAction() == EGameFlowAction.EndLevelPanel)
+        if(gameFlowEvent.GetAction() == EGameFlowAction.EndGamePanel)
         {
             gameObject.SetActive(true);
         }

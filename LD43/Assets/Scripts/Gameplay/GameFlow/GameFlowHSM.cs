@@ -22,9 +22,7 @@
     TeamManagementBack,
     StartDialogue,
     EndDialogue,
-
-    // Next ones are useful to not have issues with other files
-    EndLevelPanel,
+    EndGamePanel
 }
 
 public class GameFlowEvent : GameEvent

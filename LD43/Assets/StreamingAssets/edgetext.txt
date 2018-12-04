@@ -121,3 +121,8 @@ Palace
 [
 	My Fate await on this path.
 ]
+
+Altar
+[
+	This was foretold. My Fate await on this path.
+]

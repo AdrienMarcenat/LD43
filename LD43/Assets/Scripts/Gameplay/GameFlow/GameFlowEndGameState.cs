@@ -1,9 +1,9 @@
-﻿public class GameFlowEndGameState : HSMState
+﻿
+public class GameFlowEndGameState : HSMState
 {
-
     public override void OnEnter ()
     {
-        // TODO: Launch End game
+        new GameFlowEvent (EGameFlowAction.EndGamePanel).Push();
         this.RegisterAsListener ("Game", typeof (GameFlowEvent));
     }
 
