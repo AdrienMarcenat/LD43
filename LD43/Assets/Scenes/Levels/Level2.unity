@@ -933,7 +933,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 376732740}
   m_Script: {fileID: 11500000, guid: 5dfd064dbc1238a48ae316f49a7101df, type: 3}
---- !u!84 &588258171
+--- !u!84 &565810724
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1897,6 +1897,11 @@ Prefab:
       propertyPath: m_Resource.m_DialogueTag
       value: Begin
       objectReference: {fileID: 0}
+    - target: {fileID: 114458943881874288, guid: ebec6a3e81d424f41bde2e7bc40cb2c1,
+        type: 2}
+      propertyPath: m_IsVisible
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebec6a3e81d424f41bde2e7bc40cb2c1, type: 2}
   m_IsPrefabAsset: 0
@@ -1959,7 +1964,7 @@ Prefab:
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 588258171}
+      objectReference: {fileID: 565810724}
     - target: {fileID: 20882781327864710, guid: a788c783343da3d44abc8ff8393191de,
         type: 2}
       propertyPath: orthographic size

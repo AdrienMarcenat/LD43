@@ -148,12 +148,17 @@ public class TeamManager : ITeamManagerInterface
 
     public void SayGoodbye ()
     {
+        List<string> characterID = new List<string> ();
         foreach (CharacterModel model in m_Characters.Values)
         {
             if (!model.GetName ().Equals ("Prince"))
             {
-                RemoveCharacter (model.GetName ());
+                characterID.Add (model.GetName ());
             }
+        }
+        foreach (string name in characterID)
+        {
+            m_Characters.Remove (name);
         }
     }
 }

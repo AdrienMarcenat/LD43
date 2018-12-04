@@ -317,6 +317,7 @@ End
 	[Sentence]Prince:"Thank you my loyal subjects, I would never have arrived here if it was not for you"
 	[Sentence]Prince:"Alas, it is my duty to leave you here. I must go. Alone."
 	[Sentence]Prince:"Farewell"
+	SayGoodbye
 	]
 ]
 
@@ -325,7 +326,6 @@ Prince Leave
 	THECAKEISALIIIIIIE
 	[
 	[Sentence]Prince:"No, I cannot leave. I must continue, even if I am barely standing."
-	SayGoodbye
 	]
 ]
 
