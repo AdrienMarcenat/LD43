@@ -50,7 +50,6 @@ public class TeamManager : ITeamManagerInterface
 
     public void RemoveCharacter(string characterId)
     {
-        // TODO: Activate character dialog
         if (!characterId.Equals ("Prince"))
         {
             m_Characters.Remove (characterId);
@@ -62,7 +61,10 @@ public class TeamManager : ITeamManagerInterface
                 m_WaitingForDiversion = false;
             }
         }
-        DialogueManagerProxy.Get ().TriggerDialogue (characterId + " Leave");
+        if (!m_WaitingForDiversion)
+        {
+            DialogueManagerProxy.Get ().TriggerDialogue (characterId + " LetGo");
+        }
     }
 
     public CharacterModel GetCharacter (string characterId)

@@ -41,15 +41,6 @@ Lily diversion
 	[Sentence]Lily:"I will try to take as much as possible with me."
 ]
 
-Lily LetGo
-[
-	Let Go
-	[
-	[Sentence]Prince:"You must leave us. We are in danger if you stay."
-	[Sentence]Lily:"If you say so, we will part ways. I find some monsters to slay without you, anyway."
-	]
-]
-
 Death Lily
 [
 	[Sentence]Lily:"I didn't took asmuch with me as I had hoped but this will do."
@@ -94,23 +85,10 @@ Monica combat3
 	[Sentence]Monica:"We just have to deal with this and then we can proceed."
 ]
 
-
 Monica diversion
 [
 	[Sentence]Monica:"I am not sure. They are dangerous. On the other hand, I have been very lucky, so I think I'll make it!"
 ]
-
-Monica LetGo
-[
-	Questions
-	[
-	[Sentence]Prince:"We need to talk"
-	[Sentence]Prince:"You must stay here. We would be less safe if you came with us" (Give her some food and leave her.)
-	[Sentence]Monica:"As long as you're going forward, that's fine by me!"
-	[Sentence]Monica:"We will survive!"
-	]
-]
-
 
 Death Monica
 [
@@ -161,15 +139,6 @@ Charles combat3
 Charles diversion
 [
 	[Sentence]Charles:"You lied to me! You said I would be safe! You're killing me!"
-]
-
-Charles LetGo
-[
-	Let Go
-	[
-	[Sentence]Prince:"Why must part ways, Charles. (Give him some food and leave him.)"
-	[Sentence]Charles:"Yes. Yes, I understand. I'm just a dead weight anyway and there is no monster here so, yeah, I understand."
-	]
 ]
 
 Death Charles
@@ -278,16 +247,6 @@ Isaac diversion
 	[Sentence]Isaac:"And you say if I do it, my mom will be safe ?"
 ]
 
-Isaac LetGo
-[
-	Let Go
-	[
-	[Sentence]Prince:"Isaac, you must stay here and hide. We can't take you any further. (Give him some food and leave him.)"
-	[Sentence]Isaac:"Yes sir. But my mom..."
-	[Sentence]Prince:"Be brave Isaac. She will be fine."
-	]
-]
-
 Death Isaac
 [
 	[Sentence]Isaac:"Mom. Mom. I'm scared. Mom ?"
@@ -321,7 +280,7 @@ End
 	]
 ]
 
-Prince Leave
+Prince LetGo
 [
 	THECAKEISALIIIIIIE
 	[
@@ -375,5 +334,54 @@ Camilla LetGo
 	[Sentence]Camilla:"Promise me. Promise me you'll keep an eye an Isaac when I am not there. Swear it."
 	[Sentence]Prince:"I will."
 	[Sentence]Camilla:"I can leave you peacefully, then."
+	]
+]
+
+Yorick LetGo
+[
+	Let Go
+	[
+	[Sentence]Prince:"You must leave us. We are in danger if you stay."
+	[Sentence]Yorick:"So be it. I have no more reasons to live than when I met you."
+	[Sentence]Yorick:"But think about this, little lord: you'll still be in danger when I'm gone."
+	]
+]
+
+Lily LetGo
+[
+	Let Go
+	[
+	[Sentence]Prince:"You must leave us. We are in danger if you stay."
+	[Sentence]Lily:"If you say so, we will part ways. I find some monsters to slay without you, anyway."
+	]
+]
+
+Monica LetGo
+[
+	Questions
+	[
+	[Sentence]Prince:"We need to talk"
+	[Sentence]Prince:"You must stay here. We would be less safe if you came with us" (Give her some food and leave her.)
+	[Sentence]Monica:"As long as you're going forward, that's fine by me!"
+	[Sentence]Monica:"We will survive!"
+	]
+]
+
+Charles LetGo
+[
+	Let Go
+	[
+	[Sentence]Prince:"Why must part ways, Charles. (Give him some food and leave him.)"
+	[Sentence]Charles:"Yes. Yes, I understand. I'm just a dead weight anyway and there is no monster here so, yeah, I understand."
+	]
+]
+
+Isaac LetGo
+[
+	Let Go
+	[
+	[Sentence]Prince:"Isaac, you must stay here and hide. We can't take you any further. (Give him some food and leave him.)"
+	[Sentence]Isaac:"Yes sir. But my mom..."
+	[Sentence]Prince:"Be brave Isaac. She will be fine."
 	]
 ]
